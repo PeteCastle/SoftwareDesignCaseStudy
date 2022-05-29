@@ -8,7 +8,11 @@
 #include <QSortFilterProxyModel>
 #include <QSqlError>
 #include <QMap>
-
+#include <QPixmap>
+#include <QPainter>
+#include <QPainterPath>
+#include <QFileDialog>
+#include <QStandardPaths>
 
 RegisterWindow::RegisterWindow(QWidget *parent) :
     QDialog(parent),
@@ -28,26 +32,27 @@ RegisterWindow::RegisterWindow(QWidget *parent) :
     genderButtonGroup.addButton(ui->GenderMaleButton);
 
     modifyFieldsVisibility(0);
-
+    ui->ProfilePictureButton->setVisible(false);
+    ui->ProfilePictureLabel->setVisible(false);
+    ui->SignInButton->setVisible(false);
+    ui->SignInLabel->setVisible(false);
+    ui->CreateAccountButton->setVisible(false);
+    reshapeProfilePicture(":/Icons/ProgramIcons/DefaultProfilePicture.jpg", ui->ProfilePictureLabel,150);
 
     QSqlQuery getCoursesList = getQuery("SELECT * FROM Courses");
     while(getCoursesList.next()){
         coursesList.append(getCoursesList.value(0).toString());
     }
-    qDebug() << coursesList;
-
     QSqlQuery getDepartmentsList = getQuery("SELECT * FROM Departments");
     while(getDepartmentsList.next()){
         departmentsList.append(getDepartmentsList.value(0).toString());
     }
-
     QSqlQuery getTagsList = getQuery("SELECT * FROM ThreadTags");
     while(getTagsList.next()){
         threadTagList.append(getTagsList.value(0).toString());
     }
 
     QStringListModel *threadTagModel = new QStringListModel(threadTagList);
-
     QSortFilterProxyModel *threadTagFilterModel = new QSortFilterProxyModel();
     threadTagFilterModel->setSourceModel(threadTagModel);
     threadTagFilterModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
@@ -95,6 +100,12 @@ void RegisterWindow::modifyFieldsVisibility(bool isVisible){
     ui->ContactNumberLabel->setVisible(isVisible);
     ui->AcademicEmailLabel->setVisible(isVisible);
     ui->AcademicEmailLineEdit->setVisible(isVisible);
+
+    ui->ProfilePictureButton->setVisible(true);
+    ui->ProfilePictureLabel->setVisible(true);
+    ui->SignInButton->setVisible(true);
+    ui->SignInLabel->setVisible(true);
+    ui->CreateAccountButton->setVisible(true);
 }
 
 void RegisterWindow::on_AccountTypeStudentButton_clicked()
@@ -164,7 +175,8 @@ void RegisterWindow::on_AccountTypeFacultyButton_clicked()
 
 void RegisterWindow::on_CreateAccountButton_clicked()
 {
-    int accountType=0;
+    //Determine account type
+
     if(ui->AccountTypeGuestButton->isChecked()){
         accountType = 0;
     }
@@ -179,9 +191,7 @@ void RegisterWindow::on_CreateAccountButton_clicked()
         return;
     }
 
-    //Declare all fields regardless of permission level
-    QString username, password, firstName, middleName, lastName, course, gender, personalEmail, plmEmail, contactNumber;
-
+    //Data validation for ALL fields
     switch(accountType){
         case 2:     //All fields exclusive to faculty ONLY
             if(selectedTagList.isEmpty()){
@@ -214,8 +224,8 @@ void RegisterWindow::on_CreateAccountButton_clicked()
         }
         case 0:{ //All fields exclusive to faculty, student, AND guest
             username = ui->UsernameLineEdit->text().trimmed().toLower();
-            if(username.isEmpty()){
-                QMessageBox::warning(this,"Incomplete input","Please enter your username.");
+            if(username.isEmpty()|| username.contains(' ')){
+                QMessageBox::warning(this,"Incomplete input","Please enter your username.  Note that username must NOT contain any spaces.");
                 return;
             }
             password = ui->PasswordLineEdit->text();
@@ -271,19 +281,64 @@ void RegisterWindow::on_CreateAccountButton_clicked()
                                           "WHERE LOWER(Username)='" + username + "' OR LOWER(AcademicEmail) = '" + plmEmail + "';";
     QSqlQuery getAccountAvailability = getQuery(getAccountAvailabilityQuery);
     getAccountAvailability.next();
-    const int count = getAccountAvailability.value(0).toInt();
+    int count = getAccountAvailability.value(0).toInt();
 
     if(count!=0){
-        QMessageBox::warning(this,"Account already taken", "Username and/or PLM email (for students) are already taken.");
+        QMessageBox::warning(this,"Account already taken", "Username and/or PLM email (for students) is already taken.");
         return;
     }
     qDebug() << count;
 
+    if(accountType!=2){
+        selectedTagList.clear();
+    }
 
+    //Upload profile picture to the storage
+    QString imageKey;
+    if(profilePictureFilePath!="(Empty)"){
+         imageKey = generateAlphaNumericString();
+         StorageAccess storage;
+         storage.uploadFile(profilePictureFilePath,imageKey,"profilepictures");
 
+         QStringList imageplaceholder;
+         imageplaceholder.append(imageKey);
+         imageplaceholder.append("profilepictures");
+         imageplaceholder.append(profilePictureFilePath);
+         QString imageUploadQueryText = "INSERT INTO FileDictionary(fileID,fileContainer,fileName) "
+                                        "VALUES(?,?,?);";
+         QSqlQuery imageUploadQuery = getQuery(imageUploadQueryText,imageplaceholder);
+         if(imageUploadQuery.lastError().text()!=""){
+             QMessageBox::warning(this,"Registration Error","An error has occured.  Please send the following details to the developer.\n\n" + imageUploadQuery.lastError().text());
+         }
+    }
 
+    //Upload remaining fields to the SQL
+    QStringList placeholder;
+    placeholder.append(username);
+    placeholder.append(password);
+    placeholder.append(firstName);
+    placeholder.append(middleName);
+    placeholder.append(lastName);
+    placeholder.append(plmEmail);
+    placeholder.append(personalEmail);
+    placeholder.append(contactNumber);
+    placeholder.append(gender);
+    placeholder.append(QString::number(accountType));
+    placeholder.append(imageKey);
+    placeholder.append(selectedTagList.join(','));
 
+    QString uploadQueryText = "INSERT INTO Accounts(UserID,Username,Userpass,FirstName,MiddleName,LastName,AcademicEmail,"
+                            " PersonalEmail,ContactNumber,Gender,AccountCreationTime,AccountType,AccountProfilePicture,AccountTags)"
+                          " VALUES((SELECT MAX(UserID)+1 FROM Accounts),?,HASHBYTES('SHA2_256',?),?,?,?,?,?,?,?,GETUTCDATE(),?,?,?);";
+    QSqlQuery uploadQuery = getQuery(uploadQueryText,placeholder);
 
+    if(uploadQuery.lastError().text() == ""){
+        QMessageBox::information(this,"Successful registration","Registration success! You may now proceed to login page.");
+        this->close();
+    }
+    else{
+        QMessageBox::warning(this,"Registration Error","An error has occured.  Please send the following details to the developer.\n\n" + uploadQuery.lastError().text());
+    }
 
 }
 
@@ -317,5 +372,51 @@ void RegisterWindow::on_RemoveYourTag_clicked()
         ui->YourTagsList->setModel(selectedTags);
     }
 
+}
+
+QPixmap* RegisterWindow::reshapeProfilePicture(QString imageFilePath, QLabel *label, int labelSize){
+    QPixmap source(imageFilePath);
+
+    auto size = qMin(source.width(),source.height());
+
+    QPixmap *target = new QPixmap(size,size);
+    target->fill(Qt::transparent);
+
+    QPainter *qp = new QPainter(target);
+
+    qp->setRenderHints(qp->Antialiasing);
+
+    auto path = QPainterPath();
+    path.addEllipse(0,0,size,size);
+    qp->setClipPath(path);
+
+    auto sourceRect = QRect(0,0,size,size);
+    sourceRect.moveCenter(source.rect().center());
+
+    qp->drawPixmap(target->rect(),source,sourceRect);
+
+    *target = target->scaled(labelSize,labelSize,Qt::KeepAspectRatio,Qt::FastTransformation);
+
+    label->setPixmap(*target);
+    label->setAlignment(Qt::AlignCenter);
+    return target;
+
+}
+
+
+void RegisterWindow::on_ProfilePictureButton_clicked()
+{
+    profilePictureFilePath = QFileDialog::getOpenFileName(this, tr("Select Image"),QStandardPaths::writableLocation((QStandardPaths::DownloadLocation)),tr("Image Files (*.png *.jpg *.jpeg )"));
+
+    if(profilePictureFilePath!=""){
+        reshapeProfilePicture(profilePictureFilePath, ui->ProfilePictureLabel,150);
+    }
+}
+
+QString RegisterWindow::getUsername(){
+    return username;
+}
+QString RegisterWindow::getPassword(){
+    return password;
 }
 

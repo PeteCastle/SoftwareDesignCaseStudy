@@ -12,20 +12,29 @@ CONFIG += c++17
 
 SOURCES += \
     azurestorage.cpp \
+    inquirywindow.cpp \
     main.cpp \
     landingpage.cpp \
-    registerwindow.cpp
+    newthreadswindow.cpp \
+    registerwindow.cpp \
+    threadswindow.cpp
 
 HEADERS += \
     azurestorage.h \
     cloudstorageservices.h \
     global.h \
+    inquirywindow.h \
     landingpage.h \
-    registerwindow.h
+    newthreadswindow.h \
+    registerwindow.h \
+    threadswindow.h
 
 FORMS += \
+    inquirywindow.ui \
     landingpage.ui \
-    registerwindow.ui
+    newthreadswindow.ui \
+    registerwindow.ui \
+    threadswindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

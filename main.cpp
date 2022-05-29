@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    QSplashScreen *loading = new QSplashScreen(QPixmap(":/new/prefix1/ProgramIcons/LoadingScreen.png"));
+    QSplashScreen *loading = new QSplashScreen(QPixmap(":/Icons/ProgramIcons/LoadingScreen.png"));
     loading->show();
 
     QString serverName = "tcp:petecastle.database.windows.net,1433";
@@ -26,12 +26,6 @@ int main(int argc, char *argv[])
 
     QSqlDatabase database = QSqlDatabase::addDatabase("QODBC");
     database.setConnectOptions();
-
-    /*
-    database.setHostName(serverName);
-    database.setDatabaseName(initialCatalog);
-    database.setUserName(userID);
-    database.setPassword(userPassword);*/
 
     QString databaseConfiguration = QString(
         "Driver={ODBC Driver 13 for SQL Server};"
@@ -44,17 +38,9 @@ int main(int argc, char *argv[])
         "Connection Timeout=%5;"
     ).arg(serverName).arg(initialCatalog).arg(userID).arg(userPassword).arg(connectionTimout);
 
-    //qDebug() << databaseConfiguration;
-
     database.setConnectOptions();
     database.setDatabaseName(databaseConfiguration);
 
-    /*
-    qDebug() << "Host Name:\t" << database.hostName();
-    qDebug() << "Database Name:\t" << database.databaseName();
-    qDebug() << "User Name:\t" << database.userName();
-    qDebug() << "Password:\t" << database.password();
-    qDebug () << "ODBC driver valid?\t" << database.isValid ();*/
 
     if(database.open()){
         qDebug() << "Successful connection!";
@@ -70,7 +56,6 @@ int main(int argc, char *argv[])
         }
         return 0;
     }
-
 
     LandingPage w;
     w.show();

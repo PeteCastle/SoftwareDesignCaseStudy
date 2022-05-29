@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include "registerwindow.h"
-
+#include "inquirywindow.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -21,10 +21,11 @@ public:
 private:
     Ui::LandingPage *ui;
     RegisterWindow *registerWindow;
+    InquiryWindow *inquiryWindow;
 
 private slots:
-    void testSlot1();
-
     void on_SignUpButton_clicked();
+    void on_LoginButton_clicked();
+
 };
 #endif // LANDINGPAGE_H
