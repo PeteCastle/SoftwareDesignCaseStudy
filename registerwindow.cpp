@@ -9,8 +9,6 @@
 #include <QSqlError>
 #include <QMap>
 #include <QPixmap>
-#include <QPainter>
-#include <QPainterPath>
 #include <QFileDialog>
 #include <QStandardPaths>
 
@@ -303,19 +301,24 @@ void RegisterWindow::on_CreateAccountButton_clicked()
          QStringList imageplaceholder;
          imageplaceholder.append(imageKey);
          imageplaceholder.append("profilepictures");
-         imageplaceholder.append(profilePictureFilePath);
+
+         QFile file(profilePictureFilePath);
+         QFileInfo fileInfo(file);
+         imageplaceholder.append(fileInfo.fileName());
+
          QString imageUploadQueryText = "INSERT INTO FileDictionary(fileID,fileContainer,fileName) "
                                         "VALUES(?,?,?);";
          QSqlQuery imageUploadQuery = getQuery(imageUploadQueryText,imageplaceholder);
          if(imageUploadQuery.lastError().text()!=""){
              QMessageBox::warning(this,"Registration Error","An error has occured.  Please send the following details to the developer.\n\n" + imageUploadQuery.lastError().text());
+             return;
          }
     }
 
     //Upload remaining fields to the SQL
     QStringList placeholder;
-    placeholder.append(username);
     placeholder.append(password);
+    placeholder.append(username);
     placeholder.append(firstName);
     placeholder.append(middleName);
     placeholder.append(lastName);
@@ -327,9 +330,10 @@ void RegisterWindow::on_CreateAccountButton_clicked()
     placeholder.append(imageKey);
     placeholder.append(selectedTagList.join(','));
 
-    QString uploadQueryText = "INSERT INTO Accounts(UserID,Username,Userpass,FirstName,MiddleName,LastName,AcademicEmail,"
+    QString uploadQueryText = "DECLARE @hashVarchar varchar(128) = ?; "
+                              "INSERT INTO Accounts(UserID,Username,Userpass,FirstName,MiddleName,LastName,AcademicEmail,"
                             " PersonalEmail,ContactNumber,Gender,AccountCreationTime,AccountType,AccountProfilePicture,AccountTags)"
-                          " VALUES((SELECT MAX(UserID)+1 FROM Accounts),?,HASHBYTES('SHA2_256',?),?,?,?,?,?,?,?,GETUTCDATE(),?,?,?);";
+                          " VALUES((SELECT MAX(UserID)+1 FROM Accounts),?,HASHBYTES('SHA2_256',@hashVarchar),?,?,?,?,?,?,?,GETUTCDATE(),?,?,?);";
     QSqlQuery uploadQuery = getQuery(uploadQueryText,placeholder);
 
     if(uploadQuery.lastError().text() == ""){
@@ -374,34 +378,7 @@ void RegisterWindow::on_RemoveYourTag_clicked()
 
 }
 
-QPixmap* RegisterWindow::reshapeProfilePicture(QString imageFilePath, QLabel *label, int labelSize){
-    QPixmap source(imageFilePath);
 
-    auto size = qMin(source.width(),source.height());
-
-    QPixmap *target = new QPixmap(size,size);
-    target->fill(Qt::transparent);
-
-    QPainter *qp = new QPainter(target);
-
-    qp->setRenderHints(qp->Antialiasing);
-
-    auto path = QPainterPath();
-    path.addEllipse(0,0,size,size);
-    qp->setClipPath(path);
-
-    auto sourceRect = QRect(0,0,size,size);
-    sourceRect.moveCenter(source.rect().center());
-
-    qp->drawPixmap(target->rect(),source,sourceRect);
-
-    *target = target->scaled(labelSize,labelSize,Qt::KeepAspectRatio,Qt::FastTransformation);
-
-    label->setPixmap(*target);
-    label->setAlignment(Qt::AlignCenter);
-    return target;
-
-}
 
 
 void RegisterWindow::on_ProfilePictureButton_clicked()
@@ -418,5 +395,14 @@ QString RegisterWindow::getUsername(){
 }
 QString RegisterWindow::getPassword(){
     return password;
+}
+
+
+void RegisterWindow::on_pushButton_clicked()
+{
+    QSqlQuery test = getQuery("SELECT HASHBYTES('SHA2_256',?)",QStringList("test"));
+    test.next();
+    qDebug() << test.value(0).toByteArray();
+
 }
 

@@ -23,6 +23,7 @@ private:
     RegisterWindow *registerWindow;
     InquiryWindow *inquiryWindow;
 
+
 private slots:
     void on_SignUpButton_clicked();
     void on_LoginButton_clicked();

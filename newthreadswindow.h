@@ -18,7 +18,7 @@ class NewThreadsWindow : public QWidget
     Q_OBJECT
 
 public:
-    explicit NewThreadsWindow(QWidget *parent = nullptr);
+    explicit NewThreadsWindow(QWidget *parent = nullptr, AccountCredentials userCredentials = {});
     ~NewThreadsWindow();
 
 private slots:

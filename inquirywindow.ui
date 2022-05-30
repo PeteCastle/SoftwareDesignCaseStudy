@@ -20,7 +20,7 @@
       <item alignment="Qt::AlignHCenter">
        <widget class="QLabel" name="label_2">
         <property name="text">
-         <string>BRAND NAME</string>
+         <string>BRAND LOGO</string>
         </property>
        </widget>
       </item>
@@ -44,7 +44,7 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="60,10,20,5,5">
         <item>
-         <widget class="QLabel" name="label_3">
+         <widget class="QLabel" name="WindowTitleLabel">
           <property name="text">
            <string>Window Title</string>
           </property>
@@ -54,7 +54,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_4">
+         <widget class="QLabel" name="ProfilePictureLabel">
           <property name="text">
            <string>Profile Picture</string>
           </property>
@@ -63,32 +63,39 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
-           <widget class="QLabel" name="label_5">
+           <widget class="QLabel" name="FullNameLabel">
             <property name="text">
              <string>Full Name</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_6">
+           <widget class="QLabel" name="UsernameLabel">
             <property name="text">
              <string>Username</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="AccountTypeLabel">
+            <property name="text">
+             <string>Account Type</string>
             </property>
            </widget>
           </item>
          </layout>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="AccountButton">
           <property name="text">
            <string>My Account</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_2">
+         <widget class="QPushButton" name="LogoutButton">
           <property name="text">
-           <string>Log Out</string>
+           <string>Switch Account</string>
           </property>
          </widget>
         </item>

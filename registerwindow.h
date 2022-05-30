@@ -38,8 +38,9 @@ private slots:
     QString toNameCase(const QString& s);
     void on_AddTagButton_clicked();
     void on_RemoveYourTag_clicked();
-    QPixmap *reshapeProfilePicture(QString imageFilePath, QLabel *label, int labelSize);
+    //QPixmap *reshapeProfilePicture(QString imageFilePath, QLabel *label, int labelSize); - Moved to global.h
     void on_ProfilePictureButton_clicked();
+    void on_pushButton_clicked();
 };
 
 #endif // REGISTERWINDOW_H

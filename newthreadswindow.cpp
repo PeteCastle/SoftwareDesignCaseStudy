@@ -5,7 +5,7 @@
 
 #include <QFileIconProvider>
 
-NewThreadsWindow::NewThreadsWindow(QWidget *parent) :
+NewThreadsWindow::NewThreadsWindow(QWidget *parent, AccountCredentials userCredentials) :
     QWidget(parent),
     ui(new Ui::NewThreadsWindow)
 {
