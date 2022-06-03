@@ -20,8 +20,9 @@ public:
 
 private slots:
     void on_MainMenu_clicked(const QModelIndex &index);
-    void updateProfilePicture();
+    //void updateProfilePicture();
 
+    void on_LogoutButton_clicked();
 
 private:
     Ui::InquiryWindow *ui;
@@ -29,6 +30,7 @@ private:
     NewThreadsWindow *newThreadsWindow;
     AccountCredentials userCredentials;
     QTimer *timer = new QTimer(this);
+    QStringList featureList;
 
 };
 

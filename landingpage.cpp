@@ -52,8 +52,15 @@ void LandingPage::on_LoginButton_clicked()
     else{
         QMessageBox::warning(this, "Invalid credentials", "Username and/or password is incorrect.  Please try again.");
     }
+}
 
 
 
+
+void LandingPage::on_GuestButton_clicked()
+{
+    InquiryWindow *inquiryWindow = new InquiryWindow(this, 0);
+    inquiryWindow->setWindowModality(Qt::ApplicationModal);
+    inquiryWindow->show();
 }
 

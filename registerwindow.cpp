@@ -285,7 +285,6 @@ void RegisterWindow::on_CreateAccountButton_clicked()
         QMessageBox::warning(this,"Account already taken", "Username and/or PLM email (for students) is already taken.");
         return;
     }
-    qDebug() << count;
 
     if(accountType!=2){
         selectedTagList.clear();
@@ -295,8 +294,7 @@ void RegisterWindow::on_CreateAccountButton_clicked()
     QString imageKey;
     if(profilePictureFilePath!="(Empty)"){
          imageKey = generateAlphaNumericString();
-         StorageAccess storage;
-         storage.uploadFile(profilePictureFilePath,imageKey,"profilepictures");
+         storageAccess.uploadFile(profilePictureFilePath,imageKey,"profilepictures");
 
          QStringList imageplaceholder;
          imageplaceholder.append(imageKey);
@@ -384,6 +382,11 @@ void RegisterWindow::on_RemoveYourTag_clicked()
 void RegisterWindow::on_ProfilePictureButton_clicked()
 {
     profilePictureFilePath = QFileDialog::getOpenFileName(this, tr("Select Image"),QStandardPaths::writableLocation((QStandardPaths::DownloadLocation)),tr("Image Files (*.png *.jpg *.jpeg )"));
+    QFile file(profilePictureFilePath);
+    if(file.size()>5000000){
+        QMessageBox::information(this,"File too large","Due to storage limitations, file uploads are only limited up to 5MB.  Sorry!");
+        return;
+    }
 
     if(profilePictureFilePath!=""){
         reshapeProfilePicture(profilePictureFilePath, ui->ProfilePictureLabel,150);
@@ -402,7 +405,5 @@ void RegisterWindow::on_pushButton_clicked()
 {
     QSqlQuery test = getQuery("SELECT HASHBYTES('SHA2_256',?)",QStringList("test"));
     test.next();
-    qDebug() << test.value(0).toByteArray();
-
 }
 

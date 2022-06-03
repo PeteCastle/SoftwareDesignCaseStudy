@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1039</width>
-    <height>535</height>
+    <width>1074</width>
+    <height>553</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,6 +26,13 @@
    <property name="bottomMargin">
     <number>20</number>
    </property>
+   <item row="12" column="0">
+    <widget class="QPushButton" name="CreateButton">
+     <property name="text">
+      <string>Create Thread</string>
+     </property>
+    </widget>
+   </item>
    <item row="1" column="2">
     <layout class="QGridLayout" name="gridLayout_4">
      <property name="topMargin">
@@ -81,130 +88,12 @@
      </property>
     </widget>
    </item>
-   <item row="12" column="0">
-    <widget class="QPushButton" name="CreateButton">
-     <property name="text">
-      <string>Create Thread</string>
+   <item row="0" column="1" rowspan="2">
+    <widget class="Line" name="line_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
      </property>
     </widget>
-   </item>
-   <item row="0" column="0" rowspan="2">
-    <layout class="QGridLayout" name="gridLayout_5">
-     <property name="leftMargin">
-      <number>0</number>
-     </property>
-     <item row="6" column="2">
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Maximum</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="4" column="1">
-      <widget class="QLabel" name="FileAttachmentsLabel">
-       <property name="text">
-        <string>File Attachments (Optional)</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0" colspan="5">
-      <widget class="QLineEdit" name="TitleLineEdit"/>
-     </item>
-     <item row="4" column="3">
-      <widget class="QPushButton" name="RemoveFileButton">
-       <property name="text">
-        <string>Remove Selected File</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0" colspan="5">
-      <widget class="QTextEdit" name="ContentsLineEdit"/>
-     </item>
-     <item row="4" column="0">
-      <spacer name="horizontalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>50</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="2" column="0" colspan="5">
-      <widget class="QLabel" name="ContentsLabel">
-       <property name="text">
-        <string>Contents</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0" colspan="5">
-      <widget class="QLabel" name="TitleLabel">
-       <property name="text">
-        <string>Title</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="4">
-      <spacer name="horizontalSpacer_3">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>100</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="4" column="2">
-      <widget class="QPushButton" name="AddFileButton">
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="text">
-        <string>Add File</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="0" colspan="5">
-      <widget class="QListView" name="FileAttachmentsList">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>999999</width>
-         <height>100</height>
-        </size>
-       </property>
-       <property name="flow">
-        <enum>QListView::LeftToRight</enum>
-       </property>
-      </widget>
-     </item>
-    </layout>
    </item>
    <item row="0" column="2">
     <layout class="QGridLayout" name="gridLayout_3">
@@ -247,15 +136,163 @@
      </item>
     </layout>
    </item>
-   <item row="0" column="1" rowspan="2">
-    <widget class="Line" name="line_2">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
+   <item row="0" column="0" rowspan="2">
+    <layout class="QGridLayout" name="gridLayout_5">
+     <property name="leftMargin">
+      <number>0</number>
      </property>
-    </widget>
+     <item row="4" column="2">
+      <widget class="QPushButton" name="AddFileButton">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>Add File</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="7">
+      <widget class="QLabel" name="TitleLabel">
+       <property name="text">
+        <string>Title</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>50</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="1" column="0" colspan="8">
+      <widget class="QLineEdit" name="TitleLineEdit"/>
+     </item>
+     <item row="4" column="5">
+      <widget class="QLabel" name="VisibilityLabel">
+       <property name="text">
+        <string>Thread Visibility:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="2">
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Maximum</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLabel" name="FileAttachmentsLabel">
+       <property name="text">
+        <string>File Attachments (Optional)</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0" colspan="8">
+      <widget class="MRichTextEdit" name="ContentsLineEdit"/>
+     </item>
+     <item row="2" column="0" colspan="8">
+      <widget class="QLabel" name="ContentsLabel">
+       <property name="text">
+        <string>Contents (palagyan ng mga icons sa baba - check niyo mrichtext.ui)</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="3">
+      <widget class="QPushButton" name="RemoveFileButton">
+       <property name="text">
+        <string>Remove Selected File</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0" colspan="8">
+      <widget class="QListView" name="FileAttachmentsList">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>999999</width>
+         <height>100</height>
+        </size>
+       </property>
+       <property name="flow">
+        <enum>QListView::LeftToRight</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="6" colspan="2">
+      <widget class="QWidget" name="widget" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QRadioButton" name="VisibilityPublicButton">
+          <property name="text">
+           <string>Private</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="VisibilityPrivateButton">
+          <property name="text">
+           <string>Public</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="4" column="4">
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>100</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MRichTextEdit</class>
+   <extends>QTextEdit</extends>
+   <header location="global">mrichtextedit.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

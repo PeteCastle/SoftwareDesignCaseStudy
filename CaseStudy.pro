@@ -15,9 +15,14 @@ SOURCES += \
     inquirywindow.cpp \
     main.cpp \
     landingpage.cpp \
+    mrichtextedit.cpp \
+    mtextedit.cpp \
     newthreadswindow.cpp \
     registerwindow.cpp \
-    threadswindow.cpp
+    threadslistwidget.cpp \
+    threadswindow.cpp \
+    viewmessage.cpp \
+    viewthread.cpp
 
 HEADERS += \
     azurestorage.h \
@@ -25,16 +30,25 @@ HEADERS += \
     global.h \
     inquirywindow.h \
     landingpage.h \
+    mrichtextedit.h \
+    mtextedit.h \
     newthreadswindow.h \
     registerwindow.h \
-    threadswindow.h
+    threadslistwidget.h \
+    threadswindow.h \
+    viewmessage.h \
+    viewthread.h
 
 FORMS += \
     inquirywindow.ui \
     landingpage.ui \
+    mrichtextedit.ui \
     newthreadswindow.ui \
     registerwindow.ui \
-    threadswindow.ui
+    threadslistwidget.ui \
+    threadswindow.ui \
+    viewmessage.ui \
+    viewthread.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

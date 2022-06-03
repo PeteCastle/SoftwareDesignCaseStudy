@@ -11,6 +11,10 @@
 
 #include "global.h"
 
+QMap<QString,QString> FileDictionary;
+QMap<QString,QPixmap> ProfilePictureDictionary;
+StorageAccess storageAccess;
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -56,6 +60,12 @@ int main(int argc, char *argv[])
         }
         return 0;
     }
+
+
+    reshapeProfilePicture("",nullptr,50);
+
+
+
 
     LandingPage w;
     w.show();

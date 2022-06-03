@@ -38,6 +38,8 @@ private slots:
 
     void on_CreateButton_clicked();
 
+    //void on_BoldButton_clicked();
+
 private:
     Ui::NewThreadsWindow *ui;
     QStringList fileAttachments;
@@ -47,6 +49,7 @@ private:
     QStandardItemModel *fileAttachmentsModel = new QStandardItemModel();
     QStandardItemModel *tagsModel = new QStandardItemModel();
     QStandardItemModel *recipientsModel = new QStandardItemModel();
+    AccountCredentials UserCredentials;
     //QStringList additionalRecipients;
 
 };

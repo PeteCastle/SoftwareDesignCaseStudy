@@ -28,5 +28,6 @@ private slots:
     void on_SignUpButton_clicked();
     void on_LoginButton_clicked();
 
+    void on_GuestButton_clicked();
 };
 #endif // LANDINGPAGE_H

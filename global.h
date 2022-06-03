@@ -28,6 +28,12 @@ inline QString generateAlphaNumericString(){
     return getString.value(0).toString();
 }
 
+inline QString generateAlphaNumericStringShort(){
+    QSqlQuery getString = getQuery("SELECT RESULT = SUBSTRING(CONVERT(varchar(255), NEWID()),0,9)");
+    getString.next();
+    return getString.value(0).toString();
+}
+
 struct AccountCredentials{
     int UserID;
     QString Username;
@@ -44,6 +50,119 @@ struct AccountCredentials{
     QString accountProfilePicture; //Stored in alphanumeric characters to be retrieved from cloud storage
     QStringList accountTags;
 };
+
+struct ThreadDetails{
+    QString ThreadID;
+    QDateTime ThreadCreationTime;
+    int ThreadUserID; //Use Username instead
+    QString ThreadUser;
+    QString ThreadSubject;
+    QStringList ThreadTags;
+    QStringList ThreadAdditionalRecipients;
+    bool isOpen;
+    bool isVisible;
+    QString ProfilePicture;
+};
+
+struct MessageDetails{
+    //Base infos
+    QString ThreadID;
+    QString MessageID;
+    QDateTime MessageCreationTime;
+    QString MessageContents;
+    QStringList MessageAttachments;
+    QString FullName;
+    //Added infos
+    int MessageUserID;
+    QString UserProfilePicture;
+};
+
+inline QVector<MessageDetails> getMessagesFromThread(QString ThreadID){
+    QString getMessagesQuery = "SELECT "
+                                   "M.ThreadID,"
+                                   "M.MessageID,"
+                                   "CONVERT(varchar(max),M.MessageCreationTime,126) AS Date,"
+                                   "M.MessageContents,"
+                                   "M.MessageAttachments,"
+                                   "M.MessageUserID, "
+                                   "CONCAT(A.FirstName, ' ', A.LastName) AS FullName,"
+                                   "A.AccountProfilePicture "
+                               "FROM Messages AS M "
+                               "LEFT JOIN Accounts AS A "
+                               "ON M.MessageUserID = A.UserID "
+                               "WHERE ThreadID = ? ;";
+    QSqlQuery getMessages = getQuery(getMessagesQuery, QStringList(ThreadID));
+
+    QVector<MessageDetails> ThreadMessages;
+    while(getMessages.next()){
+        MessageDetails message;
+        message.ThreadID = getMessages.value(0).toString();
+        message.MessageID = getMessages.value(1).toString();
+
+        QStringList tempDates = getMessages.value(2).toString().split(QRegularExpression("[T+]"));
+        if(tempDates.size()>1){
+            QDate tempDate = QDate::fromString(tempDates[0],"yyyy-MM-dd");
+            tempDates[1].truncate(12);
+            QTime tempTime = QTime::fromString(tempDates[1],"hh:mm:ss.zzz");
+            QDateTime dateTime = QDateTime(tempDate,tempTime,Qt::UTC);
+            message.MessageCreationTime = dateTime;
+        }
+
+        message.MessageContents = getMessages.value(3).toString();
+        message.MessageAttachments = getMessages.value(4).toString().split(',');
+        message.MessageUserID = getMessages.value(5).toInt();
+        message.FullName = getMessages.value(6).toString();
+        message.UserProfilePicture = getMessages.value(7).toString();
+        ThreadMessages.append(message);
+    }
+    return ThreadMessages;
+}
+
+inline QList<ThreadDetails> getThreadDetails(QString threadQueryStringWithConditions, QStringList threadQueryPlaceHolder){
+    //Get thread details depending on account type
+    QString threadQueryStringInitial="SELECT "
+                                     "T.ThreadID,"
+                                     "CONVERT(varchar(max),T.ThreadCreationTime,126),"
+                                     "T.ThreadUserID,"
+                                     "CONCAT(A.FirstName,' ',A.LastName) AS FullName,"
+                                     "T.ThreadSubject,"
+                                     "T.ThreadTags,"
+                                     "T.ThreadAdditionalRecipients,"
+                                     "T.isOpen,"
+                                     "T.isVisible,"
+                                     "A.AccountProfilePicture "
+                                 "FROM Threads AS T "
+                                 "LEFT JOIN Accounts AS A "
+                                 "ON T.ThreadUserID = A.UserID ";
+                                 //"WHERE T.ThreadUserID = 2 AND T.isOpen=1;"
+     threadQueryStringInitial.append(threadQueryStringWithConditions);
+     QSqlQuery getThreadQuery = getQuery(threadQueryStringInitial,threadQueryPlaceHolder);
+
+     QList<ThreadDetails> threadList;
+     while(getThreadQuery.next()){
+         ThreadDetails thread;
+
+         thread.ThreadID = getThreadQuery.value(0).toString();
+         QStringList tempDates = getThreadQuery.value(1).toString().split(QRegularExpression("[T+]"));
+         if(tempDates.size()>1){
+             QDate tempDate = QDate::fromString(tempDates[0],"yyyy-MM-dd");
+             tempDates[1].truncate(12);
+             QTime tempTime = QTime::fromString(tempDates[1],"hh:mm:ss.zzz");
+             QDateTime dateTime = QDateTime(tempDate,tempTime,Qt::UTC);
+             thread.ThreadCreationTime = dateTime;
+         }
+         thread.ThreadUserID = getThreadQuery.value(2).toInt();
+         thread.ThreadUser = getThreadQuery.value(3).toString();
+         thread.ThreadSubject = getThreadQuery.value(4).toString();
+         thread.ThreadTags = getThreadQuery.value(5).toString().split(',');
+         thread.ThreadAdditionalRecipients = getThreadQuery.value(6).toString().split(',');
+         thread.isOpen = getThreadQuery.value(7).toBool();
+         thread.isVisible = getThreadQuery.value(8).toBool();
+         thread.ProfilePicture = getThreadQuery.value(9).toString();
+         threadList.append(thread);
+     }
+    return threadList;
+}
 
 inline AccountCredentials getAccountCredentials(int UserID){
     QString getAccountQuery = "SELECT UserID, Username, 'Protected', "
@@ -83,6 +202,9 @@ inline AccountCredentials getAccountCredentials(int UserID){
     return accountCredentials;
 }
 
+//Maps below (hopefully) reduces load time among the client program and SQL queries
+extern QMap<QString,QString> FileDictionary; //Key - Alphanumeric Code; Value - Real file name
+extern QMap<QString,QPixmap> ProfilePictureDictionary; //Key - FileAlphaNumericCode_PictureSize; Value - Pixmap
 class StorageAccess : public QObject{
 private:
     QString accountName = "inquirystorage";
@@ -157,33 +279,70 @@ signals:
     }
 };
 
-inline QPixmap* reshapeProfilePicture(QString imageFilePath, QLabel *label, int labelSize){
-    QPixmap source(imageFilePath);
-
+inline QPixmap* pictureTransformCircular(QString filePath, int labelSize){
+    QPixmap source(filePath);
     auto size = qMin(source.width(),source.height());
-
     QPixmap *target = new QPixmap(size,size);
     target->fill(Qt::transparent);
-
     QPainter *qp = new QPainter(target);
-
     qp->setRenderHints(qp->Antialiasing);
-
     auto path = QPainterPath();
     path.addEllipse(0,0,size,size);
     qp->setClipPath(path);
-
     auto sourceRect = QRect(0,0,size,size);
     sourceRect.moveCenter(source.rect().center());
-
     qp->drawPixmap(target->rect(),source,sourceRect);
-
     *target = target->scaled(labelSize,labelSize,Qt::KeepAspectRatio,Qt::FastTransformation);
 
-    label->setPixmap(*target);
-    label->setAlignment(Qt::AlignCenter);
     return target;
-
 }
+
+
+inline bool reshapeProfilePicture(QString pictureFileAlphaNumeric, QLabel *label, int labelSize){
+    QString profilePictureDefaultPath = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/CaseStudy/profilepictures/";
+    if(pictureFileAlphaNumeric=="" ){  //For default profile pictures
+        if(!FileDictionary.contains("Default")){
+            QPixmap *circularPicture = pictureTransformCircular(":/Icons/ProgramIcons/DefaultProfilePicture.jpg",labelSize);
+            ProfilePictureDictionary.insert("Default",*circularPicture);
+            if(label!=nullptr){
+                label->setPixmap(ProfilePictureDictionary["Default"]);
+            }
+        }
+        else if(label!=nullptr){
+            label->setPixmap(ProfilePictureDictionary["Default"]);
+        }
+        return 1;
+    }
+    else if(ProfilePictureDictionary.contains(pictureFileAlphaNumeric + "_" + QString::number(labelSize))){
+        label->setPixmap(ProfilePictureDictionary[pictureFileAlphaNumeric + "_" + QString::number(labelSize)]);
+        return 1;
+    }
+    else if(QFile::exists(profilePictureDefaultPath + pictureFileAlphaNumeric)){
+        qDebug() << "Creating new profilepicture of " << pictureFileAlphaNumeric << " with size " <<  labelSize;
+        if(!FileDictionary.contains(pictureFileAlphaNumeric)){
+            QSqlQuery getRealFile = getQuery("SELECT fileName FROM FileDictionary WHERE fileID = ?", QStringList(pictureFileAlphaNumeric));
+            if(getRealFile.next()){
+                FileDictionary.insert(pictureFileAlphaNumeric,getRealFile.value(0).toString());
+            }
+        }
+        QFile file(profilePictureDefaultPath+pictureFileAlphaNumeric);
+        QString realname = FileDictionary[pictureFileAlphaNumeric];
+        file.rename(profilePictureDefaultPath+pictureFileAlphaNumeric,profilePictureDefaultPath+realname);
+
+        QPixmap *circularPicture = pictureTransformCircular(profilePictureDefaultPath+realname,labelSize);
+
+        file.rename(profilePictureDefaultPath+realname,profilePictureDefaultPath+pictureFileAlphaNumeric);
+        ProfilePictureDictionary.insert(pictureFileAlphaNumeric + "_" + QString::number(labelSize), *circularPicture);
+        if(label!=nullptr){
+            label->setPixmap(ProfilePictureDictionary[pictureFileAlphaNumeric + "_" + QString::number(labelSize)]);
+        }
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+
+extern StorageAccess storageAccess;
 
 #endif // GLOBAL_H

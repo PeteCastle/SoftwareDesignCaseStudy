@@ -259,7 +259,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="GuestButton">
         <property name="text">
          <string>Login as Guest</string>
         </property>
