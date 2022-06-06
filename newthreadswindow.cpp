@@ -175,7 +175,7 @@ void NewThreadsWindow::on_CreateButton_clicked()
         return;
     }
     QString contents = ui->ContentsLineEdit->toHtml();
-    if(contents==""){
+    if(ui->ContentsLineEdit->toPlainText().isEmpty()){
         QMessageBox::information(this, "Empty fields", "Please include a content on your inquiry");
         return;
     }
@@ -225,7 +225,6 @@ void NewThreadsWindow::on_CreateButton_clicked()
         QMessageBox::information(this,"Empty fields","Please select the visibility of your thread");
         return;
     }
-    qDebug() << threadUploadPlaceholder;
     QString threadUploadQueryText = "INSERT INTO Threads(ThreadID,ThreadCreationTime,ThreadUserID,ThreadSubject,ThreadTags,"
                               "ThreadAdditionalRecipients,isOpen,isVisible)"
                               "VALUES(?,GETUTCDATE(),?,?,?,?,1,?);";

@@ -593,7 +593,7 @@ void MRichTextEdit::insertImage() {
                                     tr("Select an image"),
                                     attdir,
                                     tr("JPEG (*.jpg);; GIF (*.gif);; PNG (*.png);; BMP (*.bmp);; All (*)"));
-    QImage image = QImageReader(file).read().scaled(500,500,Qt::KeepAspectRatio);
+    QImage image = QImageReader(file).read().scaled(300,300,Qt::KeepAspectRatio);
 
     f_textedit->dropImage(image, QFileInfo(file).suffix().toUpper().toLocal8Bit().data() );
 

@@ -21,4 +21,5 @@ private:
     //void updateProfilePicture(QString profilePictureName, QTimer *timer);
 };
 
+
 #endif // THREADSLISTWIDGET_H

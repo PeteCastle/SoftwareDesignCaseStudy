@@ -155,7 +155,7 @@
         <item>
          <widget class="QCheckBox" name="RememberCheckbox">
           <property name="text">
-           <string>Remember Me TBA</string>
+           <string>Remember Me</string>
           </property>
          </widget>
         </item>

@@ -19,6 +19,9 @@ SOURCES += \
     mtextedit.cpp \
     newthreadswindow.cpp \
     registerwindow.cpp \
+    threaddetailsattachments.cpp \
+    threaddetailsbasicinfo.cpp \
+    threaddetailsparticipants.cpp \
     threadslistwidget.cpp \
     threadswindow.cpp \
     viewmessage.cpp \
@@ -34,6 +37,9 @@ HEADERS += \
     mtextedit.h \
     newthreadswindow.h \
     registerwindow.h \
+    threaddetailsattachments.h \
+    threaddetailsbasicinfo.h \
+    threaddetailsparticipants.h \
     threadslistwidget.h \
     threadswindow.h \
     viewmessage.h \
@@ -45,6 +51,9 @@ FORMS += \
     mrichtextedit.ui \
     newthreadswindow.ui \
     registerwindow.ui \
+    threaddetailsattachments.ui \
+    threaddetailsbasicinfo.ui \
+    threaddetailsparticipants.ui \
     threadslistwidget.ui \
     threadswindow.ui \
     viewmessage.ui \

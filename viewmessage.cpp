@@ -1,5 +1,7 @@
 #include "viewmessage.h"
+#include "qpushbutton.h"
 #include "ui_viewmessage.h"
+//#include <QFileStandardPaths>
 
 ViewMessage::ViewMessage(QWidget *parent, MessageDetails message) :
     QWidget(parent),
@@ -8,7 +10,6 @@ ViewMessage::ViewMessage(QWidget *parent, MessageDetails message) :
     ui->setupUi(this);
     ui->FullName->setText(message.FullName);
     ui->MessageContents->setText(message.MessageContents);
-    qDebug() << message.MessageContents;
     auto timeSinceSent = message.MessageCreationTime.secsTo(QDateTime::currentDateTimeUtc());
 
     if(message.FullName==""){
@@ -31,13 +32,65 @@ ViewMessage::ViewMessage(QWidget *parent, MessageDetails message) :
     ui->ProfilePicture->setPixmap(ProfilePictureDictionary["Default"]);
     storageAccess.downloadFile(message.UserProfilePicture,"profilepictures");
     QString profilePicture = message.UserProfilePicture;
-
     timer->start(2000);
     connect(timer, &QTimer::timeout, [this,profilePicture]{
         if(reshapeProfilePicture(profilePicture, ui->ProfilePicture,40)){
             timer->stop();
         }
     });
+
+    ui->MessageAttachmentsWidget->setVisible(false);
+
+    if(message.MessageAttachments[0]!=""){
+        QString getRealFileQueryString = message.MessageAttachments.join("' OR fileID = '") + "'";
+        qDebug() << getRealFileQueryString;
+        QSqlQuery getRealFile = getQuery("SELECT fileName FROM FileDictionary WHERE fileID = '" + getRealFileQueryString + ";");
+        foreach(QString attachment,message.MessageAttachments){
+            getRealFile.next();
+            if(!FileDictionary.contains(attachment)){
+                FileDictionary.insert(attachment,getRealFile.value(0).toString());
+            }
+            ui->MessageAttachmentsWidget->setVisible(true);
+            QWidget *attachmentWidget = new QWidget();
+
+            QHBoxLayout *attachmentLayout = new QHBoxLayout();
+
+            QLabel *attachmentLabel = new QLabel(FileDictionary[attachment].left(50));
+            attachmentLayout->addWidget(attachmentLabel);
+            QPushButton *attachmentDownloadButton = new QPushButton("Download");
+            connect(attachmentDownloadButton,&QPushButton::clicked,[attachmentDownloadButton,attachment]{
+                attachmentDownloadButton->setText("Downloading...");
+                storageAccess.downloadFile(attachment,"fileattachments");
+                QTimer *timer = new QTimer();
+                timer->setInterval(3000);
+                timer->start();
+                connect(timer,&QTimer::timeout,[timer,attachmentDownloadButton,attachment]{
+                    QString oldFileLocation = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/CaseStudy/fileattachments/" + attachment;
+                    if(QFile::exists(oldFileLocation)){
+                        QFile::rename(oldFileLocation, QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation)+FileDictionary[attachment]);
+                        attachmentDownloadButton->setText("Downloaded!");
+                        attachmentDownloadButton->setDisabled(true);
+                        QMessageBox::information(nullptr,"File downloaded", "File " + FileDictionary[attachment] + " downloaded.  Please check your downloads folder.");
+                        timer->stop();
+                    }
+                });
+
+            });
+            attachmentLayout->addWidget(attachmentDownloadButton);
+            attachmentWidget->setLayout(attachmentLayout);
+            attachmentLayout->setContentsMargins(0,0,0,0);
+            attachmentLayout->setSpacing(0);
+            attachmentLayout->setStretch(0,80);
+            attachmentLayout->setStretch(1,20);
+            ui->MessageAttachmentsWidget->layout()->addWidget(attachmentWidget);
+        }
+    }
+
+
+
+
+
+
 }
 
 ViewMessage::~ViewMessage()

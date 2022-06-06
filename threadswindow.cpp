@@ -9,8 +9,8 @@ ThreadsWindow::ThreadsWindow(QWidget *parent, AccountCredentials userCredentials
 
     this->UserCredentials = userCredentials;
     updateThreadsList();
-    updateThreadsList();
-    updateThreadsList();
+    //updateThreadsList();
+    //updateThreadsList();
 
     connect(ui->RefreshThreadsButton,&QPushButton::clicked,[this]{updateThreadsList();});
 }
@@ -21,7 +21,7 @@ ThreadsWindow::~ThreadsWindow()
 }
 
 void ThreadsWindow::updateThreadsList(){
-    //ui->ThreadsList->clear();
+    ui->ThreadsList->clear();
 
     //For non-student and student accounts
 
@@ -29,38 +29,75 @@ void ThreadsWindow::updateThreadsList(){
         QString threadQueryStringWithConditions = "WHERE T.ThreadUserID = ? AND T.isOpen=1";
         threadsList = getThreadDetails(threadQueryStringWithConditions, QStringList(QString::number(UserCredentials.UserID)));
     }
+    if(threadsList.isEmpty()){
+        ThreadsListWidget *threadItem = new ThreadsListWidget(this,"","",{},"Your inbox is empty.  Try creating a new inquiry!");
+        QListWidgetItem *item = new QListWidgetItem();
+        item->setSizeHint(QSize(100,100));
+        ui->ThreadsList->addItem(item);
+        ui->ThreadsList->setItemWidget(item,threadItem);
+        return;
+    }
     foreach(ThreadDetails thread,threadsList){
 
         ThreadsListWidget *threadItem = new ThreadsListWidget(this,thread.ProfilePicture,thread.ThreadSubject,thread.ThreadTags,thread.ThreadUser);
         QListWidgetItem *item = new QListWidgetItem();
         item->setSizeHint(QSize(100,100));
-        item->setData(Qt::UserRole,QVariant(thread.ThreadID));
+        item->setData(Qt::UserRole,QVariant::fromValue<ThreadDetails>(thread));
         ui->ThreadsList->addItem(item);
         ui->ThreadsList->setItemWidget(item,threadItem);
-        connect(ui->RefreshThreadsButton,&QPushButton::clicked,[this,item]{
+        /*connect(ui->RefreshThreadsButton,&QPushButton::clicked,[this,item]{
+            ui->ThreadsList->setItemWidget(item, nullptr);
             ui->ThreadsList->removeItemWidget(item);
             delete ui->ThreadsList->takeItem(ui->ThreadsList->row(item));
-        });
+        });*/
     }
     //ui->ThreadsList->r
+
 }
 
 void ThreadsWindow::on_RefreshThreadsButton_clicked()
 {
-    //updateThreadsList();
+    QTimer *timer = new QTimer(this);
+    timer->setInterval(10000);
+    timer->start();
+    ui->RefreshThreadsButton->setDisabled(true);
+    connect(timer, &QTimer::timeout,[this,timer]{
+        ui->RefreshThreadsButton->setEnabled(true);
+        timer->stop();
+    });
 }
 
 
 void ThreadsWindow::on_ThreadsList_itemClicked(QListWidgetItem *item)
 {
-    QString threadID = item->data(Qt::UserRole).value<QString>();
-    if(!ActiveThreadsList.contains(threadID)){
-
-        ViewThread *viewThread = new ViewThread(this, threadID);
-        ActiveThreadsList.insert(threadID, viewThread);
-        ui->ThreadTab->addTab(viewThread,"Thread " + threadID);
+    ThreadDetails thread = item->data(Qt::UserRole).value<ThreadDetails>();
+    if(!ActiveThreadsList.contains(thread.ThreadID)){
+        ViewThread *viewThread = new ViewThread(this, thread.ThreadID, thread, UserCredentials.UserID);
+        ActiveThreadsList.insert(thread.ThreadID, viewThread);
+        ui->ThreadTab->addTab(viewThread,thread.ThreadSubject.left(15) + "... " "-" + thread.ThreadID);
+        ui->ThreadTab->setCurrentWidget(viewThread);
     }
     else{
     }
+}
+
+
+void ThreadsWindow::on_ThreadTab_tabCloseRequested(int index)
+{
+    QWidget *tabItem = ui->ThreadTab->widget(index);
+
+
+
+    QStringList tabTitle = ui->ThreadTab->tabText(index).split("-");
+    qDebug() << ui->ThreadTab->tabText(0);
+    qDebug() << ui->ThreadTab->tabText(1);
+    qDebug() << ui->ThreadTab->tabText(2);
+
+    ActiveThreadsList.remove(tabTitle[1]);
+
+    ui->ThreadTab->removeTab(index);
+
+    delete tabItem;
+    tabItem = nullptr;
 }
 

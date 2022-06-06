@@ -4,6 +4,12 @@
 #include <QWidget>
 #include "global.h"
 #include "viewmessage.h"
+#include "threaddetailsattachments.h"
+#include "threaddetailsbasicinfo.h"
+#include "threaddetailsparticipants.h"
+#include <QFileIconProvider>
+#include <QFileDialog>
+#include <QStandardItem>
 
 namespace Ui {
 class ViewThread;
@@ -16,11 +22,30 @@ class ViewThread : public QWidget
     //ViewThread& operator=(ViewThread&&)=default;
 
 public:
-    ViewThread(QWidget *parent = nullptr,QString ThreadID="");
+    ViewThread(QWidget *parent = nullptr,QString ThreadID="",ThreadDetails={}, int userID=0);
     ~ViewThread();
+
+private slots:
+    void on_AddFileButton_clicked();
+
+    void on_RemoveFileButton_clicked();
+
+    void on_SendMessageButton_clicked();
+
+    void on_pushButton_clicked();
+
+    void updateMessages(QString ThreadID);
 
 private:
     Ui::ViewThread *ui;
+    QStringList fileAttachments;
+    QStandardItemModel *fileAttachmentsModel = new QStandardItemModel();
+    ThreadDetails Thread;
+    int userID;
+    QStringList ThreadParticipants;
+    QMap<QString,ViewMessage*> SavedMessages; //Key - MessageID; Value - Widget of message
 };
+
+
 
 #endif // VIEWTHREAD_H

@@ -24,12 +24,18 @@ private slots:
 
     void on_ThreadsList_itemClicked(QListWidgetItem *item);
 
+    void on_ThreadTab_tabCloseRequested(int index);
+
 private:
     QMap<QString, ViewThread*> ActiveThreadsList; //Key: ThreadID; Value: Widget
     Ui::ThreadsWindow *ui;
     AccountCredentials UserCredentials;
     void updateThreadsList();
     QList<ThreadDetails> threadsList;
+
 };
+
+
+
 
 #endif // THREADSWINDOW_H

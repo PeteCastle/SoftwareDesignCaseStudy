@@ -327,11 +327,18 @@ void RegisterWindow::on_CreateAccountButton_clicked()
     placeholder.append(QString::number(accountType));
     placeholder.append(imageKey);
     placeholder.append(selectedTagList.join(','));
+    if(ui->CourseLineEdit->currentText()!="(Select your course or department)" && (accountType==1 || accountType==2 || accountType==3)){
+        placeholder.append(ui->CourseLineEdit->currentText());
+    }
+    else{
+        placeholder.append("");
+    }
+
 
     QString uploadQueryText = "DECLARE @hashVarchar varchar(128) = ?; "
                               "INSERT INTO Accounts(UserID,Username,Userpass,FirstName,MiddleName,LastName,AcademicEmail,"
-                            " PersonalEmail,ContactNumber,Gender,AccountCreationTime,AccountType,AccountProfilePicture,AccountTags)"
-                          " VALUES((SELECT MAX(UserID)+1 FROM Accounts),?,HASHBYTES('SHA2_256',@hashVarchar),?,?,?,?,?,?,?,GETUTCDATE(),?,?,?);";
+                            " PersonalEmail,ContactNumber,Gender,AccountCreationTime,AccountType,AccountProfilePicture,AccountTags,Department)"
+                          " VALUES((SELECT MAX(UserID)+1 FROM Accounts),?,HASHBYTES('SHA2_256',@hashVarchar),?,?,?,?,?,?,?,GETUTCDATE(),?,?,?,?);";
     QSqlQuery uploadQuery = getQuery(uploadQueryText,placeholder);
 
     if(uploadQuery.lastError().text() == ""){

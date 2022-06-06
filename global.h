@@ -8,6 +8,7 @@
 #include "qlabel.h"
 #include <QPainter>
 #include <QPainterPath>
+#include <QMetaType>
 
 inline QSqlQuery getQuery(QString queryString, QStringList bindValues={}){
    QSqlQuery query;
@@ -49,6 +50,7 @@ struct AccountCredentials{
     int accountType; //Updated: -1 - Guest , 0 - Non-student Account, 1 - Student Account, 2 - Faculty, 3 - Admin
     QString accountProfilePicture; //Stored in alphanumeric characters to be retrieved from cloud storage
     QStringList accountTags;
+    QString department; //Latest entry to account
 };
 
 struct ThreadDetails{
@@ -63,6 +65,8 @@ struct ThreadDetails{
     bool isVisible;
     QString ProfilePicture;
 };
+
+Q_DECLARE_METATYPE(ThreadDetails)
 
 struct MessageDetails{
     //Base infos
@@ -90,7 +94,8 @@ inline QVector<MessageDetails> getMessagesFromThread(QString ThreadID){
                                "FROM Messages AS M "
                                "LEFT JOIN Accounts AS A "
                                "ON M.MessageUserID = A.UserID "
-                               "WHERE ThreadID = ? ;";
+                               "WHERE ThreadID = ? "
+                               "ORDER BY M.MessageCreationTime;";
     QSqlQuery getMessages = getQuery(getMessagesQuery, QStringList(ThreadID));
 
     QVector<MessageDetails> ThreadMessages;
@@ -164,27 +169,21 @@ inline QList<ThreadDetails> getThreadDetails(QString threadQueryStringWithCondit
     return threadList;
 }
 
-inline AccountCredentials getAccountCredentials(int UserID){
-    QString getAccountQuery = "SELECT UserID, Username, 'Protected', "
-                              "FirstName,MiddleName,LastName,AcademicEmail,"
-                              "PersonalEmail,ContactNumber,Gender,CONVERT(varchar(max),AccountCreationTime,126),"
-                              "AccountType,AccountProfilePicture,AccountTags FROM Accounts WHERE UserID = ?;";
-    QSqlQuery getAccount = getQuery(getAccountQuery, QStringList(QString::number(UserID)));
-    getAccount.next();
-
+inline AccountCredentials account(QSqlQuery *getAccount){
     AccountCredentials accountCredentials;
-    accountCredentials.UserID = getAccount.value(0).toInt();
-    accountCredentials.Username = getAccount.value(1).toString();
-    accountCredentials.Password = getAccount.value(2).toByteArray(); //Not really recorded
-    accountCredentials.firstName = getAccount.value(3).toString();
-    accountCredentials.middleName = getAccount.value(4).toString();
-    accountCredentials.lastName = getAccount.value(5).toString();
-    accountCredentials.academicEmail = getAccount.value(6).toString();
-    accountCredentials.personalEmail = getAccount.value(7).toString();
-    accountCredentials.contactNumber = getAccount.value(8).toString();
-    accountCredentials.gender = getAccount.value(9).toString();
+    accountCredentials.UserID = getAccount->value(0).toInt();
+    accountCredentials.Username = getAccount->value(1).toString();
+    accountCredentials.Password = getAccount->value(2).toByteArray(); //Not really recorded
+    accountCredentials.firstName = getAccount->value(3).toString();
+    accountCredentials.middleName = getAccount->value(4).toString();
+    accountCredentials.lastName = getAccount->value(5).toString();
+    accountCredentials.academicEmail = getAccount->value(6).toString();
+    accountCredentials.personalEmail = getAccount->value(7).toString();
+    accountCredentials.contactNumber = getAccount->value(8).toString();
+    accountCredentials.gender = getAccount->value(9).toString();
 
-    QStringList tempDates = getAccount.value(10).toString().split(QRegularExpression("[T+]"));
+
+    QStringList tempDates = getAccount->value(10).toString().split(QRegularExpression("[T+]"));
     if(tempDates.size()>1){
         QDate tempDate = QDate::fromString(tempDates[0],"yyyy-MM-dd");
         tempDates[1].truncate(12);
@@ -193,18 +192,50 @@ inline AccountCredentials getAccountCredentials(int UserID){
         accountCredentials.accountCreationTime = dateTime;
     }
 
-    accountCredentials.accountType = getAccount.value(11).toInt();
-    accountCredentials.accountProfilePicture = getAccount.value(12).toString();
+    accountCredentials.accountType = getAccount->value(11).toInt();
+    accountCredentials.accountProfilePicture = getAccount->value(12).toString();
 
-    QStringList tempTags = getAccount.value(13).toString().split(',');
+    QStringList tempTags = getAccount->value(13).toString().split(',');
+    accountCredentials.department = getAccount->value(14).toString();
     accountCredentials.accountTags = tempTags;
 
     return accountCredentials;
 }
 
+inline AccountCredentials getAccountCredentials(int UserID){
+    QString getAccountQuery = "SELECT UserID, Username, 'Protected', "
+                              "FirstName,MiddleName,LastName,AcademicEmail,"
+                              "PersonalEmail,ContactNumber,Gender,CONVERT(varchar(max),AccountCreationTime,126),"
+                              "AccountType,AccountProfilePicture,AccountTags,Department FROM Accounts WHERE UserID = ?;";
+    QSqlQuery getAccount = getQuery(getAccountQuery, QStringList(QString::number(UserID)));
+    getAccount.next();
+
+    AccountCredentials accountCredentials = account(&getAccount);
+    return accountCredentials;
+}
+
+inline QList<AccountCredentials> getMultipleAccountCredentials(QStringList UserID){
+    QString getAccountQuery = "SELECT UserID, Username, 'Protected', "
+                              "FirstName,MiddleName,LastName,AcademicEmail,"
+                              "PersonalEmail,ContactNumber,Gender,CONVERT(varchar(max),AccountCreationTime,126),"
+                              "AccountType,AccountProfilePicture,AccountTags,Department FROM Accounts WHERE UserID = " + UserID.join(" AND UserID = ") + ";";
+    QSqlQuery getAccount = getQuery(getAccountQuery);
+    QList<AccountCredentials> MultipleAccounts;
+    while(getAccount.next()){
+        AccountCredentials accountCredentials = account(&getAccount);
+        MultipleAccounts.append(accountCredentials);
+    }
+    return MultipleAccounts;
+}
+
+
+
 //Maps below (hopefully) reduces load time among the client program and SQL queries
 extern QMap<QString,QString> FileDictionary; //Key - Alphanumeric Code; Value - Real file name
 extern QMap<QString,QPixmap> ProfilePictureDictionary; //Key - FileAlphaNumericCode_PictureSize; Value - Pixmap
+extern QMap<QString,AccountCredentials> AccountDictionary; //Key - UserID; Value - AccountCredentials
+
+
 class StorageAccess : public QObject{
 private:
     QString accountName = "inquirystorage";

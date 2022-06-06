@@ -45,7 +45,6 @@ int main(int argc, char *argv[])
     database.setConnectOptions();
     database.setDatabaseName(databaseConfiguration);
 
-
     if(database.open()){
         qDebug() << "Successful connection!";
     }
@@ -61,6 +60,10 @@ int main(int argc, char *argv[])
         return 0;
     }
 
+    QDir defaultProgramDirectory(QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/CaseStudy");
+    if(!defaultProgramDirectory.exists()){
+        defaultProgramDirectory.mkpath(QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/CaseStudy");
+    }
 
     reshapeProfilePicture("",nullptr,50);
 

@@ -12,6 +12,18 @@ LandingPage::LandingPage(QWidget *parent)
 {
     ui->setupUi(this);
 
+    QString credentialsFile = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/CaseStudy/credentials.txt";
+    QFile credentials(credentialsFile);
+    if(credentials.open(QIODevice::ReadOnly)){
+        QTextStream stream(&credentials);
+        QStringList tempList = stream.readAll().split(',');
+        if(tempList.size()==2){
+            ui->EmailLineEdit->setText(tempList[0]);
+            ui->PasswordLineEdit->setText(tempList[1]);
+            ui->RememberCheckbox->setChecked(true);
+        }
+
+    }
 
 }
 
@@ -32,6 +44,7 @@ void LandingPage::on_SignUpButton_clicked()
 
 void LandingPage::on_LoginButton_clicked()
 {
+
     if(ui->EmailLineEdit->text().isEmpty() || ui->PasswordLineEdit->text().isEmpty()){
         QMessageBox::information(this, "Missing fields", "Please enter your username and/or password.");
         return;
@@ -51,6 +64,27 @@ void LandingPage::on_LoginButton_clicked()
     }
     else{
         QMessageBox::warning(this, "Invalid credentials", "Username and/or password is incorrect.  Please try again.");
+        return;
+    }
+
+    if(ui->RememberCheckbox->isChecked()){
+        QString credentialsFile = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/CaseStudy/credentials.txt";
+        QFile file(credentialsFile);
+        if(file.exists()){
+            file.remove();
+        }
+        if(file.open(QIODevice::WriteOnly)){
+            qDebug() << "Writing user credentials to file...";
+            QTextStream stream(&file);
+            stream << ui->EmailLineEdit->text() << "," << ui->PasswordLineEdit->text();
+            file.flush();
+            file.close();
+        }
+    }
+    else{
+        QString credentialsFile = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/CaseStudy/credentials.txt";
+        QFile file(credentialsFile);
+        file.remove();
     }
 }
 
