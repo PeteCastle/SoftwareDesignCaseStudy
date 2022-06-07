@@ -11,6 +11,27 @@ InquiryWindow::InquiryWindow(QWidget *parent, int userID) :
 
    userCredentials = getAccountCredentials(userID);
 
+
+
+
+   menuList["CreateThread"] = qMakePair(
+                                [this]{
+                                    qDebug() << "nagtrigger na ba siya agad?";
+                                },
+                                [this]{
+                                    qDebug() << "PANGALAWA";
+                                });
+
+
+
+   /*menuList["ViewThreadsNonGuest"] = [this]{};
+   menuList["ViewThreadsGuest"] = [this]{};
+   menuList["ViewPublicThreads"] = [this]{};
+   menuList["ViewMyAccount"] =  [this]{};*/
+
+
+    menuList["CreateThread"].first();
+
    //Display relevant user values
    ui->FullNameLabel->setText(userCredentials.lastName.toUpper() + ", " + userCredentials.firstName + " " + userCredentials.middleName);
    ui->UsernameLabel->setText(userCredentials.Username);
@@ -106,27 +127,9 @@ void InquiryWindow::on_MainMenu_clicked(const QModelIndex &index)
     ui->WindowTitleLabel->setText(featureList[index.row()]);
 }
 
-/*
-void InquiryWindow::updateProfilePicture(){
-    QString profilePicture = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/CaseStudy/profilepictures/";
-    if(QFile::exists(profilePicture + userCredentials.accountProfilePicture)){
-        QFile file(profilePicture + userCredentials.accountProfilePicture);
-        if(!FileDictionary.contains(userCredentials.accountProfilePicture)){
-            QSqlQuery getRealFile = getQuery("SELECT fileName FROM FileDictionary WHERE fileID = ?", QStringList(userCredentials.accountProfilePicture));
-            getRealFile.next();
-            FileDictionary.insert(userCredentials.accountProfilePicture,getRealFile.value(0).toString());
-            qDebug() << "GUMANA PA ITO";
-        }
-        QString realname = FileDictionary[userCredentials.accountProfilePicture];
-        file.rename(profilePicture+userCredentials.accountProfilePicture,profilePicture+realname);
-        reshapeProfilePicture(profilePicture+realname,ui->ProfilePictureLabel,80);
-        file.rename(profilePicture+realname,profilePicture+userCredentials.accountProfilePicture);
-        timer->stop();
-        disconnect(timer, SIGNAL(timeout()),this,SLOT(updateProfilePicture()));
-    }
-}*/
+///void InquiryWindow::createNewWindow(){
 
-
+//}
 
 
 void InquiryWindow::on_LogoutButton_clicked()

@@ -12,6 +12,11 @@ ViewThread::ViewThread(QWidget *parent, QString ThreadID,ThreadDetails thread, i
 {
     ui->setupUi(this);
 
+    if(thread.ThreadSubject==""){
+        QList<ThreadDetails> threadTemp = getThreadDetails(" WHERE ThreadID = ? ", QStringList(ThreadID));
+        thread = threadTemp[0];
+    }
+
     this->Thread = thread;
     this->userID = userID;
     ui->RemoveFileButton->setVisible(false);
@@ -198,5 +203,9 @@ void ViewThread::updateMessages(QString ThreadID){
         }
     }
     qDebug() << "Reloaded messages...";
+}
+
+QString ViewThread::getSubject(){
+    return Thread.ThreadSubject;
 }
 

@@ -26,11 +26,13 @@ private slots:
 
     void on_ThreadTab_tabCloseRequested(int index);
 
+    void on_SearchButton_clicked();
+
 private:
     QMap<QString, ViewThread*> ActiveThreadsList; //Key: ThreadID; Value: Widget
     Ui::ThreadsWindow *ui;
     AccountCredentials UserCredentials;
-    void updateThreadsList();
+    void updateThreadsList(QString AdditionalArguments="");
     QList<ThreadDetails> threadsList;
 
 };

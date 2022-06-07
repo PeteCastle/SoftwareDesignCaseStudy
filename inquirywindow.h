@@ -20,8 +20,6 @@ public:
 
 private slots:
     void on_MainMenu_clicked(const QModelIndex &index);
-    //void updateProfilePicture();
-
     void on_LogoutButton_clicked();
 
 private:
@@ -31,6 +29,13 @@ private:
     AccountCredentials userCredentials;
     QTimer *timer = new QTimer(this);
     QStringList featureList;
+
+    QMap<QString,QPair<std::function<void()>,std::function<void()>>> menuList;
+
+
+
+
+
 
 };
 

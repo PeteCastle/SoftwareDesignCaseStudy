@@ -67,7 +67,9 @@ ViewMessage::ViewMessage(QWidget *parent, MessageDetails message) :
                 connect(timer,&QTimer::timeout,[timer,attachmentDownloadButton,attachment]{
                     QString oldFileLocation = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/CaseStudy/fileattachments/" + attachment;
                     if(QFile::exists(oldFileLocation)){
-                        QFile::rename(oldFileLocation, QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation)+FileDictionary[attachment]);
+                        QString newLocation = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation)+ "/" + FileDictionary[attachment];
+                        qDebug() << "Copying file from " << oldFileLocation << " to " << newLocation;
+                        QFile::rename(oldFileLocation,newLocation);
                         attachmentDownloadButton->setText("Downloaded!");
                         attachmentDownloadButton->setDisabled(true);
                         QMessageBox::information(nullptr,"File downloaded", "File " + FileDictionary[attachment] + " downloaded.  Please check your downloads folder.");

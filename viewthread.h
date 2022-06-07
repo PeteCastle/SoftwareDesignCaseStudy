@@ -24,6 +24,7 @@ class ViewThread : public QWidget
 public:
     ViewThread(QWidget *parent = nullptr,QString ThreadID="",ThreadDetails={}, int userID=0);
     ~ViewThread();
+    QString getSubject();
 
 private slots:
     void on_AddFileButton_clicked();

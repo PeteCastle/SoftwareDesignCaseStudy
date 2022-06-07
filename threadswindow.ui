@@ -13,88 +13,83 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_2">
+  <layout class="QHBoxLayout" name="horizontalLayout" stretch="30,70">
    <item>
-    <widget class="QSplitter" name="splitter">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="leftMargin">
+      <number>0</number>
      </property>
-     <widget class="QWidget" name="layoutWidget">
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <property name="leftMargin">
-        <number>0</number>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <item alignment="Qt::AlignHCenter">
+      <widget class="QLabel" name="YourThreadsLabel">
+       <property name="text">
+        <string>Your Threads</string>
        </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
        <property name="topMargin">
         <number>0</number>
        </property>
-       <item alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="YourThreadsLabel">
-         <property name="text">
-          <string>Your Threads</string>
+       <item>
+        <widget class="QLineEdit" name="SearchThreadsLineEdit">
+         <property name="placeholderText">
+          <string>Search for threads here</string>
          </property>
         </widget>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <item>
-          <widget class="QLineEdit" name="SearchThreadsLineEdit">
-           <property name="placeholderText">
-            <string>Search for threads here</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="SearchButton">
-           <property name="text">
-            <string>Search</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="QListWidget" name="ThreadsList"/>
-       </item>
-       <item>
-        <widget class="QPushButton" name="RefreshThreadsButton">
+        <widget class="QPushButton" name="SearchButton">
          <property name="text">
-          <string>Refresh Threads</string>
+          <string>Search</string>
          </property>
         </widget>
        </item>
       </layout>
-     </widget>
-     <widget class="QTabWidget" name="ThreadTab">
-      <property name="currentIndex">
-       <number>0</number>
-      </property>
-      <property name="tabsClosable">
-       <bool>true</bool>
-      </property>
-      <widget class="QWidget" name="widget">
-       <attribute name="title">
-        <string/>
-       </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_3">
-        <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
-         <widget class="QLabel" name="label">
-          <property name="text">
-           <string>Your messages will appear here</string>
-          </property>
-         </widget>
-        </item>
-        <item alignment="Qt::AlignHCenter|Qt::AlignTop">
-         <widget class="QLabel" name="label_2">
-          <property name="text">
-           <string>Clicking a message listed on the left will create a new tab</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
+     </item>
+     <item>
+      <widget class="QListWidget" name="ThreadsList"/>
+     </item>
+     <item>
+      <widget class="QPushButton" name="RefreshThreadsButton">
+       <property name="text">
+        <string>Refresh Threads</string>
+       </property>
       </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QTabWidget" name="ThreadTab">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <property name="tabsClosable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="widget">
+      <attribute name="title">
+       <string/>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Your messages will appear here</string>
+         </property>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignHCenter|Qt::AlignTop">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Clicking a message listed on the left will create a new tab</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
    </item>

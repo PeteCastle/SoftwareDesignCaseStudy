@@ -139,7 +139,6 @@ inline QList<ThreadDetails> getThreadDetails(QString threadQueryStringWithCondit
                                  "FROM Threads AS T "
                                  "LEFT JOIN Accounts AS A "
                                  "ON T.ThreadUserID = A.UserID ";
-                                 //"WHERE T.ThreadUserID = 2 AND T.isOpen=1;"
      threadQueryStringInitial.append(threadQueryStringWithConditions);
      QSqlQuery getThreadQuery = getQuery(threadQueryStringInitial,threadQueryPlaceHolder);
 

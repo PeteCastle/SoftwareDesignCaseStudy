@@ -13,6 +13,7 @@ CONFIG += c++17
 SOURCES += \
     azurestorage.cpp \
     inquirywindow.cpp \
+    inquirywindowmenu.cpp \
     main.cpp \
     landingpage.cpp \
     mrichtextedit.cpp \
@@ -32,6 +33,7 @@ HEADERS += \
     cloudstorageservices.h \
     global.h \
     inquirywindow.h \
+    inquirywindowmenu.h \
     landingpage.h \
     mrichtextedit.h \
     mtextedit.h \
@@ -47,6 +49,7 @@ HEADERS += \
 
 FORMS += \
     inquirywindow.ui \
+    inquirywindowmenu.ui \
     landingpage.ui \
     mrichtextedit.ui \
     newthreadswindow.ui \
