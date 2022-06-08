@@ -12,7 +12,7 @@ class InquiryWindowMenu : public QWidget
     Q_OBJECT
 
 public:
-    explicit InquiryWindowMenu(QWidget *parent = nullptr);
+    explicit InquiryWindowMenu(QWidget *parent = nullptr, QString menuName="", QString menuIconLocation="");
     ~InquiryWindowMenu();
 
 private:

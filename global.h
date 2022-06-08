@@ -9,6 +9,9 @@
 #include <QPainter>
 #include <QPainterPath>
 #include <QMetaType>
+#include <QSqlError>
+
+
 
 inline QSqlQuery getQuery(QString queryString, QStringList bindValues={}){
    QSqlQuery query;
@@ -20,6 +23,10 @@ inline QSqlQuery getQuery(QString queryString, QStringList bindValues={}){
        }
    }
    query.exec();
+
+   if(query.lastError().text().contains("connected party did not properly respond after a period of time")){
+       QMessageBox::information(nullptr, "SQL Connection Error", "Please check your internet connection and try again.");
+   }
    return query;
 }
 
@@ -264,6 +271,19 @@ public:
         }
     }
 signals:
+    void deleteFile(QString azureFileNameToDelete, QString container){
+        QNetworkReply* deleteFileReply = azure->deleteFile(container,azureFileNameToDelete);
+        if(deleteFileReply!=nullptr){
+            if(deleteFileReply->error()== QNetworkReply::NetworkError::NoError){
+                qDebug()<< "File " + azureFileNameToDelete + " in container " + container + " has been deleted.";
+            }
+            else
+            {
+              QMessageBox::critical(nullptr,"An error has occured", "Error while trying to delete file " + azureFileNameToDelete + " in " + container + " (error code " + QString::number(deleteFileReply->error()) + ")");
+            }
+            deleteFileReply->deleteLater();
+        }
+    }
     void downloadFile(QString azureFilenameToDownload, QString container){
         //Checks if file IN ALPHANUMERIC NAME is already in temp directory (%temp% folder).  Else, download the file
         QString localFolder = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/CaseStudy/" + container;
@@ -273,7 +293,7 @@ signals:
             dir.mkpath(localFolder);
         }
         QString localFile =  localFolder + "/" + azureFilenameToDownload;
-        qDebug() <<  localFile;
+        //qDebug() <<  localFile;
         if(!QFile::exists(localFile)){
             qDebug() << "File " << localFile << " is not available.  Downloading the file.";
             QNetworkReply* downloadFileReply = azure->downloadFile(container, azureFilenameToDownload);
@@ -328,7 +348,7 @@ inline QPixmap* pictureTransformCircular(QString filePath, int labelSize){
 }
 
 
-inline bool reshapeProfilePicture(QString pictureFileAlphaNumeric, QLabel *label, int labelSize){
+inline bool reshapeProfilePicture(QString pictureFileAlphaNumeric, QLabel *label, int labelSize, bool isLocalFile=0){
     QString profilePictureDefaultPath = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/CaseStudy/profilepictures/";
     if(pictureFileAlphaNumeric=="" ){  //For default profile pictures
         if(!FileDictionary.contains("Default")){
@@ -351,6 +371,7 @@ inline bool reshapeProfilePicture(QString pictureFileAlphaNumeric, QLabel *label
         qDebug() << "Creating new profilepicture of " << pictureFileAlphaNumeric << " with size " <<  labelSize;
         if(!FileDictionary.contains(pictureFileAlphaNumeric)){
             QSqlQuery getRealFile = getQuery("SELECT fileName FROM FileDictionary WHERE fileID = ?", QStringList(pictureFileAlphaNumeric));
+
             if(getRealFile.next()){
                 FileDictionary.insert(pictureFileAlphaNumeric,getRealFile.value(0).toString());
             }
@@ -368,7 +389,15 @@ inline bool reshapeProfilePicture(QString pictureFileAlphaNumeric, QLabel *label
         }
         return 1;
     }
+    else if(isLocalFile){ //Now re-added profile pictures for locally added files
+        QFile file(pictureFileAlphaNumeric);
+        QPixmap *circularPicture = pictureTransformCircular(pictureFileAlphaNumeric,labelSize);
+        if(label!=nullptr){
+            label->setPixmap(*circularPicture);
+        }
+    }
     else{
+        qDebug() << "Updating Profile Picture: None have satisfied the conditions";
         return 0;
     }
 }

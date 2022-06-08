@@ -16,7 +16,7 @@ class ThreadsWindow : public QWidget
     Q_OBJECT
 
 public:
-    explicit ThreadsWindow(QWidget *parent = nullptr, AccountCredentials userCredentials={});
+    explicit ThreadsWindow(QWidget *parent = nullptr, AccountCredentials userCredentials={}, bool PublicThreadsOnly=0);
     ~ThreadsWindow();
 
 private slots:
@@ -34,6 +34,7 @@ private:
     AccountCredentials UserCredentials;
     void updateThreadsList(QString AdditionalArguments="");
     QList<ThreadDetails> threadsList;
+    bool PublicThreadsOnly;
 
 };
 

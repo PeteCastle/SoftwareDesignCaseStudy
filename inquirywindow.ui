@@ -32,7 +32,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QListView" name="MainMenu"/>
+       <widget class="QListWidget" name="MainMenu"/>
       </item>
      </layout>
     </item>
@@ -42,7 +42,7 @@
        <number>0</number>
       </property>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="60,10,20,5,5">
+       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="60,10,20,5">
         <item>
          <widget class="QLabel" name="WindowTitleLabel">
           <property name="text">
@@ -56,7 +56,7 @@
         <item>
          <widget class="QLabel" name="ProfilePictureLabel">
           <property name="text">
-           <string>Profile Picture</string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -84,13 +84,6 @@
            </widget>
           </item>
          </layout>
-        </item>
-        <item>
-         <widget class="QPushButton" name="AccountButton">
-          <property name="text">
-           <string>My Account</string>
-          </property>
-         </widget>
         </item>
         <item>
          <widget class="QPushButton" name="LogoutButton">

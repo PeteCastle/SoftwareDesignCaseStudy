@@ -26,6 +26,23 @@ QNetworkReply* AzureStorage::downloadFile(const QString& container, const QStrin
   return m_manager->get(request);
 }
 
+QNetworkReply* AzureStorage::deleteFile(const QString& container, const QString& blobName){ //Added by kiko himself xdd
+    QString url = generateUrl(container, blobName);
+
+    QString currentDateTime = generateCurrentTimeUTC();
+    QString authorization = generateAutorizationHeader("DELETE", container, blobName, currentDateTime,0);
+
+    QNetworkRequest request;
+
+    request.setUrl(QUrl(url));
+    request.setRawHeader(QByteArray("Authorization"),QByteArray(authorization.toStdString().c_str()));
+    request.setRawHeader(QByteArray("x-ms-date"),QByteArray(currentDateTime.toStdString().c_str()));
+    request.setRawHeader(QByteArray("x-ms-version"),QByteArray(m_version.toStdString().c_str()));
+    //request.setRawHeader(QByteArray("Content-Length"),QByteArray(QString::number(contentLength).toStdString().c_str()));
+    //request.setRawHeader(QByteArray("x-ms-blob-type"),QByteArray(blobType.toStdString().c_str()));
+    return m_manager->get(request);
+}
+
 QNetworkReply* AzureStorage::uploadFile(const QString& filePath, const QString& container, const QString& blobName, const QString& blobType)
 {
   QByteArray data;

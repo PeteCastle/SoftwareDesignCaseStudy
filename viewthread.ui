@@ -118,7 +118,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="CloseThreadButton">
          <property name="text">
           <string>Close Thread</string>
          </property>

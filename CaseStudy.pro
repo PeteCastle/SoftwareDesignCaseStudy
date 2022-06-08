@@ -11,56 +11,68 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    adminsqlmanager.cpp \
     azurestorage.cpp \
     inquirywindow.cpp \
+    inquirywindowaccount.cpp \
+    inquirywindowhome.cpp \
     inquirywindowmenu.cpp \
     main.cpp \
     landingpage.cpp \
     mrichtextedit.cpp \
     mtextedit.cpp \
     newthreadswindow.cpp \
+    passwordconfirmation.cpp \
     registerwindow.cpp \
-    threaddetailsattachments.cpp \
     threaddetailsbasicinfo.cpp \
     threaddetailsparticipants.cpp \
     threadslistwidget.cpp \
     threadswindow.cpp \
     viewmessage.cpp \
-    viewthread.cpp
+    viewthread.cpp \
+    viewthreadguest.cpp
 
 HEADERS += \
+    adminsqlmanager.h \
     azurestorage.h \
     cloudstorageservices.h \
     global.h \
     inquirywindow.h \
+    inquirywindowaccount.h \
+    inquirywindowhome.h \
     inquirywindowmenu.h \
     landingpage.h \
     mrichtextedit.h \
     mtextedit.h \
     newthreadswindow.h \
+    passwordconfirmation.h \
     registerwindow.h \
-    threaddetailsattachments.h \
     threaddetailsbasicinfo.h \
     threaddetailsparticipants.h \
     threadslistwidget.h \
     threadswindow.h \
     viewmessage.h \
-    viewthread.h
+    viewthread.h \
+    viewthreadguest.h
 
 FORMS += \
+    adminsqlmanager.ui \
     inquirywindow.ui \
+    inquirywindowaccount.ui \
+    inquirywindowhome.ui \
     inquirywindowmenu.ui \
     landingpage.ui \
     mrichtextedit.ui \
     newthreadswindow.ui \
+    passwordconfirmation.ui \
     registerwindow.ui \
-    threaddetailsattachments.ui \
     threaddetailsbasicinfo.ui \
     threaddetailsparticipants.ui \
     threadslistwidget.ui \
     threadswindow.ui \
     viewmessage.ui \
-    viewthread.ui
+    viewthread.ui \
+    viewthreadguest.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

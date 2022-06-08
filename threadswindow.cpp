@@ -1,27 +1,32 @@
 #include "threadswindow.h"
 #include "ui_threadswindow.h"
 
-ThreadsWindow::ThreadsWindow(QWidget *parent, AccountCredentials userCredentials) :
+ThreadsWindow::ThreadsWindow(QWidget *parent, AccountCredentials userCredentials, bool PublicThreadsOnly) :
     QWidget(parent),
     ui(new Ui::ThreadsWindow)
 {
     ui->setupUi(this);
 
     this->UserCredentials = userCredentials;
+    this->PublicThreadsOnly = PublicThreadsOnly;
     ui->ThreadTab->tabBar()->tabButton(0,QTabBar::RightSide)->deleteLater();
     ui->ThreadTab->tabBar()->setTabButton(0, QTabBar::RightSide, 0);
 
     QPushButton *refreshButton = new QPushButton("Reload");
     connect(refreshButton,&QPushButton::clicked,[this, refreshButton]{
-        refreshButton->setText("Reloading...");
+
         int index = ui->ThreadTab->currentIndex();
+        if(index==0){
+            return;
+        }
+        refreshButton->setText("Reloading...");
         QString threadID = ui->ThreadTab->tabToolTip(index);
 
         QWidget *widgetToDelete = ui->ThreadTab->widget(index);
         ui->ThreadTab->removeTab(index);
         widgetToDelete->deleteLater();
 
-        ViewThread *viewThread = new ViewThread(this, threadID, {}, UserCredentials.UserID);
+        ViewThread *viewThread = new ViewThread(this, threadID, {}, UserCredentials.UserID, UserCredentials);
         QString threadSubject = viewThread->getSubject();
         //ActiveThreadsList.insert(thread.ThreadID, viewThread);
         ui->ThreadTab->insertTab(index, viewThread, threadSubject + (threadSubject.size()>=30 ? "...":""));
@@ -31,6 +36,10 @@ ThreadsWindow::ThreadsWindow(QWidget *parent, AccountCredentials userCredentials
 
         refreshButton->setText("Reload");
     });
+
+    if(PublicThreadsOnly){
+        ui->YourThreadsLabel->setText("Public Threads");
+    }
 
     ui->ThreadTab->setCornerWidget(refreshButton);
     updateThreadsList();
@@ -48,10 +57,21 @@ ThreadsWindow::~ThreadsWindow()
 void ThreadsWindow::updateThreadsList(QString AdditionalArguments){
     ui->ThreadsList->clear();
 
+    //For public threads
+    if(PublicThreadsOnly){
+        QString threadQueryStringWithConditions = " WHERE T.isVisible=1 ";
+        if(AdditionalArguments!=""){
+            AdditionalArguments = "%" + AdditionalArguments + "%";
+            threadQueryStringWithConditions.append(" AND T.ThreadSubject LIKE ? ");
+            threadsList = getThreadDetails(threadQueryStringWithConditions, QStringList{QString::number(UserCredentials.UserID),AdditionalArguments});
+        }
+        else{
+            threadsList = getThreadDetails(threadQueryStringWithConditions,QStringList(QString::number(UserCredentials.UserID)));
+        }
+    }
     //For non-student and student accounts
-
-    if(UserCredentials.accountType==0 || UserCredentials.accountType==2){ //IMPORTNAT CHANGE THIS LATER
-        qDebug() << "TEST " << AdditionalArguments;
+    else if(UserCredentials.accountType==0 || UserCredentials.accountType==2){ //IMPORTNAT CHANGE THIS LATER
+        //qDebug() << "TEST " << AdditionalArguments;
         QString threadQueryStringWithConditions = " WHERE T.ThreadUserID = ? AND T.isOpen=1";
         if(AdditionalArguments!=""){
             AdditionalArguments = "%" + AdditionalArguments + "%";
@@ -63,7 +83,7 @@ void ThreadsWindow::updateThreadsList(QString AdditionalArguments){
         }
 
     }
-    if(threadsList.isEmpty()){
+    else if(threadsList.isEmpty()){
         QString message = AdditionalArguments=="" ? "Your inbox is empty.  Try creating a new inquiry!" : "No results found.  Please try narrowing your query";
         ThreadsListWidget *threadItem = new ThreadsListWidget(this,"","",{},message);
         QListWidgetItem *item = new QListWidgetItem();
@@ -104,7 +124,7 @@ void ThreadsWindow::on_ThreadsList_itemClicked(QListWidgetItem *item)
     QCoreApplication::processEvents();
     ThreadDetails thread = item->data(Qt::UserRole).value<ThreadDetails>();
     if(!ActiveThreadsList.contains(thread.ThreadID) && thread.ThreadSubject!=""){
-        ViewThread *viewThread = new ViewThread(this, thread.ThreadID, thread, UserCredentials.UserID);
+        ViewThread *viewThread = new ViewThread(this, thread.ThreadID, thread, UserCredentials.UserID, UserCredentials);
         ActiveThreadsList.insert(thread.ThreadID, viewThread);
         ui->ThreadTab->addTab(viewThread,thread.ThreadSubject.left(30) + (thread.ThreadSubject.size()>=30 ? "...":""));
         ui->ThreadTab->setTabToolTip(ui->ThreadTab->count()-1,thread.ThreadID);

@@ -17,6 +17,9 @@ ThreadDetailsBasicInfo::ThreadDetailsBasicInfo(QWidget *parent, ThreadDetails th
         ui->ThreadTags->layout()->addWidget(tagLabel);
     }
 
+    if(thread.ThreadUserID==0){ //User ID for guest
+        ui->ThreadUserLabel->setText("Guest");
+    }
 }
 
 ThreadDetailsBasicInfo::~ThreadDetailsBasicInfo()

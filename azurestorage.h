@@ -12,6 +12,7 @@ public:
     AzureStorage(const QString& accountName, const QString& accountKey, QObject* parent = nullptr);
     QNetworkReply* uploadFile(const QString& filePath, const QString& container, const QString& blobName, const QString& blobType = "BlockBlob");
     QNetworkReply* downloadFile(const QString& container, const QString& blobName);
+    QNetworkReply* deleteFile(const QString& container, const QString& blobName);
 
 
 private:

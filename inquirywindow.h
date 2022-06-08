@@ -2,9 +2,16 @@
 #define INQUIRYWINDOW_H
 
 #include <QMainWindow>
-#include "threadswindow.h"
 #include "newthreadswindow.h"
 #include "global.h"
+#include "inquirywindowmenu.h"
+#include "threadswindow.h"
+#include "inquirywindowhome.h"
+#include "inquirywindowaccount.h"
+#include "viewthreadguest.h"
+#include "adminsqlmanager.h"
+#include <QListWidgetItem>
+
 
 namespace Ui {
 class InquiryWindow;
@@ -19,8 +26,9 @@ public:
     ~InquiryWindow();
 
 private slots:
-    void on_MainMenu_clicked(const QModelIndex &index);
     void on_LogoutButton_clicked();
+    void on_MainMenu_itemClicked(QListWidgetItem *item);
+    void modifyHeaderVisibility(bool isVisible);
 
 private:
     Ui::InquiryWindow *ui;
@@ -28,14 +36,10 @@ private:
     NewThreadsWindow *newThreadsWindow;
     AccountCredentials userCredentials;
     QTimer *timer = new QTimer(this);
-    QStringList featureList;
 
+    QMap<QString, QString> menuDictionary;
+    QMap<QString, QWidget*> activeMenuList;
     QMap<QString,QPair<std::function<void()>,std::function<void()>>> menuList;
-
-
-
-
-
 
 };
 

@@ -28,7 +28,9 @@ ThreadDetailsParticipants::ThreadDetailsParticipants(QWidget *parent, AccountCre
     }
     reshapeProfilePicture(ThreadParticipant.accountProfilePicture,ui->AccountProfilePicture,40);
 
-
+    if(ThreadParticipant.UserID==0){ //User ID for guest
+        ui->AccountName->setText("Guest");
+    }
 
 }
 

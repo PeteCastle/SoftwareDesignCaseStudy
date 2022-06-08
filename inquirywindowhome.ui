@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>InquiryWindowMenu</class>
- <widget class="QWidget" name="InquiryWindowMenu">
+ <class>InquiryWindowHome</class>
+ <widget class="QWidget" name="InquiryWindowHome">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -28,22 +28,30 @@
     </spacer>
    </item>
    <item>
-    <widget class="QLabel" name="MenuPicture">
+    <widget class="QLabel" name="label">
      <property name="text">
-      <string/>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
+      <string>Welcome,</string>
      </property>
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="MenuName">
+    <widget class="QLabel" name="label_2">
      <property name="text">
-      <string>Menu Name</string>
+      <string>Full Name</string>
      </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_3">
+     <property name="text">
+      <string>to CET blablalbalblablab</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_4">
+     <property name="text">
+      <string>Navigate to blablalbalbal</string>
      </property>
     </widget>
    </item>

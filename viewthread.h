@@ -4,7 +4,6 @@
 #include <QWidget>
 #include "global.h"
 #include "viewmessage.h"
-#include "threaddetailsattachments.h"
 #include "threaddetailsbasicinfo.h"
 #include "threaddetailsparticipants.h"
 #include <QFileIconProvider>
@@ -22,7 +21,7 @@ class ViewThread : public QWidget
     //ViewThread& operator=(ViewThread&&)=default;
 
 public:
-    ViewThread(QWidget *parent = nullptr,QString ThreadID="",ThreadDetails={}, int userID=0);
+    ViewThread(QWidget *parent = nullptr,QString ThreadID="",ThreadDetails={}, int userID=0, AccountCredentials userCredentials={});
     ~ViewThread();
     QString getSubject();
 
@@ -36,6 +35,8 @@ private slots:
     void on_pushButton_clicked();
 
     void updateMessages(QString ThreadID);
+
+
 
 private:
     Ui::ViewThread *ui;

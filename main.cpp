@@ -40,22 +40,25 @@ int main(int argc, char *argv[])
         "Encrypt=yes;"
         "TrustServerCertificate=no;"
         "Connection Timeout=%5;"
+        "MultipleActiveResultSets=True;"
     ).arg(serverName).arg(initialCatalog).arg(userID).arg(userPassword).arg(connectionTimout);
 
-    database.setConnectOptions();
+   // database.setConnectOptions("SQL_ATTR_ODBC_VERSION=SQL_OV_ODBC3");
     database.setDatabaseName(databaseConfiguration);
 
     if(database.open()){
         qDebug() << "Successful connection!";
     }
     else{
-        qDebug() << "Error Connection: \n\t" << database.lastError().text();
-        QMessageBox::StandardButton connectionError = QMessageBox::question(nullptr, "Database Connection Error",
-                      "Running this program requires the driver 'ODBC Driver for SQL Server' to be installed on your system."
-                      "\nClicking Yes will redirect you to the driver installation page.\n\n"
-                      "An internet connection is also required.", QMessageBox::Yes|QMessageBox::No);
-        if(connectionError == QMessageBox::Yes){
-            QDesktopServices::openUrl(QUrl("https://www.microsoft.com/en-us/download/details.aspx?id=50420",QUrl::TolerantMode));
+        if(database.lastError().text().contains("Data source name not found and no default driver specified")){
+            qDebug() << "Error Connection: \n\t" << database.lastError().text();
+            QMessageBox::StandardButton connectionError = QMessageBox::question(nullptr, "Database Connection Error",
+                          "Running this program requires the driver 'ODBC Driver for SQL Server' to be installed on your system."
+                          "\nClicking Yes will redirect you to the driver installation page.\n\n"
+                          "An internet connection is also required.", QMessageBox::Yes|QMessageBox::No);
+            if(connectionError == QMessageBox::Yes){
+                QDesktopServices::openUrl(QUrl("https://www.microsoft.com/en-us/download/details.aspx?id=50420",QUrl::TolerantMode));
+            }
         }
         return 0;
     }

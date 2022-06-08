@@ -251,7 +251,7 @@
       <widget class="QWidget" name="widget" native="true">
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <widget class="QRadioButton" name="VisibilityPublicButton">
+         <widget class="QRadioButton" name="VisibilityPrivateButton">
           <property name="text">
            <string>Private</string>
           </property>
@@ -261,7 +261,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QRadioButton" name="VisibilityPrivateButton">
+         <widget class="QRadioButton" name="VisibilityPublicButton">
           <property name="text">
            <string>Public</string>
           </property>

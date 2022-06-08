@@ -35,7 +35,7 @@ RegisterWindow::RegisterWindow(QWidget *parent) :
     ui->SignInButton->setVisible(false);
     ui->SignInLabel->setVisible(false);
     ui->CreateAccountButton->setVisible(false);
-    reshapeProfilePicture(":/Icons/ProgramIcons/DefaultProfilePicture.jpg", ui->ProfilePictureLabel,150);
+    reshapeProfilePicture(":/Icons/ProgramIcons/DefaultProfilePicture.jpg", ui->ProfilePictureLabel,150,1);
 
     QSqlQuery getCoursesList = getQuery("SELECT * FROM Courses");
     while(getCoursesList.next()){
@@ -396,7 +396,7 @@ void RegisterWindow::on_ProfilePictureButton_clicked()
     }
 
     if(profilePictureFilePath!=""){
-        reshapeProfilePicture(profilePictureFilePath, ui->ProfilePictureLabel,150);
+        reshapeProfilePicture(profilePictureFilePath, ui->ProfilePictureLabel,150,1);
     }
 }
 
@@ -408,9 +408,11 @@ QString RegisterWindow::getPassword(){
 }
 
 
-void RegisterWindow::on_pushButton_clicked()
+
+void RegisterWindow::on_SignInButton_clicked()
 {
-    QSqlQuery test = getQuery("SELECT HASHBYTES('SHA2_256',?)",QStringList("test"));
-    test.next();
+    this->close();
 }
+
+
 

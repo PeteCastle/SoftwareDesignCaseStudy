@@ -58,6 +58,8 @@ NewThreadsWindow::NewThreadsWindow(QWidget *parent, AccountCredentials userCrede
 
     ui->RecipientsSelectedList->setModel(recipientsModel);
     ui->RecipientsSelectedList->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+
 }
 
 NewThreadsWindow::~NewThreadsWindow()
@@ -217,14 +219,18 @@ void NewThreadsWindow::on_CreateButton_clicked()
     threadUploadPlaceholder.append(selectedRecipients.join(','));
     if(ui->VisibilityPublicButton->isChecked()){
         threadUploadPlaceholder.append("1");
+        qDebug() << "GUMANA ANG VISIBILITY PUBLIC";
     }
     else if(ui->VisibilityPrivateButton->isChecked()){
         threadUploadPlaceholder.append("0");
+        qDebug() << "GUMANA ANG VISIBILITY private";
     }
     else{
         QMessageBox::information(this,"Empty fields","Please select the visibility of your thread");
         return;
     }
+
+
     QString threadUploadQueryText = "INSERT INTO Threads(ThreadID,ThreadCreationTime,ThreadUserID,ThreadSubject,ThreadTags,"
                               "ThreadAdditionalRecipients,isOpen,isVisible)"
                               "VALUES(?,GETUTCDATE(),?,?,?,?,1,?);";

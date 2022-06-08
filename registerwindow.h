@@ -40,7 +40,9 @@ private slots:
     void on_RemoveYourTag_clicked();
     //QPixmap *reshapeProfilePicture(QString imageFilePath, QLabel *label, int labelSize); - Moved to global.h
     void on_ProfilePictureButton_clicked();
-    void on_pushButton_clicked();
+
+    void on_SignInButton_clicked();
+
 };
 
 #endif // REGISTERWINDOW_H

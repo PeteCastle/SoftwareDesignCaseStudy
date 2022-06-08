@@ -12,6 +12,8 @@ ViewMessage::ViewMessage(QWidget *parent, MessageDetails message) :
     ui->MessageContents->setText(message.MessageContents);
     auto timeSinceSent = message.MessageCreationTime.secsTo(QDateTime::currentDateTimeUtc());
 
+
+
     if(message.FullName==""){
         ui->FullName->setText("Unknown");
     }
@@ -88,10 +90,9 @@ ViewMessage::ViewMessage(QWidget *parent, MessageDetails message) :
         }
     }
 
-
-
-
-
+    if(message.MessageUserID==0){ //User ID for guest
+        ui->FullName->setText("Guest");
+    }
 
 }
 

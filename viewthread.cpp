@@ -1,4 +1,4 @@
-#include "viewthread.h"
+    #include "viewthread.h"
 #include "ui_viewthread.h"
 #include <QSqlQuery>
 #include <QScrollBar>
@@ -6,7 +6,7 @@
 #include <QShortcut>
 #include <QKeySequence>
 
-ViewThread::ViewThread(QWidget *parent, QString ThreadID,ThreadDetails thread, int userID) :
+ViewThread::ViewThread(QWidget *parent, QString ThreadID,ThreadDetails thread, int userID, AccountCredentials userCredentials) :
     QWidget(parent),
     ui(new Ui::ViewThread)
 {
@@ -56,7 +56,16 @@ ViewThread::ViewThread(QWidget *parent, QString ThreadID,ThreadDetails thread, i
         ui->Message->setVisible(false);
         ui->SendMessageButton->setVisible(false);
         ui->FileAttachmentsLabel->setVisible(false);
-        ui->pushButton->setVisible(false);
+        ui->CloseThreadButton->setVisible(false);
+    }
+
+    if(thread.ThreadUserID==-1){
+        ui->FileAttachmentsLabel->setVisible(false);
+        ui->AddFileButton->setVisible(false);
+    }
+
+    if((userCredentials.accountType==-1 || userCredentials.accountType ==0 || userCredentials.accountType==1) && thread.isVisible==1){
+        ui->CloseThreadButton->setVisible(false);
     }
 
     new QShortcut(QKeySequence(Qt::Key_F5),this,[this,ThreadID]{emit updateMessages(ThreadID);});
@@ -179,7 +188,7 @@ void ViewThread::on_pushButton_clicked()
         ui->Message->setVisible(false);
         ui->SendMessageButton->setVisible(false);
         ui->FileAttachmentsLabel->setVisible(false);
-        ui->pushButton->setVisible(false);
+        ui->CloseThreadButton->setVisible(false);
     }
 }
 
