@@ -207,11 +207,7 @@ void ViewThread::updateMessages(QString ThreadID){
         else{
             ui->Messages->widget()->layout()->addWidget(SavedMessages[message.MessageID]);
         }
-
-        qDebug() << (message.MessageUserID);
-
         if(!ThreadParticipants.contains(QString::number(message.MessageUserID))){
-
             ThreadParticipants.append(QString::number(message.MessageUserID));
         }
     }

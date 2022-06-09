@@ -34,7 +34,7 @@ ThreadsWindow::ThreadsWindow(QWidget *parent, AccountCredentials userCredentials
         ui->ThreadTab->setCurrentWidget(viewThread);
 
 
-        refreshButton->setText("Reload");
+        refreshButton->setText("Reload Tab");
     });
 
     if(PublicThreadsOnly){
@@ -63,16 +63,31 @@ void ThreadsWindow::updateThreadsList(QString AdditionalArguments){
         if(AdditionalArguments!=""){
             AdditionalArguments = "%" + AdditionalArguments + "%";
             threadQueryStringWithConditions.append(" AND T.ThreadSubject LIKE ? ");
-            threadsList = getThreadDetails(threadQueryStringWithConditions, QStringList{QString::number(UserCredentials.UserID),AdditionalArguments});
+            threadsList = getThreadDetails(threadQueryStringWithConditions, QStringList{AdditionalArguments});
         }
         else{
             threadsList = getThreadDetails(threadQueryStringWithConditions,QStringList(QString::number(UserCredentials.UserID)));
         }
     }
     //For non-student and student accounts
-    else if(UserCredentials.accountType==0 || UserCredentials.accountType==2){ //IMPORTNAT CHANGE THIS LATER
+    else if(UserCredentials.accountType==0 || UserCredentials.accountType==1){ //IMPORTNAT CHANGE THIS LATER
         //qDebug() << "TEST " << AdditionalArguments;
         QString threadQueryStringWithConditions = " WHERE T.ThreadUserID = ? AND T.isOpen=1";
+        if(AdditionalArguments!=""){
+            AdditionalArguments = "%" + AdditionalArguments + "%";
+            threadQueryStringWithConditions.append(" AND T.ThreadSubject LIKE ?");
+            threadsList = getThreadDetails(threadQueryStringWithConditions, QStringList{QString::number(UserCredentials.UserID),AdditionalArguments});
+        }
+        else{
+            threadsList = getThreadDetails(threadQueryStringWithConditions,QStringList(QString::number(UserCredentials.UserID)));
+        }
+
+    }
+    //The main difference is that for organizational accounts, the said account will also receive threads from tags selected by user
+    else if(UserCredentials.accountType==2){
+        QString threadQueryStringWithConditions = " WHERE (T.ThreadUserID = ? OR  ";  //AND T.isOpen=1"
+        threadQueryStringWithConditions+= "T.ThreadTags LIKE '%" + UserCredentials.accountTags.join("%' OR T.ThreadTags LIKE '%");
+        threadQueryStringWithConditions+= "%') AND T.isOpen=1 ";
         if(AdditionalArguments!=""){
             AdditionalArguments = "%" + AdditionalArguments + "%";
             threadQueryStringWithConditions.append(" AND T.ThreadSubject LIKE ?");

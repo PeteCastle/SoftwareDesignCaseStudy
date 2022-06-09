@@ -11,24 +11,6 @@
 #include <QMetaType>
 #include <QSqlError>
 
-/*
-
-class DataBaseAccess{
-private:
-
-
-
-public:
-    void connectDatabase(QString connectionName = ""){
-
-    }
-
-    void closeDatabase(QString connectionName=""){
-        //database.removeDatabase(connectionName);
-    }
-
-};*/
-
 inline QSqlQuery getQuery(QString queryString, QStringList bindValues={}){
    QSqlQuery query;
    query.setForwardOnly(true);
