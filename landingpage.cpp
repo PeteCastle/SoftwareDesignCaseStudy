@@ -22,8 +22,10 @@ LandingPage::LandingPage(QWidget *parent)
             ui->PasswordLineEdit->setText(tempList[1]);
             ui->RememberCheckbox->setChecked(true);
         }
-
     }
+
+    InformationWindowHome *informationWidget = new InformationWindowHome(this);
+    ui->InformationWindow->layout()->addWidget(informationWidget);
 
 }
 

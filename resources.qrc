@@ -2,5 +2,6 @@
     <qresource prefix="/Icons">
         <file>ProgramIcons/LoadingScreen.png</file>
         <file>ProgramIcons/DefaultProfilePicture.jpg</file>
+        <file>ProgramIcons/PlaceholderArticle.jpg</file>
     </qresource>
 </RCC>

@@ -18,6 +18,7 @@ public:
 
 private:
     Ui::AdminSQLManager *ui;
+    void runQuery();
 };
 
 #endif // ADMINSQLMANAGER_H

@@ -78,7 +78,6 @@ InquiryWindow::InquiryWindow(QWidget *parent, int userID) :
        });
    menuList["ViewAccount"] = qMakePair(
        [this]{
-           qDebug() << "Not yet Implemented";
            QString menuName = "My Acccount";
            QString menuIconFile = ":/Icons/ProgramIcons/LoadingScreen.png";
            InquiryWindowMenu *newMenu = new InquiryWindowMenu(nullptr,menuName,menuIconFile);
@@ -171,8 +170,10 @@ InquiryWindow::InquiryWindow(QWidget *parent, int userID) :
    else if(userCredentials.accountType==3){ui->AccountTypeLabel->setText("Administrator");}
    else{ui->AccountTypeLabel->setText("Unknown Account Type");}
 
+
    //Set profilepicture
    reshapeProfilePicture(":/Icons/ProgramIcons/DefaultProfilePicture.jpg",ui->ProfilePictureLabel,80,1); // Default profile pic
+
    if(userCredentials.accountType!=-1 || userCredentials.accountProfilePicture!=""){
        storageAccess.downloadFile(userCredentials.accountProfilePicture,"profilepictures");
        QString profilePicture = userCredentials.accountProfilePicture;

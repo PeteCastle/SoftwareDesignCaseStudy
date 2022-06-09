@@ -13,6 +13,10 @@ CONFIG += c++17
 SOURCES += \
     adminsqlmanager.cpp \
     azurestorage.cpp \
+    informationwindowhome.cpp \
+    informationwindownews.cpp \
+    informationwindownewsdetailed.cpp \
+    informationwindownewslist.cpp \
     inquirywindow.cpp \
     inquirywindowaccount.cpp \
     inquirywindowhome.cpp \
@@ -37,6 +41,10 @@ HEADERS += \
     azurestorage.h \
     cloudstorageservices.h \
     global.h \
+    informationwindowhome.h \
+    informationwindownews.h \
+    informationwindownewsdetailed.h \
+    informationwindownewslist.h \
     inquirywindow.h \
     inquirywindowaccount.h \
     inquirywindowhome.h \
@@ -57,6 +65,10 @@ HEADERS += \
 
 FORMS += \
     adminsqlmanager.ui \
+    informationwindowhome.ui \
+    informationwindownews.ui \
+    informationwindownewsdetailed.ui \
+    informationwindownewslist.ui \
     inquirywindow.ui \
     inquirywindowaccount.ui \
     inquirywindowhome.ui \

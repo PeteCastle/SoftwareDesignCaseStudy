@@ -44,6 +44,7 @@ ViewThread::ViewThread(QWidget *parent, QString ThreadID,ThreadDetails thread, i
 
     QList<AccountCredentials> accountsList = getMultipleAccountCredentials(ThreadParticipants);
     foreach(AccountCredentials accounts,accountsList){
+
         ThreadDetailsParticipants *threadParticipants = new ThreadDetailsParticipants(this, accounts);
         ui->ThreadDetails->widget()->layout()->addWidget(threadParticipants);
     }
@@ -207,11 +208,13 @@ void ViewThread::updateMessages(QString ThreadID){
             ui->Messages->widget()->layout()->addWidget(SavedMessages[message.MessageID]);
         }
 
+        qDebug() << (message.MessageUserID);
+
         if(!ThreadParticipants.contains(QString::number(message.MessageUserID))){
+
             ThreadParticipants.append(QString::number(message.MessageUserID));
         }
     }
-    qDebug() << "Reloaded messages...";
 }
 
 QString ViewThread::getSubject(){

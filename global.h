@@ -11,12 +11,29 @@
 #include <QMetaType>
 #include <QSqlError>
 
+/*
 
+class DataBaseAccess{
+private:
+
+
+
+public:
+    void connectDatabase(QString connectionName = ""){
+
+    }
+
+    void closeDatabase(QString connectionName=""){
+        //database.removeDatabase(connectionName);
+    }
+
+};*/
 
 inline QSqlQuery getQuery(QString queryString, QStringList bindValues={}){
    QSqlQuery query;
    query.setForwardOnly(true);
    query.prepare(queryString);
+
    if(!bindValues.isEmpty()){
        for(int i=0; i<bindValues.size();i++){
            query.bindValue(i,bindValues[i]);
@@ -72,7 +89,6 @@ struct ThreadDetails{
     bool isVisible;
     QString ProfilePicture;
 };
-
 Q_DECLARE_METATYPE(ThreadDetails)
 
 struct MessageDetails{
@@ -87,6 +103,33 @@ struct MessageDetails{
     int MessageUserID;
     QString UserProfilePicture;
 };
+
+struct News{
+    QString Headline;
+    QString Subheadline;
+    QString Contents;
+    QString ThumbnailFileName;
+    bool isActive;
+    int newsID;
+};
+Q_DECLARE_METATYPE(News)
+
+inline QVector<News> getNews(){
+    QString getNewsQuery = "SELECT * FROM News;";
+    QSqlQuery getNews = getQuery(getNewsQuery);
+    QVector<News> NewsList;
+    while(getNews.next()){
+        News newsDetails;
+        newsDetails.Headline = getNews.value(0).toString();
+        newsDetails.Subheadline = getNews.value(1).toString();
+        newsDetails.Contents = getNews.value(2).toString();
+        newsDetails.ThumbnailFileName = getNews.value(3).toString();
+        newsDetails.isActive = getNews.value(4).toBool();
+        newsDetails.newsID = getNews.value(5).toInt();
+        NewsList.append(newsDetails);
+    }
+    return NewsList;
+}
 
 inline QVector<MessageDetails> getMessagesFromThread(QString ThreadID){
     QString getMessagesQuery = "SELECT "
@@ -129,6 +172,8 @@ inline QVector<MessageDetails> getMessagesFromThread(QString ThreadID){
     }
     return ThreadMessages;
 }
+
+
 
 inline QList<ThreadDetails> getThreadDetails(QString threadQueryStringWithConditions, QStringList threadQueryPlaceHolder){
     //Get thread details depending on account type
@@ -224,7 +269,7 @@ inline QList<AccountCredentials> getMultipleAccountCredentials(QStringList UserI
     QString getAccountQuery = "SELECT UserID, Username, 'Protected', "
                               "FirstName,MiddleName,LastName,AcademicEmail,"
                               "PersonalEmail,ContactNumber,Gender,CONVERT(varchar(max),AccountCreationTime,126),"
-                              "AccountType,AccountProfilePicture,AccountTags,Department FROM Accounts WHERE UserID = " + UserID.join(" AND UserID = ") + ";";
+                              "AccountType,AccountProfilePicture,AccountTags,Department FROM Accounts WHERE UserID = " + UserID.join(" OR UserID = ") + ";";
     QSqlQuery getAccount = getQuery(getAccountQuery);
     QList<AccountCredentials> MultipleAccounts;
     while(getAccount.next()){
@@ -350,6 +395,7 @@ inline QPixmap* pictureTransformCircular(QString filePath, int labelSize){
 
 inline bool reshapeProfilePicture(QString pictureFileAlphaNumeric, QLabel *label, int labelSize, bool isLocalFile=0){
     QString profilePictureDefaultPath = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/CaseStudy/profilepictures/";
+
     if(pictureFileAlphaNumeric=="" ){  //For default profile pictures
         if(!FileDictionary.contains("Default")){
             QPixmap *circularPicture = pictureTransformCircular(":/Icons/ProgramIcons/DefaultProfilePicture.jpg",labelSize);
@@ -390,11 +436,13 @@ inline bool reshapeProfilePicture(QString pictureFileAlphaNumeric, QLabel *label
         return 1;
     }
     else if(isLocalFile){ //Now re-added profile pictures for locally added files
-        QFile file(pictureFileAlphaNumeric);
+        //QFile file(pictureFileAlphaNumeric);
         QPixmap *circularPicture = pictureTransformCircular(pictureFileAlphaNumeric,labelSize);
+
         if(label!=nullptr){
             label->setPixmap(*circularPicture);
         }
+        return 1;
     }
     else{
         qDebug() << "Updating Profile Picture: None have satisfied the conditions";

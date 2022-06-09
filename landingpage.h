@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "registerwindow.h"
 #include "inquirywindow.h"
+#include "informationwindowhome.h"
 
 
 QT_BEGIN_NAMESPACE

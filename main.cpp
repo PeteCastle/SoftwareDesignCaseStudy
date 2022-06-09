@@ -5,11 +5,13 @@
 #include <QtDebug>
 #include <QMessageBox>
 #include <QUrl>
-#include <QDesktopServices>
+
 #include <QSplashScreen>
 #include <QPixmap>
 
 #include "global.h"
+
+#include <QDesktopServices>
 
 QMap<QString,QString> FileDictionary;
 QMap<QString,QPixmap> ProfilePictureDictionary;
@@ -21,6 +23,9 @@ int main(int argc, char *argv[])
 
     QSplashScreen *loading = new QSplashScreen(QPixmap(":/Icons/ProgramIcons/LoadingScreen.png"));
     loading->show();
+
+    /*DataBaseAccess database;
+    database.connectDatabase();*/
 
     QString serverName = "tcp:petecastle.database.windows.net,1433";
     QString initialCatalog = "MainDataBase";
@@ -42,7 +47,6 @@ int main(int argc, char *argv[])
         "Connection Timeout=%5;"
         "MultipleActiveResultSets=True;"
     ).arg(serverName).arg(initialCatalog).arg(userID).arg(userPassword).arg(connectionTimout);
-
    // database.setConnectOptions("SQL_ATTR_ODBC_VERSION=SQL_OV_ODBC3");
     database.setDatabaseName(databaseConfiguration);
 
@@ -60,7 +64,7 @@ int main(int argc, char *argv[])
                 QDesktopServices::openUrl(QUrl("https://www.microsoft.com/en-us/download/details.aspx?id=50420",QUrl::TolerantMode));
             }
         }
-        return 0;
+        //return 0;
     }
 
     QDir defaultProgramDirectory(QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/CaseStudy");

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>InformationWindowNewsDetailed</class>
+ <widget class="QWidget" name="InformationWindowNewsDetailed">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>684</width>
+    <height>403</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>650</width>
+        <height>443</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2" stretch="100,20,5,20">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetDefaultConstraint</enum>
+       </property>
+       <item>
+        <widget class="QGraphicsView" name="NewsThumbnail">
+         <property name="verticalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOff</enum>
+         </property>
+         <property name="horizontalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOff</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="NewsTitle">
+         <property name="font">
+          <font>
+           <pointsize>16</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>News Title</string>
+         </property>
+         <property name="margin">
+          <number>10</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="Line" name="line">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="NewsContents">
+         <property name="text">
+          <string>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elit massa, euismod quis mi sit amet, commodo tincidunt purus. Praesent dictum dui eu ex venenatis, a ultricies sem dignissim. Pellentesque vel pellentesque lectus, quis faucibus velit. Mauris quis mauris fermentum, hendrerit leo quis, ornare orci. Vestibulum vitae blandit sem. Donec placerat accumsan pretium. Duis tempus sodales enim non efficitur. Morbi porttitor est a justo luctus sollicitudin. Nulla finibus urna in lorem cursus iaculis. Morbi dignissim turpis bibendum sodales placerat. Ut ultricies, sapien at vestibulum ornare, urna enim porta enim, vitae tincidunt quam sem vitae felis. In auctor eu lacus vitae accumsan. Phasellus scelerisque lorem at lorem rhoncus, a finibus elit convallis. Suspendisse rhoncus lacinia nulla eu bibendum. Etiam id metus quis orci ornare congue at non nunc. Morbi pellentesque, sem in egestas venenatis, odio massa volutpat mauris, eu convallis felis magna dictum dui.</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+         <property name="margin">
+          <number>10</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
