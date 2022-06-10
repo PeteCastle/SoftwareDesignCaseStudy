@@ -33,8 +33,8 @@ ThreadsListWidget::ThreadsListWidget(QWidget *parent, QString ProfilePicture, QS
         }
     });
 
-
-
+    if(ThreadCreator==" ")  ui->ThreadCreatorName->setText("By: Guest");
+    qDebug() << ThreadCreator;
 }
 
 ThreadsListWidget::~ThreadsListWidget()

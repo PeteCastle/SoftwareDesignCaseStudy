@@ -11,16 +11,6 @@ InformationWindowNews::InformationWindowNews(QWidget *parent, QVector<News> News
 
     this->NewsList = NewsList;
 
-    //rawImage = rawImage.scaled(ui->HeadlineBackground->size(),Qt::KeepAspectRatio);
-
-    /*
-    QGraphicsScene* scene = new QGraphicsScene();
-    QGraphicsPixmapItem* item = new QGraphicsPixmapItem(QPixmap("C:/Users/Francis Mark Cayco/Downloads/leni.jpg"));
-    scene->setSceneRect(rawImage.rect());
-    scene->addItem(item);
-    ui->HeadlineBackground->setScene(scene);*/
-
-
     connect(ui->Headline,&ClickableLabel::clicked, [this]{qDebug() << "TEST";});
 }
 

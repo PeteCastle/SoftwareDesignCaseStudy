@@ -57,6 +57,7 @@ ThreadsWindow::~ThreadsWindow()
 void ThreadsWindow::updateThreadsList(QString AdditionalArguments){
     ui->ThreadsList->clear();
 
+    threadsList.clear();
     //For public threads
     if(PublicThreadsOnly){
         QString threadQueryStringWithConditions = " WHERE T.isVisible=1 ";
@@ -98,7 +99,7 @@ void ThreadsWindow::updateThreadsList(QString AdditionalArguments){
         }
 
     }
-    else if(threadsList.isEmpty()){
+    if(threadsList.isEmpty()){
         QString message = AdditionalArguments=="" ? "Your inbox is empty.  Try creating a new inquiry!" : "No results found.  Please try narrowing your query";
         ThreadsListWidget *threadItem = new ThreadsListWidget(this,"","",{},message);
         QListWidgetItem *item = new QListWidgetItem();
@@ -111,7 +112,7 @@ void ThreadsWindow::updateThreadsList(QString AdditionalArguments){
     foreach(ThreadDetails thread,threadsList){
         ThreadsListWidget *threadItem = new ThreadsListWidget(this,thread.ProfilePicture,thread.ThreadSubject,thread.ThreadTags,thread.ThreadUser);
         QListWidgetItem *item = new QListWidgetItem();
-        item->setSizeHint(QSize(100,100));
+        item->setSizeHint(QSize(90,90));
         item->setData(Qt::UserRole,QVariant::fromValue<ThreadDetails>(thread));
         ui->ThreadsList->addItem(item);
         ui->ThreadsList->setItemWidget(item,threadItem);

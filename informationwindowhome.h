@@ -4,6 +4,11 @@
 #include <QWidget>
 #include "informationwindownews.h"
 #include "informationwindownewslist.h"
+#include "informationwindowaboutus.h"
+#include "informationwindowgallery.h"
+#include "informationwindowcontactus.h"
+#include "informationwindowfaq.h"
+
 
 namespace Ui {
 class InformationWindowHome;
@@ -25,6 +30,10 @@ private slots:
     void on_AboutUsButton_clicked();
 
     void on_GalleryButton_clicked();
+
+    void on_ContactUsbutton_clicked();
+
+    void on_FAQButton_clicked();
 
 private:
     Ui::InformationWindowHome *ui;

@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>InformationWindowAboutUs</class>
+ <widget class="QWidget" name="InformationWindowAboutUs">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>775</width>
+    <height>560</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="7,92">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QWidget" name="Header" native="true">
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(29, 84, 92);</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="leftMargin">
+       <number>50</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>About Us</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="Contents" native="true">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QScrollArea" name="scrollArea">
+        <property name="widgetResizable">
+         <bool>true</bool>
+        </property>
+        <widget class="QWidget" name="scrollAreaWidgetContents">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>-735</y>
+           <width>759</width>
+           <height>1253</height>
+          </rect>
+         </property>
+         <layout class="QGridLayout" name="gridLayout" columnstretch="30,30,30">
+          <item row="2" column="0" colspan="3">
+           <widget class="QLabel" name="label_3">
+            <property name="font">
+             <font>
+              <family>Verdana</family>
+             </font>
+            </property>
+            <property name="text">
+             <string>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in malesuada tellus. Nullam nec mauris a enim auctor finibus. Ut vel elementum neque. Morbi pellentesque est vitae quam ullamcorper suscipit. Pellentesque luctus nulla eu erat lacinia, a vestibulum augue convallis. In hac habitasse platea dictumst. Duis condimentum augue ac urna iaculis placerat. In arcu mi, sodales cursus semper non, cursus ac urna. Integer sit amet libero id massa consequat mollis nec non magna. Integer id varius enim. Curabitur porttitor, mauris non imperdiet finibus, neque quam congue libero, quis lacinia felis sem in magna.
+
+Vestibulum viverra quam id placerat tincidunt. Maecenas varius ex vestibulum accumsan sagittis. Sed lobortis erat a neque dapibus, a dapibus ipsum commodo. Maecenas at nibh vel enim feugiat facilisis quis eu massa. Nam vulputate quam at mi pretium, et rhoncus mi dictum. Ut faucibus commodo leo, et pharetra est pretium ac. Ut sed felis sed odio tempor pulvinar. Vivamus vel nulla sapien.
+
+Nunc nec felis sit amet erat consequat imperdiet. Fusce interdum ante ut blandit aliquet. Praesent semper quam ornare sem ultricies fermentum. Aenean commodo sem nec odio malesuada, a consequat risus suscipit. Proin bibendum magna vitae vehicula facilisis. Duis rutrum ornare pellentesque. Fusce nec sem a erat congue luctus.
+
+Etiam et mattis dolor. Integer luctus dui sed auctor pharetra. Curabitur auctor tristique tellus, eu mattis nulla varius vitae. Duis elementum lacinia felis id sagittis. Nunc posuere nisl vel tortor dignissim aliquet. Aenean consectetur nisi eu gravida feugiat. Cras imperdiet, felis nec viverra dictum, odio mauris congue nisl, nec pretium ipsum ipsum ut erat. Nullam lacus orci, interdum a euismod eu, volutpat eget metus.
+
+Aenean tristique, tellus non imperdiet posuere, libero lacus pretium ex, eget tristique urna nibh quis quam. Fusce tincidunt tortor nulla, vitae pharetra leo accumsan eget. Nunc laoreet blandit efficitur. Vestibulum vehicula metus risus, ut pharetra dui convallis ut. Aenean consectetur tortor vel nulla fringilla maximus. Quisque dapibus mi vel mauris varius, finibus aliquam nisl interdum. Phasellus in varius risus, sed porttitor velit. Maecenas eget lobortis lacus, sit amet convallis quam. Vivamus ornare venenatis tincidunt. Phasellus ac eleifend ex, ultrices pharetra tellus. Sed maximus elit vel arcu mattis rhoncus. Etiam at magna porttitor, vehicula nisi in, volutpat dolor. Vivamus sagittis et turpis eu auctor. Sed rhoncus imperdiet arcu quis vestibulum. Aenean sit amet orci sed tortor mollis pharetra quis eu magna.</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+            <property name="margin">
+             <number>50</number>
+            </property>
+            <property name="textInteractionFlags">
+             <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0" colspan="3">
+           <widget class="QLabel" name="label_10">
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>MEET THE TEAM</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QWidget" name="widget" native="true">
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(114, 114, 86);</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_3">
+             <property name="leftMargin">
+              <number>20</number>
+             </property>
+             <property name="rightMargin">
+              <number>20</number>
+             </property>
+             <item alignment="Qt::AlignHCenter">
+              <widget class="QLabel" name="label_4">
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Our Vision</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_7">
+               <property name="text">
+                <string>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in malesuada tellus. Nullam nec mauris a enim auctor finibus. Ut vel elementum neque. Morbi pellentesque est vitae quam ullamcorper suscipit. Pellentesque luctus nulla eu erat lacinia, a vestibulum augue convallis. In hac habitasse platea dictumst</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="7" column="0" colspan="3">
+           <spacer name="verticalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="6" column="0" colspan="3">
+           <layout class="QGridLayout" name="gridLayout_2">
+            <property name="leftMargin">
+             <number>30</number>
+            </property>
+            <property name="topMargin">
+             <number>30</number>
+            </property>
+            <property name="rightMargin">
+             <number>30</number>
+            </property>
+            <property name="bottomMargin">
+             <number>30</number>
+            </property>
+            <property name="spacing">
+             <number>30</number>
+            </property>
+            <item row="0" column="1">
+             <widget class="QWidget" name="widget_5" native="true">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(146, 189, 108);</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_7">
+               <item alignment="Qt::AlignHCenter">
+                <widget class="QLabel" name="label_17">
+                 <property name="text">
+                  <string>PICTURE NI KIKO</string>
+                 </property>
+                </widget>
+               </item>
+               <item alignment="Qt::AlignHCenter">
+                <widget class="QLabel" name="label_12">
+                 <property name="text">
+                  <string>Francis Mark Cayco</string>
+                 </property>
+                </widget>
+               </item>
+               <item alignment="Qt::AlignHCenter">
+                <widget class="QLabel" name="label_18">
+                 <property name="text">
+                  <string>Description</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QWidget" name="widget_4" native="true">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(146, 189, 108);</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_6">
+               <item alignment="Qt::AlignHCenter">
+                <widget class="QLabel" name="label_15">
+                 <property name="text">
+                  <string>PICTURE NI KIT</string>
+                 </property>
+                </widget>
+               </item>
+               <item alignment="Qt::AlignHCenter">
+                <widget class="QLabel" name="label_11">
+                 <property name="text">
+                  <string>Christian Lordenz Aparici</string>
+                 </property>
+                </widget>
+               </item>
+               <item alignment="Qt::AlignHCenter">
+                <widget class="QLabel" name="label_16">
+                 <property name="text">
+                  <string>Description</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QWidget" name="widget_6" native="true">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(146, 189, 108);</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_8">
+               <item alignment="Qt::AlignHCenter">
+                <widget class="QLabel" name="label_13">
+                 <property name="text">
+                  <string>PICTURE NI MAYKS</string>
+                 </property>
+                </widget>
+               </item>
+               <item alignment="Qt::AlignHCenter">
+                <widget class="QLabel" name="label_19">
+                 <property name="text">
+                  <string>Micha Lene Paclian</string>
+                 </property>
+                </widget>
+               </item>
+               <item alignment="Qt::AlignHCenter">
+                <widget class="QLabel" name="label_20">
+                 <property name="text">
+                  <string>Description</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QWidget" name="widget_7" native="true">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(146, 189, 108);</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_9">
+               <item alignment="Qt::AlignHCenter">
+                <widget class="QLabel" name="label_14">
+                 <property name="text">
+                  <string>PICTURE NI REYNEL</string>
+                 </property>
+                </widget>
+               </item>
+               <item alignment="Qt::AlignHCenter">
+                <widget class="QLabel" name="label_22">
+                 <property name="text">
+                  <string>Reynel Soliven</string>
+                 </property>
+                </widget>
+               </item>
+               <item alignment="Qt::AlignHCenter">
+                <widget class="QLabel" name="label_21">
+                 <property name="text">
+                  <string>Description</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="3" column="2">
+           <widget class="QWidget" name="widget_3" native="true">
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(102, 102, 76);</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_5">
+             <property name="leftMargin">
+              <number>20</number>
+             </property>
+             <property name="rightMargin">
+              <number>20</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label_6">
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(102, 102, 76);</string>
+               </property>
+               <property name="text">
+                <string>Our Mission</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_9">
+               <property name="text">
+                <string>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in malesuada tellus. Nullam nec mauris a enim auctor finibus. Ut vel elementum neque. Morbi pellentesque est vitae quam ullamcorper suscipit. Pellentesque luctus nulla eu erat lacinia, a vestibulum augue convallis. In hac habitasse platea dictumst</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="0" column="0" colspan="3">
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="0" colspan="3">
+           <widget class="QLabel" name="label_2">
+            <property name="font">
+             <font>
+              <pointsize>15</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>OUR STORY</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QWidget" name="widget_2" native="true">
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(114, 114, 86);</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_4">
+             <property name="leftMargin">
+              <number>20</number>
+             </property>
+             <property name="rightMargin">
+              <number>20</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label_5">
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Core Values</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_8">
+               <property name="text">
+                <string>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in malesuada tellus. Nullam nec mauris a enim auctor finibus. Ut vel elementum neque. Morbi pellentesque est vitae quam ullamcorper suscipit. Pellentesque luctus nulla eu erat lacinia, a vestibulum augue convallis. In hac habitasse platea dictumst</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="10" column="0" colspan="3">
+           <widget class="Line" name="line">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="0" colspan="3" alignment="Qt::AlignHCenter">
+           <widget class="QLabel" name="label_23">
+            <property name="font">
+             <font>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Source Code</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <spacer name="verticalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="9" column="0" colspan="3" alignment="Qt::AlignHCenter">
+           <widget class="QLabel" name="label_24">
+            <property name="text">
+             <string>https://github.com/PeteCastle/SoftwareDesignCaseStudy</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

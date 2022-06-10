@@ -1,7 +1,7 @@
 #include "viewmessage.h"
 #include "qpushbutton.h"
 #include "ui_viewmessage.h"
-//#include <QFileStandardPaths>
+#include <QSpacerItem>
 
 ViewMessage::ViewMessage(QWidget *parent, MessageDetails message) :
     QWidget(parent),
@@ -87,9 +87,10 @@ ViewMessage::ViewMessage(QWidget *parent, MessageDetails message) :
             attachmentLayout->setStretch(0,80);
             attachmentLayout->setStretch(1,20);
             ui->MessageAttachmentsWidget->layout()->addWidget(attachmentWidget);
+
         }
     }
-
+    ui->MessageAttachmentsWidget->layout()->addItem(new QSpacerItem(10,10,QSizePolicy::Minimum,QSizePolicy::Expanding));
     if(message.MessageUserID==0){ //User ID for guest
         ui->FullName->setText("Guest");
     }

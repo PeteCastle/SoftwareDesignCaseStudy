@@ -69,7 +69,7 @@ ViewThread::ViewThread(QWidget *parent, QString ThreadID,ThreadDetails thread, i
         ui->CloseThreadButton->setVisible(false);
     }
 
-    new QShortcut(QKeySequence(Qt::Key_F5),this,[this,ThreadID]{emit updateMessages(ThreadID);});
+    //new QShortcut(QKeySequence(Qt::Key_F5),this,[this,ThreadID]{emit updateMessages(ThreadID);});
 
 }
 
@@ -174,25 +174,6 @@ void ViewThread::on_SendMessageButton_clicked()
 
 }
 
-
-void ViewThread::on_pushButton_clicked()
-{
-    QMessageBox::StandardButton closeThread = QMessageBox::question(nullptr, "Close Thread?",
-                          "Are you sure you want to close the thread?", QMessageBox::Yes|QMessageBox::No);
-    if(closeThread == QMessageBox::Yes){
-        QString updateTableQuery = "UPDATE Threads SET isOpen=0 WHERE ThreadID = ?";
-        QSqlQuery updateTable = getQuery(updateTableQuery, QStringList(Thread.ThreadID));
-        ui->Message->setVisible(false);
-        ui->AttachmentsList->setVisible(false);
-        ui->AddFileButton->setVisible(false);
-        ui->RemoveFileButton->setVisible(false);
-        ui->Message->setVisible(false);
-        ui->SendMessageButton->setVisible(false);
-        ui->FileAttachmentsLabel->setVisible(false);
-        ui->CloseThreadButton->setVisible(false);
-    }
-}
-
 void ViewThread::updateMessages(QString ThreadID){
     qDebug() << "Reloading messages...";
     //ui->Messages->widget()->layout()->cle
@@ -215,5 +196,24 @@ void ViewThread::updateMessages(QString ThreadID){
 
 QString ViewThread::getSubject(){
     return Thread.ThreadSubject;
+}
+
+
+void ViewThread::on_CloseThreadButton_clicked()
+{
+    QMessageBox::StandardButton closeThread = QMessageBox::question(nullptr, "Close Thread?",
+                          "Are you sure you want to close the thread?", QMessageBox::Yes|QMessageBox::No);
+    if(closeThread == QMessageBox::Yes){
+        QString updateTableQuery = "UPDATE Threads SET isOpen=0 WHERE ThreadID = ?";
+        QSqlQuery updateTable = getQuery(updateTableQuery, QStringList(Thread.ThreadID));
+        ui->Message->setVisible(false);
+        ui->AttachmentsList->setVisible(false);
+        ui->AddFileButton->setVisible(false);
+        ui->RemoveFileButton->setVisible(false);
+        ui->Message->setVisible(false);
+        ui->SendMessageButton->setVisible(false);
+        ui->FileAttachmentsLabel->setVisible(false);
+        ui->CloseThreadButton->setVisible(false);
+    }
 }
 

@@ -316,7 +316,6 @@ signals:
         QString localFolder = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/CaseStudy/" + container;
         QDir dir(localFolder);
         if(!dir.exists()){
-            qDebug() << "gumana ito";
             dir.mkpath(localFolder);
         }
         QString localFile =  localFolder + "/" + azureFilenameToDownload;

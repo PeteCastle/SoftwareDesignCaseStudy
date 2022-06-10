@@ -9,7 +9,9 @@ ThreadDetailsBasicInfo::ThreadDetailsBasicInfo(QWidget *parent, ThreadDetails th
     ui->ThreadID->setText(thread.ThreadID);
     ui->ThreadSubject->setText(thread.ThreadSubject);
     ui->ThreadUserLabel->setText(thread.ThreadUser);
-    ui->ThreadCreationDateLabel->setText(thread.ThreadCreationTime.toString("MMMM d h:mm ap"));
+
+    QDateTime ThreadCreationTime = thread.ThreadCreationTime.toLocalTime();
+    ui->ThreadCreationDateLabel->setText(ThreadCreationTime.toString("MMMM d h:mm ap"));
 
     foreach(QString tags, thread.ThreadTags){
         QLabel *tagLabel = new QLabel(tags);

@@ -27,16 +27,10 @@ public:
 
 private slots:
     void on_AddFileButton_clicked();
-
     void on_RemoveFileButton_clicked();
-
     void on_SendMessageButton_clicked();
-
-    void on_pushButton_clicked();
-
     void updateMessages(QString ThreadID);
-
-
+    void on_CloseThreadButton_clicked();
 
 private:
     Ui::ViewThread *ui;

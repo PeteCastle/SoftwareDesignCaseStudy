@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
     QString userPassword = "CEzt9%P7nsoZ#EyuK$";
     QString connectionTimout = "30";
 
-    QSqlDatabase database = QSqlDatabase::addDatabase("QODBC");
+    QSqlDatabase database = QSqlDatabase::addDatabase("QODBC3");
     database.setConnectOptions();
 
     QString databaseConfiguration = QString(
