@@ -24,20 +24,17 @@ int main(int argc, char *argv[])
     QSplashScreen *loading = new QSplashScreen(QPixmap(":/Icons/ProgramIcons/LoadingScreen.png"));
     loading->show();
 
-    /*DataBaseAccess database;
-    database.connectDatabase();*/
-
     QString serverName = "tcp:petecastle.database.windows.net,1433";
     QString initialCatalog = "MainDataBase";
     QString userID = "PeteCastle";
     QString userPassword = "CEzt9%P7nsoZ#EyuK$";
     QString connectionTimout = "30";
 
-    QSqlDatabase database = QSqlDatabase::addDatabase("QODBC3");
+    QSqlDatabase database = QSqlDatabase::addDatabase("QODBC");
     database.setConnectOptions();
 
     QString databaseConfiguration = QString(
-        "Driver={ODBC Driver 13 for SQL Server};"
+        "Driver={SQL Server};"
         "Server=%1;"
         "Database=%2;"
         "Uid=%3;"
@@ -47,7 +44,6 @@ int main(int argc, char *argv[])
         "Connection Timeout=%5;"
         "MultipleActiveResultSets=True;"
     ).arg(serverName).arg(initialCatalog).arg(userID).arg(userPassword).arg(connectionTimout);
-   // database.setConnectOptions("SQL_ATTR_ODBC_VERSION=SQL_OV_ODBC3");
     database.setDatabaseName(databaseConfiguration);
 
     if(database.open()){

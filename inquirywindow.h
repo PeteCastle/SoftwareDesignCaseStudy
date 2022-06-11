@@ -22,7 +22,7 @@ class InquiryWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit InquiryWindow(QWidget *parent = nullptr, int userID=0);
+    explicit InquiryWindow(QWidget *parent = nullptr, int userID=0, QWidget *informationWidget={});
     ~InquiryWindow();
 
 private slots:

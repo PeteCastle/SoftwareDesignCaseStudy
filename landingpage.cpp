@@ -60,7 +60,7 @@ void LandingPage::on_LoginButton_clicked()
 
     if(userID!=0){
         QMessageBox::information(this,"Login success", "Navigating to the inquiry system.");
-        InquiryWindow *inquiryWindow = new InquiryWindow(this, userID);
+        InquiryWindow *inquiryWindow = new InquiryWindow(this, userID, ui->InformationWindow);
         inquiryWindow->setWindowModality(Qt::ApplicationModal);
         inquiryWindow->show();
     }
@@ -95,7 +95,7 @@ void LandingPage::on_LoginButton_clicked()
 
 void LandingPage::on_GuestButton_clicked()
 {
-    InquiryWindow *inquiryWindow = new InquiryWindow(this, 0);
+    InquiryWindow *inquiryWindow = new InquiryWindow(this, 0, ui->InformationWindow);
     inquiryWindow->setWindowModality(Qt::ApplicationModal);
     inquiryWindow->show();
 }

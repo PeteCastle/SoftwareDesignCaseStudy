@@ -3,7 +3,7 @@
 #include <QStringListModel>
 #include "global.h"
 
-InquiryWindow::InquiryWindow(QWidget *parent, int userID) :
+InquiryWindow::InquiryWindow(QWidget *parent, int userID, QWidget *informationWidget) :
     QMainWindow(parent),
     ui(new Ui::InquiryWindow)
 {
@@ -68,12 +68,12 @@ InquiryWindow::InquiryWindow(QWidget *parent, int userID) :
            ui->MainMenu->addItem(item);
            ui->MainMenu->setItemWidget(item, newMenu);
        },
-       [this]{
-           InquiryWindowHome *homeWindow = new InquiryWindowHome(this);
-           ui->MainStackedWidget->setCurrentWidget(homeWindow);
-           activeMenuList.insert("Home", homeWindow);
+       [this, informationWidget]{
+           //InquiryWindowHome *homeWindow = new InquiryWindowHome(this);
+           ui->MainStackedWidget->setCurrentWidget(informationWidget);
+           activeMenuList.insert("Home", informationWidget);
            menuDictionary.insert("Home", "Home");
-           ui->MainStackedWidget->addWidget(homeWindow);
+           ui->MainStackedWidget->addWidget(informationWidget);
            qDebug() << "Created new window of Home";
        });
    menuList["ViewAccount"] = qMakePair(
@@ -194,6 +194,7 @@ InquiryWindow::InquiryWindow(QWidget *parent, int userID) :
 
    //Set default menu
    menuList["Home"].second();
+   modifyHeaderVisibility(1);
    ui->MainStackedWidget->setCurrentWidget(activeMenuList["Home"]);
    ui->MainMenu->setCurrentRow(0);
 }
@@ -221,7 +222,7 @@ void InquiryWindow::on_MainMenu_itemClicked(QListWidgetItem *item)
         qDebug() << "User clicked an already existing menu";
         ui->MainStackedWidget->setCurrentWidget(activeMenuList[windowName]);
     }
-    if(windowName=="ViewAccount" || windowName == "AdminSQLManager") modifyHeaderVisibility(0);
+    if(windowName=="ViewAccount" || windowName == "AdminSQLManager" || windowName == "Home") modifyHeaderVisibility(0);
     else modifyHeaderVisibility(1);
 
 
@@ -236,71 +237,3 @@ void InquiryWindow::modifyHeaderVisibility(bool isVisible){
     ui->LogoutButton->setVisible(isVisible);
     ui->UsernameLabel->setVisible(isVisible);
 }
-
-
-/*
-if(userCredentials.accountType==-1){
-    ui->AccountTypeLabel->setText("Guest");
-    ui->FullNameLabel->setVisible(false);
-    ui->UsernameLabel->setVisible(false);
-    ui->AccountButton->setVisible(false);
-    ui->LogoutButton->setText("Logout");
-    //List of all available features for guest account
-    featureList = {"Create Thread","View Threads"};
-    QStringListModel *mainMenuList = new QStringListModel(featureList,this);
-    ui->MainMenu->setModel(mainMenuList);
-    ThreadsWindow *threadsWindow = new ThreadsWindow(this, userCredentials);
-    NewThreadsWindow *newThreadsWindow = new NewThreadsWindow(this, userCredentials);
-    ui->MainStackedWidget->addWidget(newThreadsWindow);
-    ui->MainStackedWidget->addWidget(threadsWindow);
-    ui->WindowTitleLabel->setText(featureList[0]);
-
-}
-else if(userCredentials.accountType==0){
-    ui->AccountTypeLabel->setText("Non-student Account");
-    //List of all available fetures for non-student account
-    featureList = {"Create Thread","View Threads"};
-    QStringListModel *mainMenuList = new QStringListModel(featureList,this);
-    ui->MainMenu->setModel(mainMenuList);
-    ThreadsWindow *threadsWindow = new ThreadsWindow(this, userCredentials);
-    NewThreadsWindow *newThreadsWindow = new NewThreadsWindow(this, userCredentials);
-    ui->MainStackedWidget->addWidget(newThreadsWindow);
-    ui->MainStackedWidget->addWidget(threadsWindow);
-    ui->WindowTitleLabel->setText(featureList[0]);
-}
-else if(userCredentials.accountType==1){
-    ui->AccountTypeLabel->setText("Student Account");
-    //List of all available features for student account
-    featureList = {"Create Thread","View Threads"};
-    QStringListModel *mainMenuList = new QStringListModel(featureList,this);
-    ui->MainMenu->setModel(mainMenuList);
-    ThreadsWindow *threadsWindow = new ThreadsWindow(this, userCredentials);
-
-    ui->MainStackedWidget->addWidget(newThreadsWindow);
-    ui->MainStackedWidget->addWidget(threadsWindow);
-    ui->WindowTitleLabel->setText(featureList[0]);
-}
-else if(userCredentials.accountType==2){
-    ui->AccountTypeLabel->setText("Organizational Account");
-    //List of all available features for organizational account
-    featureList = {"Create Thread","View Threads"};
-    QStringListModel *mainMenuList = new QStringListModel(featureList,this);
-    ui->MainMenu->setModel(mainMenuList);
-    ThreadsWindow *threadsWindow = new ThreadsWindow(this, userCredentials);
-    NewThreadsWindow *newThreadsWindow = new NewThreadsWindow(this, userCredentials);
-    ui->MainStackedWidget->addWidget(newThreadsWindow);
-    ui->MainStackedWidget->addWidget(threadsWindow);
-    ui->WindowTitleLabel->setText(featureList[0]);
-}
-else if(userCredentials.accountType==3){
-    ui->AccountTypeLabel->setText("Administrator");
-    //List of all available features for administrator
-    featureList = {"Create Thread","View Threads"};
-    QStringListModel *mainMenuList = new QStringListModel(featureList,this);
-    ui->MainMenu->setModel(mainMenuList);
-    ThreadsWindow *threadsWindow = new ThreadsWindow(this, userCredentials);
-    NewThreadsWindow *newThreadsWindow = new NewThreadsWindow(this, userCredentials);
-    ui->MainStackedWidget->addWidget(newThreadsWindow);
-    ui->MainStackedWidget->addWidget(threadsWindow);
-    ui->WindowTitleLabel->setText(featureList[0]);
-}*/

@@ -1,6 +1,7 @@
 QT       += core gui
 QT       += sql
 QT       += network
+QTPLUGIN    += QPSQL
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
