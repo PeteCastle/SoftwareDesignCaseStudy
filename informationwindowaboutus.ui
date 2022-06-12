@@ -104,15 +104,10 @@
              </font>
             </property>
             <property name="text">
-             <string>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in malesuada tellus. Nullam nec mauris a enim auctor finibus. Ut vel elementum neque. Morbi pellentesque est vitae quam ullamcorper suscipit. Pellentesque luctus nulla eu erat lacinia, a vestibulum augue convallis. In hac habitasse platea dictumst. Duis condimentum augue ac urna iaculis placerat. In arcu mi, sodales cursus semper non, cursus ac urna. Integer sit amet libero id massa consequat mollis nec non magna. Integer id varius enim. Curabitur porttitor, mauris non imperdiet finibus, neque quam congue libero, quis lacinia felis sem in magna.
-
-Vestibulum viverra quam id placerat tincidunt. Maecenas varius ex vestibulum accumsan sagittis. Sed lobortis erat a neque dapibus, a dapibus ipsum commodo. Maecenas at nibh vel enim feugiat facilisis quis eu massa. Nam vulputate quam at mi pretium, et rhoncus mi dictum. Ut faucibus commodo leo, et pharetra est pretium ac. Ut sed felis sed odio tempor pulvinar. Vivamus vel nulla sapien.
-
-Nunc nec felis sit amet erat consequat imperdiet. Fusce interdum ante ut blandit aliquet. Praesent semper quam ornare sem ultricies fermentum. Aenean commodo sem nec odio malesuada, a consequat risus suscipit. Proin bibendum magna vitae vehicula facilisis. Duis rutrum ornare pellentesque. Fusce nec sem a erat congue luctus.
-
-Etiam et mattis dolor. Integer luctus dui sed auctor pharetra. Curabitur auctor tristique tellus, eu mattis nulla varius vitae. Duis elementum lacinia felis id sagittis. Nunc posuere nisl vel tortor dignissim aliquet. Aenean consectetur nisi eu gravida feugiat. Cras imperdiet, felis nec viverra dictum, odio mauris congue nisl, nec pretium ipsum ipsum ut erat. Nullam lacus orci, interdum a euismod eu, volutpat eget metus.
-
-Aenean tristique, tellus non imperdiet posuere, libero lacus pretium ex, eget tristique urna nibh quis quam. Fusce tincidunt tortor nulla, vitae pharetra leo accumsan eget. Nunc laoreet blandit efficitur. Vestibulum vehicula metus risus, ut pharetra dui convallis ut. Aenean consectetur tortor vel nulla fringilla maximus. Quisque dapibus mi vel mauris varius, finibus aliquam nisl interdum. Phasellus in varius risus, sed porttitor velit. Maecenas eget lobortis lacus, sit amet convallis quam. Vivamus ornare venenatis tincidunt. Phasellus ac eleifend ex, ultrices pharetra tellus. Sed maximus elit vel arcu mattis rhoncus. Etiam at magna porttitor, vehicula nisi in, volutpat dolor. Vivamus sagittis et turpis eu auctor. Sed rhoncus imperdiet arcu quis vestibulum. Aenean sit amet orci sed tortor mollis pharetra quis eu magna.</string>
+             <string>With the conviction of providing quality education and offering technical manual skills in the field of technology, the College of Engineering and Technology (CET) of the Tom’s Technological University was established on July 1, 1969 - six years after the late Mayor Antonio F. Villegas founded the university.
+Originally under the College of Arts and Letters, the main trust of the college was to provide technical, industrial, vocational education to TTU students alongside the humanistic courses to prepare them for promoting out technology under two divisions, namely - the Division of Engineering and Technology which covered the Department of Civil, Mechanical, Electrical, Sanitary, Chemical, Naval and Industrial Engineering and the Division of Technical and Vocational Education which covered the Department of Electronics, Wood Working, Metal Works, Automotive Works, Ceramics, Graphics Arts and Teacher Education in Arts and Trades. Obtaining a degree in this college then, required the student to finish a six-year ladderized program which was later reduced to a five-year scheme during the term of former TTU President Consuelo Blanco who felt the imperative need of the engineering graduates to constitute the country's labor pool.
+Today, the College of Engineering and Technology stands committed to upholding the legacy conceived by Mayor Villegas and the late Mayor Arsenio H. Lacson by providing its present batch of Engineering students with quality education which is responsive to the needs of the time.
+</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignJustify|Qt::AlignVCenter</set>
@@ -175,7 +170,7 @@ Aenean tristique, tellus non imperdiet posuere, libero lacus pretium ex, eget tr
              <item>
               <widget class="QLabel" name="label_7">
                <property name="text">
-                <string>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in malesuada tellus. Nullam nec mauris a enim auctor finibus. Ut vel elementum neque. Morbi pellentesque est vitae quam ullamcorper suscipit. Pellentesque luctus nulla eu erat lacinia, a vestibulum augue convallis. In hac habitasse platea dictumst</string>
+                <string>The College of Engineering and Technology will be the premier college in technological education, research, and extension services.</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignJustify|Qt::AlignVCenter</set>
@@ -377,7 +372,11 @@ Aenean tristique, tellus non imperdiet posuere, libero lacus pretium ex, eget tr
              <item>
               <widget class="QLabel" name="label_9">
                <property name="text">
-                <string>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in malesuada tellus. Nullam nec mauris a enim auctor finibus. Ut vel elementum neque. Morbi pellentesque est vitae quam ullamcorper suscipit. Pellentesque luctus nulla eu erat lacinia, a vestibulum augue convallis. In hac habitasse platea dictumst</string>
+                <string>Guided by this vision, we commit ourselves:
+1. To uphold excellence through curriculum development and teaching, significant advances in knowledge, and services to the community of which we are a part.
+2. To nurture students with a technological education of the highest quality that will enable them to be professionally competent, community directed, and God centered individuals; and
+3. To develop faculty members and staff to be excellent examples in leadership and management.
+</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignJustify|Qt::AlignVCenter</set>
@@ -453,7 +452,12 @@ Aenean tristique, tellus non imperdiet posuere, libero lacus pretium ex, eget tr
              <item>
               <widget class="QLabel" name="label_8">
                <property name="text">
-                <string>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in malesuada tellus. Nullam nec mauris a enim auctor finibus. Ut vel elementum neque. Morbi pellentesque est vitae quam ullamcorper suscipit. Pellentesque luctus nulla eu erat lacinia, a vestibulum augue convallis. In hac habitasse platea dictumst</string>
+                <string>Believing in our mission, we earnestly seek to:
+1. Facilitate the achievement of academic goals by regularly reviewing curricular programs, ensuring that they surpass the standards set by governing bodies.
+2. Provide a productive environment to facilitate quality research and socially responsive extension service.
+3. Develop dynamism among administrators, faculty, student, and services personnel, embracing diversities that contribute to the growth of the college.
+4. Strengthen our ties with our alumni and industry partners, helping us establish a distinct place in the industry.
+</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignJustify|Qt::AlignVCenter</set>

@@ -36,40 +36,6 @@ private:
     QStringList tableList;
 };
 
-class SQLTableModel : public QAbstractTableModel {
-    Q_OBJECT
-public:
-    SQLTableModel(QObject *parent = {}, QList<QSqlRecord> recordList={}) : QAbstractTableModel{parent}{
-        this->recordList = recordList;
-    };
-    void addRows(const QSqlRecord record){
-        beginInsertRows({}, record.count(), record.count());
-        recordList.append(record);
-        endInsertRows();
-    }
-    int rowCount(const QModelIndex &) const{
-        return recordList.count();
-    }
-    int columnCount(const QModelIndex &) const{
-        return recordList.size()!=0 ? recordList[0].count() : 0 ;
-    }
-    QVariant data(const QModelIndex &index, int role) const
-    {
-        if (role == Qt::DisplayRole){
-           return recordList.size()!=0 ? QVariant(recordList[index.row()].value(index.column())) : QVariant();
-        }
-        return QVariant();
-    }
-    QVariant headerData(int section, Qt::Orientation orientation, int role) const{
-        if (role == Qt::DisplayRole){
-            if (orientation == Qt::Horizontal) {
-                return recordList.size()!=0 ? QVariant(recordList[0].fieldName(section)) : QVariant();
-            }
-        }
-        return QVariant();
-    }
-private:
-    QList<QSqlRecord> recordList;
-};
+
 
 #endif // ADMINSQLMANAGER_H

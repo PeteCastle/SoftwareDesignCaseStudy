@@ -2,6 +2,7 @@
 #define INFORMATIONWINDOWCONTACTUS_H
 
 #include <QWidget>
+#include "global.h"
 
 namespace Ui {
 class InformationWindowContactUs;
