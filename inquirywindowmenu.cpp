@@ -8,7 +8,7 @@ InquiryWindowMenu::InquiryWindowMenu(QWidget *parent, QString menuName, QString 
     ui->setupUi(this);
 
     QPixmap pixmap(menuIconLocation);
-    pixmap = pixmap.scaled(100,100,Qt::KeepAspectRatio,Qt::FastTransformation);
+    pixmap = pixmap.scaled(50,50,Qt::KeepAspectRatio,Qt::FastTransformation);
     ui->MenuPicture->setPixmap(pixmap);
     ui->MenuName->setText(menuName);
 }

@@ -22,7 +22,7 @@ InquiryWindow::InquiryWindow(QWidget *parent, int userID, QWidget *informationWi
    menuList["CreateThread"] = qMakePair(
         [this]{
             QString menuName = "Create Thread";
-            QString menuIconFile = ":/Icons/ProgramIcons/LoadingScreen.png";
+            QString menuIconFile = ":/Icons/ProgramIcons/CreateThreadIcon.png";
             InquiryWindowMenu *newMenu = new InquiryWindowMenu(nullptr,menuName,menuIconFile);
             QListWidgetItem *item = new QListWidgetItem();
             item->setSizeHint(QSize(100,100));
@@ -41,7 +41,7 @@ InquiryWindow::InquiryWindow(QWidget *parent, int userID, QWidget *informationWi
    menuList["ViewThreadsNonGuest"] = qMakePair(
        [this]{
            QString menuName = "View My Threads";
-           QString menuIconFile = ":/Icons/ProgramIcons/LoadingScreen.png";
+           QString menuIconFile = ":/Icons/ProgramIcons/MyThreadIcon.png";
            InquiryWindowMenu *newMenu = new InquiryWindowMenu(nullptr,menuName,menuIconFile);
            QListWidgetItem *item = new QListWidgetItem();
            item->setSizeHint(QSize(100,100));
@@ -60,7 +60,7 @@ InquiryWindow::InquiryWindow(QWidget *parent, int userID, QWidget *informationWi
    menuList["Home"] = qMakePair(
        [this]{
            QString menuName = "Home";
-           QString menuIconFile = ":/Icons/ProgramIcons/LoadingScreen.png";
+           QString menuIconFile = ":/Icons/ProgramIcons/HomeIcon.png";
            InquiryWindowMenu *newMenu = new InquiryWindowMenu(nullptr,menuName,menuIconFile);
            QListWidgetItem *item = new QListWidgetItem();
            item->setSizeHint(QSize(100,100));
@@ -79,7 +79,7 @@ InquiryWindow::InquiryWindow(QWidget *parent, int userID, QWidget *informationWi
    menuList["ViewAccount"] = qMakePair(
        [this]{
            QString menuName = "My Acccount";
-           QString menuIconFile = ":/Icons/ProgramIcons/LoadingScreen.png";
+           QString menuIconFile = ":/Icons/ProgramIcons/MyAccountIcon.png";
            InquiryWindowMenu *newMenu = new InquiryWindowMenu(nullptr,menuName,menuIconFile);
            QListWidgetItem *item = new QListWidgetItem();
            item->setSizeHint(QSize(100,100));
@@ -99,7 +99,7 @@ InquiryWindow::InquiryWindow(QWidget *parent, int userID, QWidget *informationWi
    menuList["ViewThreadsGuest"] = qMakePair(
         [this]{
             QString menuName = "Display Thread";
-            QString menuIconFile = ":/Icons/ProgramIcons/LoadingScreen.png";
+            QString menuIconFile = ":/Icons/ProgramIcons/MyThreadIcon.png";
             InquiryWindowMenu *newMenu = new InquiryWindowMenu(nullptr,menuName,menuIconFile);
             QListWidgetItem *item = new QListWidgetItem();
             item->setSizeHint(QSize(100,100));
@@ -118,7 +118,7 @@ InquiryWindow::InquiryWindow(QWidget *parent, int userID, QWidget *informationWi
     menuList["ViewThreadsPublic"] = qMakePair(
         [this]{
             QString menuName = "View Public Threads";
-            QString menuIconFile = ":/Icons/ProgramIcons/LoadingScreen.png";
+            QString menuIconFile = ":/Icons/ProgramIcons/PublicThreadIcon.png";
             InquiryWindowMenu *newMenu = new InquiryWindowMenu(nullptr,menuName,menuIconFile);
             QListWidgetItem *item = new QListWidgetItem();
             item->setSizeHint(QSize(100,100));
@@ -137,7 +137,7 @@ InquiryWindow::InquiryWindow(QWidget *parent, int userID, QWidget *informationWi
    menuList["AdminSQLManager"] = qMakePair(
         [this]{
             QString menuName = "SQL Manager";
-            QString menuIconFile = ":/Icons/ProgramIcons/LoadingScreen.png";
+            QString menuIconFile = ":/Icons/ProgramIcons/SqlManagerIcon.png";
             InquiryWindowMenu *newMenu = new InquiryWindowMenu(nullptr,menuName,menuIconFile);
             QListWidgetItem *item = new QListWidgetItem();
             item->setSizeHint(QSize(100,100));

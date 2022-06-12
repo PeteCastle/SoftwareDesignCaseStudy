@@ -12,6 +12,7 @@
 #include "global.h"
 
 #include <QDesktopServices>
+#include <QFontDatabase>
 
 QMap<QString,QString> FileDictionary;
 QMap<QString,QPixmap> ProfilePictureDictionary;
@@ -80,6 +81,8 @@ int main(int argc, char *argv[])
 
     reshapeProfilePicture("",nullptr,50);
 
+    loading->showMessage("Installing fonts...",Qt::AlignLeft,QColor(229,175,0));
+    QFontDatabase::addApplicationFont(":/fonts/ProgramIcons/Fonts/Joan-Regular.ttf");
 
 
     loading->showMessage("Creating Main Window...",Qt::AlignLeft,QColor(229,175,0));
