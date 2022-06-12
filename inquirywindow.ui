@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout" stretch="10,90">
+   <layout class="QHBoxLayout" name="horizontalLayout" stretch="8,92">
     <property name="spacing">
      <number>0</number>
     </property>
@@ -32,6 +32,9 @@
     </property>
     <item>
      <layout class="QVBoxLayout" name="verticalLayout" stretch="5,10,85">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetDefaultConstraint</enum>
+      </property>
       <item alignment="Qt::AlignHCenter">
        <widget class="QLabel" name="label_2">
         <property name="text">

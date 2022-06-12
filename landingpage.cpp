@@ -52,8 +52,8 @@ void LandingPage::on_LoginButton_clicked()
         return;
     }
     QString authenticateUserQuery = "DECLARE @hashVarchar varchar(128) = ?;"
-                                    " SELECT UserID FROM Accounts WHERE Username = ? AND Userpass = HASHBYTES('SHA2_256',@hashVarchar);";
-    QStringList loginCredentials = {ui->PasswordLineEdit->text(),ui->EmailLineEdit->text()};
+                                    " SELECT UserID FROM Accounts WHERE (Username = ? OR AcademicEmail = ?) AND Userpass = HASHBYTES('SHA2_256',@hashVarchar);";
+    QStringList loginCredentials = {ui->PasswordLineEdit->text(),ui->PasswordLineEdit->text(),ui->EmailLineEdit->text()};
     QSqlQuery authenticateUser = getQuery(authenticateUserQuery, loginCredentials);
     authenticateUser.next();
     int userID = authenticateUser.value(0).toInt();

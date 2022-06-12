@@ -26,6 +26,10 @@ private slots:
 
     void on_QueryLineEdit_textChanged(const QString &arg1);
 
+    void on_AddButton_clicked();
+
+    void on_RemoveButton_clicked();
+
 private:
     Ui::AdminSQLManager *ui;
     void updateTableValues(QString queryString, QStringList queryArgs);

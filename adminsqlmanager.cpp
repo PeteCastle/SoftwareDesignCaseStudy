@@ -46,6 +46,7 @@ void AdminSQLManager::updateTableValues(QString queryString, QStringList queryAr
         delete allSubwidgets[i];
     }
 
+
     QList<QSortFilterProxyModel*> sortFilterLists;
     if(recordList.size()!=0){
         for(int i=0; i<recordList[0].count();i++){
@@ -62,6 +63,7 @@ void AdminSQLManager::updateTableValues(QString queryString, QStringList queryAr
         }
         ui->SQLTable->setModel(sortFilterLists[sortFilterLists.size()-1]);
     }
+    //ui->FiltersList->widget()->layout()->addItem(new QSpacerItem(20,40,QSizePolicy::Expanding,QSizePolicy::Expanding));
 }
 
 AdminSQLManager::~AdminSQLManager()
@@ -88,5 +90,28 @@ void AdminSQLManager::on_TableList_currentIndexChanged(int index)
 void AdminSQLManager::on_QueryLineEdit_textChanged(const QString &arg1)
 {
     ui->TableList->setCurrentText("(Custom query)");
+}
+
+
+void AdminSQLManager::on_AddButton_clicked()
+{
+
+}
+
+
+void AdminSQLManager::on_RemoveButton_clicked()
+{
+    QModelIndexList selection = ui->SQLTable->selectionModel()->selectedIndexes();
+
+    for(int i=0; i<selection.count(); i++){
+        selection[i].row();
+        QModelIndex index = selection.at(i);
+        for(int j=0; j<ui->SQLTable->model()->columnCount();j++){
+            qDebug() << ui->SQLTable->model()->index(selection[i].row(),j).data().toString();
+
+
+        }
+        qDebug() << "NEW SELECTION";
+    }
 }
 
