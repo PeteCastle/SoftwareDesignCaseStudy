@@ -26,9 +26,6 @@ inline QSqlQuery getQuery(QString queryString, QStringList bindValues={}){
    if(query.lastError().text().contains("connected party did not properly respond after a period of time")){
        QMessageBox::information(nullptr, "SQL Connection Error", "Please check your internet connection and try again.");
    }
-   else if(query.lastError().text().contains("Communication link failure")){
-       QMessageBox::information(nullptr, "SQL Connection Error", "You have been disconnected from the SQL server. Please restart the program and try again.");
-   }
    return query;
 }
 

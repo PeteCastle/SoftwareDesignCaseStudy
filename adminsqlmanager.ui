@@ -16,45 +16,10 @@
   <layout class="QHBoxLayout" name="horizontalLayout" stretch="30,70">
    <item>
     <layout class="QVBoxLayout" name="verticalLayout">
-     <property name="spacing">
-      <number>5</number>
-     </property>
-     <property name="leftMargin">
-      <number>10</number>
-     </property>
-     <property name="topMargin">
-      <number>10</number>
-     </property>
-     <property name="rightMargin">
-      <number>10</number>
-     </property>
-     <property name="bottomMargin">
-      <number>10</number>
-     </property>
-     <item alignment="Qt::AlignHCenter">
-      <widget class="QLabel" name="label">
-       <property name="font">
-        <font>
-         <pointsize>16</pointsize>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>SQL TABLE MANAGER</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="Line" name="line">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </item>
      <item alignment="Qt::AlignHCenter">
       <widget class="QLabel" name="TableLabel">
        <property name="text">
-        <string>SELECT A TABLE</string>
+        <string>Table</string>
        </property>
       </widget>
      </item>
@@ -62,37 +27,7 @@
       <widget class="QComboBox" name="TableList"/>
      </item>
      <item alignment="Qt::AlignHCenter">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>OR CUSTOM QUERY</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="QueryLineEdit"/>
-     </item>
-     <item>
-      <widget class="QPushButton" name="UpdateButton">
-       <property name="text">
-        <string>Update Table</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="Line" name="line_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </item>
-     <item alignment="Qt::AlignHCenter">
       <widget class="QLabel" name="FiltersLabel">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-         <bold>true</bold>
-        </font>
-       </property>
        <property name="text">
         <string>Filters</string>
        </property>
@@ -108,8 +43,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>218</width>
-          <height>146</height>
+          <width>222</width>
+          <height>290</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_2"/>
@@ -117,22 +52,9 @@
       </widget>
      </item>
      <item>
-      <widget class="Line" name="line_3">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </item>
-     <item alignment="Qt::AlignHCenter">
-      <widget class="QLabel" name="label_3">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-         <bold>true</bold>
-        </font>
-       </property>
+      <widget class="QPushButton" name="UpdateButton">
        <property name="text">
-        <string>Additional Tools</string>
+        <string>Update Table</string>
        </property>
       </widget>
      </item>
@@ -153,11 +75,7 @@
     </layout>
    </item>
    <item>
-    <widget class="QTableView" name="SQLTable">
-     <property name="sortingEnabled">
-      <bool>true</bool>
-     </property>
-    </widget>
+    <widget class="QTableView" name="SQLTable"/>
    </item>
   </layout>
  </widget>
