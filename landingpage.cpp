@@ -52,15 +52,15 @@ void LandingPage::on_LoginButton_clicked()
         return;
     }
     QString authenticateUserQuery = "DECLARE @hashVarchar varchar(128) = ?;"
-                                    " SELECT UserID FROM Accounts WHERE (Username = ? OR AcademicEmail = ?) AND Userpass = HASHBYTES('SHA2_256',@hashVarchar);";
-    QStringList loginCredentials = {ui->PasswordLineEdit->text(),ui->PasswordLineEdit->text(),ui->EmailLineEdit->text()};
+                                    " SELECT UserID FROM Accounts WHERE Username = ? AND Userpass = HASHBYTES('SHA2_256',@hashVarchar);";
+    QStringList loginCredentials = {ui->PasswordLineEdit->text(),ui->EmailLineEdit->text()};
     QSqlQuery authenticateUser = getQuery(authenticateUserQuery, loginCredentials);
     authenticateUser.next();
     int userID = authenticateUser.value(0).toInt();
 
     if(userID!=0){
         QMessageBox::information(this,"Login success", "Navigating to the inquiry system.");
-        InquiryWindow *inquiryWindow = new InquiryWindow(this, userID, ui->InformationWindow);
+        InquiryWindow *inquiryWindow = new InquiryWindow(this, userID);
         inquiryWindow->setWindowModality(Qt::ApplicationModal);
         inquiryWindow->show();
     }
@@ -95,7 +95,7 @@ void LandingPage::on_LoginButton_clicked()
 
 void LandingPage::on_GuestButton_clicked()
 {
-    InquiryWindow *inquiryWindow = new InquiryWindow(this, 0, ui->InformationWindow);
+    InquiryWindow *inquiryWindow = new InquiryWindow(this, 0);
     inquiryWindow->setWindowModality(Qt::ApplicationModal);
     inquiryWindow->show();
 }

@@ -3,5 +3,25 @@
         <file>ProgramIcons/LoadingScreen.png</file>
         <file>ProgramIcons/DefaultProfilePicture.jpg</file>
         <file>ProgramIcons/PlaceholderArticle.jpg</file>
+        <file>ProgramIcons/CreateThreadIcon.png</file>
+        <file>ProgramIcons/HomeIcon.png</file>
+        <file>ProgramIcons/MyAccountIcon.png</file>
+        <file>ProgramIcons/MyThreadIcon.png</file>
+        <file>ProgramIcons/PublicThreadIcon.png</file>
+        <file>ProgramIcons/SqlManagerIcon.png</file>
+        <file>ProgramIcons/Logo.png</file>
+        <file>ProgramIcons/Background.png</file>
+    </qresource>
+    <qresource prefix="/Checkbox">
+        <file>ProgramIcons/Checkbox/checked.png</file>
+        <file>ProgramIcons/Checkbox/hover.png</file>
+        <file>ProgramIcons/Checkbox/unchecked.png</file>
+    </qresource>
+    <qresource prefix="/Login Icons">
+        <file>ProgramIcons/Login Icons/Login.png</file>
+        <file>ProgramIcons/Login Icons/Password.png</file>
+    </qresource>
+    <qresource prefix="/fonts">
+        <file>ProgramIcons/Fonts/Joan-Regular.ttf</file>
     </qresource>
 </RCC>
