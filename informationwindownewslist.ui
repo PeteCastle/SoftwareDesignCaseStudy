@@ -60,6 +60,7 @@
          <font>
           <family>Heebo</family>
           <pointsize>-1</pointsize>
+          <weight>75</weight>
           <italic>false</italic>
           <bold>true</bold>
          </font>

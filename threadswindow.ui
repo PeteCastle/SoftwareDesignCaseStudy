@@ -71,8 +71,17 @@ font: 9pt &quot;Joan&quot;;
     border-radius: 10px;
 	border-color: rgb(13, 54, 101);
     padding:4px 4px 4px 4px;
-    background: white;
-    selection-background-color: darkgray;
+}
+
+QListView::item:selected {
+	background-color: rgb(206, 44, 44);
+	color: rgb(255, 255, 255);
+}
+
+QListView::item:hover {
+    background-color: rgb(255, 192, 192);
+	color:rgb(0, 0, 0);
+	
 }
 
 QRadioButton::indicator::unchecked{ 
@@ -191,7 +200,11 @@ background-color: rgb(139, 111, 12);
       </layout>
      </item>
      <item>
-      <widget class="QListWidget" name="ThreadsList"/>
+      <widget class="QListWidget" name="ThreadsList">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QPushButton" name="RefreshThreadsButton">

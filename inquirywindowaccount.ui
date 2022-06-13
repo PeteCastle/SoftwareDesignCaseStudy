@@ -53,6 +53,14 @@ QPushButton::pressed{
 border: 2px solid rgb(0, 170, 0);
 }
 
+QPushButton::disabled{
+font: bold 10pt  &quot;Heebo&quot;;
+background-color: rgb(171, 171, 171);
+color: rgb(233, 236, 237);
+border-radius: 10px;
+padding: 5px;
+}
+
 QComboBox{
 	font: 9pt &quot;Joan&quot;;
     border: 2px solid gray;

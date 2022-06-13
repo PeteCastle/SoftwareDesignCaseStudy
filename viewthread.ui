@@ -51,6 +51,8 @@ QPushButton::pressed{
 border: 2px solid rgb(0, 170, 0);
 }
 
+
+
 QComboBox{
 	font: 9pt &quot;Joan&quot;;
     border: 2px solid gray;
