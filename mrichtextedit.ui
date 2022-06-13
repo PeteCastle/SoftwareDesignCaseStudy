@@ -13,6 +13,13 @@
   <property name="windowTitle">
    <string notr="true"/>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#MRichTextEdit {
+
+	background-color: rgb(255, 255, 255);
+
+}</string>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
     <number>1</number>
@@ -55,6 +62,27 @@
         <property name="toolTip">
          <string>Paragraph formatting</string>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QComboBox{
+    font: 9pt &quot;Joan&quot;;
+    border: 2px solid gray;
+    border-radius: 10px;
+    border-color: rgb(13, 54, 101);
+     padding:4px 20px 4px 4px;
+    background: white;
+    selection-background-color: darkgray;
+}
+QComboBox::drop-down 
+{
+    border: 0px;
+}
+QComboBox::down-arrow{
+
+    image: url(:/Icons/ProgramIcons/downarrow.png);
+    width: 10px;
+    height: 10px;
+    }</string>
+        </property>
         <property name="editable">
          <bool>true</bool>
         </property>
@@ -68,19 +96,32 @@
        </widget>
       </item>
       <item>
-       <widget class="Line" name="line">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QToolButton" name="f_link">
         <property name="focusPolicy">
          <enum>Qt::ClickFocus</enum>
         </property>
         <property name="toolTip">
          <string>Link (CTRL+L)</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QToolButton {
+
+background-color: rgba(255, 255, 255,0);
+image: url(:/richtextsicon/ProgramIcons/mrichicons/link.png);
+
+}
+QToolButton::hover{
+
+	background-color: rgb(106, 177, 254);
+
+
+}
+QToolButton::pressed{
+	
+	background-color: rgb(135, 135, 135);
+}
+
+</string>
         </property>
         <property name="text">
          <string>Link</string>
@@ -101,19 +142,33 @@
        </widget>
       </item>
       <item>
-       <widget class="Line" name="line_3">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QToolButton" name="f_bold">
         <property name="focusPolicy">
          <enum>Qt::ClickFocus</enum>
         </property>
         <property name="toolTip">
          <string notr="true">Bold (CTRL+B)</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+QToolButton {
+
+image: url(:/richtextsicon/ProgramIcons/mrichicons/bold.png);
+background-color: rgba(255, 255, 255,0);
+
+}
+QToolButton::hover{
+
+	background-color: rgb(106, 177, 254);
+
+
+}
+QToolButton::pressed{
+	
+	background-color: rgb(135, 135, 135);
+}
+
+</string>
         </property>
         <property name="text">
          <string>Bold</string>
@@ -141,6 +196,27 @@
         <property name="toolTip">
          <string>Italic (CTRL+I)</string>
         </property>
+        <property name="styleSheet">
+         <string notr="true">
+QToolButton {
+
+image: url(:/richtextsicon/ProgramIcons/mrichicons/italic.png);
+background-color: rgba(255, 255, 255,0);
+
+}
+QToolButton::hover{
+
+	background-color: rgb(106, 177, 254);
+
+
+}
+QToolButton::pressed{
+	
+	background-color: rgb(135, 135, 135);
+}
+
+</string>
+        </property>
         <property name="text">
          <string>Italic</string>
         </property>
@@ -167,6 +243,27 @@
         <property name="toolTip">
          <string>Underline (CTRL+U)</string>
         </property>
+        <property name="styleSheet">
+         <string notr="true">
+QToolButton {
+
+image: url(:/richtextsicon/ProgramIcons/mrichicons/underline.png);
+background-color: rgba(255, 255, 255,0);
+
+}
+QToolButton::hover{
+
+	background-color: rgb(106, 177, 254);
+
+
+}
+QToolButton::pressed{
+	
+	background-color: rgb(135, 135, 135);
+}
+
+</string>
+        </property>
         <property name="text">
          <string>Underline</string>
         </property>
@@ -187,8 +284,29 @@
       </item>
       <item>
        <widget class="QToolButton" name="f_strikeout">
+        <property name="styleSheet">
+         <string notr="true">
+QToolButton {
+
+image: url(:/richtextsicon/ProgramIcons/mrichicons/strikeout.png);
+background-color: rgba(255, 255, 255,0);
+
+}
+QToolButton::hover{
+
+	background-color: rgb(106, 177, 254);
+
+
+}
+QToolButton::pressed{
+	
+	background-color: rgb(135, 135, 135);
+}
+
+</string>
+        </property>
         <property name="text">
-         <string>Strike Out</string>
+         <string/>
         </property>
         <property name="checkable">
          <bool>true</bool>
@@ -210,8 +328,29 @@
         <property name="toolTip">
          <string>Bullet list (CTRL+-)</string>
         </property>
+        <property name="styleSheet">
+         <string notr="true">
+QToolButton {
+
+image: url(:/richtextsicon/ProgramIcons/mrichicons/bulletlist.png);
+background-color: rgba(255, 255, 255,0);
+
+}
+QToolButton::hover{
+
+	background-color: rgb(106, 177, 254);
+
+
+}
+QToolButton::pressed{
+	
+	background-color: rgb(135, 135, 135);
+}
+
+</string>
+        </property>
         <property name="text">
-         <string>Bullet list</string>
+         <string/>
         </property>
         <property name="iconSize">
          <size>
@@ -232,8 +371,29 @@
         <property name="toolTip">
          <string>Ordered list (CTRL+=)</string>
         </property>
+        <property name="styleSheet">
+         <string notr="true">
+QToolButton {
+
+	image: url(:/richtextsicon/ProgramIcons/mrichicons/order list.png);
+background-color: rgba(255, 255, 255,0);
+
+}
+QToolButton::hover{
+
+	background-color: rgb(106, 177, 254);
+
+
+}
+QToolButton::pressed{
+	
+	background-color: rgb(135, 135, 135);
+}
+
+</string>
+        </property>
         <property name="text">
-         <string>Ordered list</string>
+         <string/>
         </property>
         <property name="iconSize">
          <size>
@@ -247,12 +407,40 @@
        </widget>
       </item>
       <item>
+       <widget class="Line" name="line_3">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QToolButton" name="f_indent_dec">
         <property name="focusPolicy">
          <enum>Qt::ClickFocus</enum>
         </property>
         <property name="toolTip">
          <string>Decrease indentation (CTRL+,)</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+QToolButton {
+
+image: url(:/richtextsicon/ProgramIcons/mrichicons/decrease indent.png);
+background-color: rgba(255, 255, 255,0);
+
+}
+QToolButton::hover{
+
+	background-color: rgb(106, 177, 254);
+
+
+}
+QToolButton::pressed{
+	
+	background-color: rgb(135, 135, 135);
+}
+
+</string>
         </property>
         <property name="text">
          <string>Decrease indentation</string>
@@ -276,6 +464,27 @@
         </property>
         <property name="toolTip">
          <string>Increase indentation (CTRL+.)</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+QToolButton {
+
+image: url(:/richtextsicon/ProgramIcons/mrichicons/increase indent.png);
+background-color: rgba(255, 255, 255,0);
+
+}
+QToolButton::hover{
+
+	background-color: rgb(106, 177, 254);
+
+
+}
+QToolButton::pressed{
+	
+	background-color: rgb(135, 135, 135);
+}
+
+</string>
         </property>
         <property name="text">
          <string>Increase indentation</string>
@@ -319,6 +528,25 @@
         <property name="toolTip">
          <string>Text foreground color</string>
         </property>
+        <property name="styleSheet">
+         <string notr="true">
+QToolButton {
+
+
+}
+QToolButton::hover{
+
+	background-color: rgb(106, 177, 254);
+
+
+}
+QToolButton::pressed{
+	
+	background-color: rgb(135, 135, 135);
+}
+
+</string>
+        </property>
         <property name="text">
          <string>.</string>
         </property>
@@ -350,6 +578,25 @@
         <property name="toolTip">
          <string>Text background color</string>
         </property>
+        <property name="styleSheet">
+         <string notr="true">
+QToolButton {
+
+
+}
+QToolButton::hover{
+
+	background-color: rgb(106, 177, 254);
+
+
+}
+QToolButton::pressed{
+	
+	background-color: rgb(135, 135, 135);
+}
+
+</string>
+        </property>
         <property name="text">
          <string>.</string>
         </property>
@@ -362,12 +609,40 @@
        </widget>
       </item>
       <item>
+       <widget class="Line" name="line">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QComboBox" name="f_fontsize">
         <property name="focusPolicy">
          <enum>Qt::ClickFocus</enum>
         </property>
         <property name="toolTip">
          <string>Font size</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QComboBox{
+    font: 9pt &quot;Joan&quot;;
+    border: 2px solid gray;
+    border-radius: 10px;
+    border-color: rgb(13, 54, 101);
+     padding:4px 20px 4px 4px;
+    background: white;
+    selection-background-color: darkgray;
+}
+QComboBox::drop-down 
+{
+    border: 0px;
+}
+QComboBox::down-arrow{
+
+    image: url(:/Icons/ProgramIcons/downarrow.png);
+    width: 10px;
+    height: 10px;
+    }</string>
         </property>
         <property name="editable">
          <bool>true</bool>
@@ -397,9 +672,7 @@
      </layout>
      <zorder>f_paragraph</zorder>
      <zorder>line_4</zorder>
-     <zorder>line</zorder>
      <zorder>f_link</zorder>
-     <zorder>line_3</zorder>
      <zorder>f_italic</zorder>
      <zorder>f_underline</zorder>
      <zorder>line_2</zorder>
@@ -414,6 +687,8 @@
      <zorder>f_strikeout</zorder>
      <zorder>line_6</zorder>
      <zorder>f_fgcolor</zorder>
+     <zorder>line_3</zorder>
+     <zorder>line</zorder>
     </widget>
    </item>
    <item>
@@ -436,6 +711,27 @@
          </property>
          <property name="toolTip">
           <string>Redo</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+QToolButton {
+
+image: url(:/richtextsicon/ProgramIcons/mrichicons/redo.png);
+background-color: rgba(255, 255, 255,0);
+
+}
+QToolButton::hover{
+
+	background-color: rgb(106, 177, 254);
+
+
+}
+QToolButton::pressed{
+	
+	background-color: rgb(135, 135, 135);
+}
+
+</string>
          </property>
          <property name="text">
           <string>Redo</string>
@@ -460,6 +756,27 @@
          <property name="toolTip">
           <string>Copy (CTRL+C)</string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">
+QToolButton {
+
+image: url(:/richtextsicon/ProgramIcons/mrichicons/copy.png);
+background-color: rgba(255, 255, 255,0);
+
+}
+QToolButton::hover{
+
+	background-color: rgb(106, 177, 254);
+
+
+}
+QToolButton::pressed{
+	
+	background-color: rgb(135, 135, 135);
+}
+
+</string>
+         </property>
          <property name="text">
           <string>Copy</string>
          </property>
@@ -482,6 +799,27 @@
          </property>
          <property name="toolTip">
           <string>Cut (CTRL+X)</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+QToolButton {
+
+image: url(:/richtextsicon/ProgramIcons/mrichicons/cut.png);
+background-color: rgba(255, 255, 255,0);
+
+}
+QToolButton::hover{
+
+	background-color: rgb(106, 177, 254);
+
+
+}
+QToolButton::pressed{
+	
+	background-color: rgb(135, 135, 135);
+}
+
+</string>
          </property>
          <property name="text">
           <string>Cut</string>
@@ -509,6 +847,27 @@
          <property name="toolTip">
           <string>Undo (CTRL+Z)</string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">
+QToolButton {
+
+image: url(:/richtextsicon/ProgramIcons/mrichicons/undo.png);
+background-color: rgba(255, 255, 255,0);
+
+}
+QToolButton::hover{
+
+	background-color: rgb(106, 177, 254);
+
+
+}
+QToolButton::pressed{
+	
+	background-color: rgb(135, 135, 135);
+}
+
+</string>
+         </property>
          <property name="text">
           <string>Undo</string>
          </property>
@@ -532,6 +891,27 @@
          <property name="toolTip">
           <string>Paste (CTRL+V)</string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">
+QToolButton {
+
+image: url(:/richtextsicon/ProgramIcons/mrichicons/paste.png);
+background-color: rgba(255, 255, 255,0);
+
+}
+QToolButton::hover{
+
+	background-color: rgb(106, 177, 254);
+
+
+}
+QToolButton::pressed{
+	
+	background-color: rgb(135, 135, 135);
+}
+
+</string>
+         </property>
          <property name="text">
           <string>Paste</string>
          </property>
@@ -549,6 +929,27 @@
        </item>
        <item>
         <widget class="QToolButton" name="f_image">
+         <property name="styleSheet">
+          <string notr="true">
+QToolButton {
+
+image: url(:/richtextsicon/ProgramIcons/mrichicons/attach.png);
+background-color: rgba(255, 255, 255,0);
+
+}
+QToolButton::hover{
+
+	background-color: rgb(106, 177, 254);
+
+
+}
+QToolButton::pressed{
+	
+	background-color: rgb(135, 135, 135);
+}
+
+</string>
+         </property>
          <property name="text">
           <string notr="true">...</string>
          </property>
@@ -569,6 +970,27 @@
        </item>
        <item>
         <widget class="QToolButton" name="f_menu">
+         <property name="styleSheet">
+          <string notr="true">
+QToolButton {
+
+
+	background-color: rgb(13, 54, 101);
+
+}
+QToolButton::hover{
+
+	background-color: rgb(106, 177, 254);
+
+
+}
+QToolButton::pressed{
+	
+	background-color: rgb(135, 135, 135);
+}
+
+</string>
+         </property>
          <property name="text">
           <string>...</string>
          </property>
