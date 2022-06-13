@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1074</width>
-    <height>553</height>
+    <height>762</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -196,6 +196,9 @@ background-color: rgb(139, 111, 12);
      </item>
      <item row="3" column="0" alignment="Qt::AlignLeft">
       <widget class="QLabel" name="RecipientsSelectedLabel">
+       <property name="styleSheet">
+        <string notr="true">font: bold 10pt &quot;heebo&quot;;</string>
+       </property>
        <property name="text">
         <string>Selected Recipients</string>
        </property>
@@ -203,6 +206,9 @@ background-color: rgb(139, 111, 12);
      </item>
      <item row="0" column="0">
       <widget class="QLabel" name="RecipientsAddLabel">
+       <property name="styleSheet">
+        <string notr="true">font: bold 10pt &quot;heebo&quot;;</string>
+       </property>
        <property name="text">
         <string>Additional Recipients (Optional)</string>
        </property>
@@ -254,6 +260,9 @@ background-color: rgb(139, 111, 12);
      </item>
      <item row="3" column="0">
       <widget class="QLabel" name="TagsYourLabel">
+       <property name="styleSheet">
+        <string notr="true">font: bold 10pt &quot;heebo&quot;;</string>
+       </property>
        <property name="text">
         <string>Your Tags</string>
        </property>
@@ -261,6 +270,9 @@ background-color: rgb(139, 111, 12);
      </item>
      <item row="0" column="0">
       <widget class="QLabel" name="TagsSelectLabel">
+       <property name="styleSheet">
+        <string notr="true">font: bold 10pt &quot;heebo&quot;;</string>
+       </property>
        <property name="text">
         <string>Select Tags (Required)</string>
        </property>
@@ -295,6 +307,9 @@ background-color: rgb(139, 111, 12);
      </item>
      <item row="0" column="0" colspan="7">
       <widget class="QLabel" name="TitleLabel">
+       <property name="styleSheet">
+        <string notr="true">font: bold 10pt &quot;heebo&quot;;</string>
+       </property>
        <property name="text">
         <string>Title</string>
        </property>
@@ -358,6 +373,9 @@ background-color: rgb(139, 111, 12);
      </item>
      <item row="2" column="0" colspan="8">
       <widget class="QLabel" name="ContentsLabel">
+       <property name="styleSheet">
+        <string notr="true">font: bold 10pt &quot;heebo&quot;;</string>
+       </property>
        <property name="text">
         <string>Contents</string>
        </property>

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string/>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -63,6 +63,7 @@ background-color: rgb(18, 0, 0);
          <font>
           <family>Heebo</family>
           <pointsize>-1</pointsize>
+          <weight>75</weight>
           <italic>false</italic>
           <bold>true</bold>
          </font>
@@ -166,9 +167,9 @@ background-color: rgb(139, 111, 12);
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>-1849</y>
+           <y>0</y>
            <width>759</width>
-           <height>2411</height>
+           <height>2231</height>
           </rect>
          </property>
          <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" columnstretch="30,30,30">
@@ -178,6 +179,7 @@ background-color: rgb(139, 111, 12);
              <font>
               <family>Heebo</family>
               <pointsize>12</pointsize>
+              <weight>75</weight>
               <italic>false</italic>
               <bold>true</bold>
              </font>
@@ -197,6 +199,7 @@ color: rgb(0,0,0);</string>
              <font>
               <family>Heebo</family>
               <pointsize>18</pointsize>
+              <weight>75</weight>
               <italic>false</italic>
               <bold>true</bold>
              </font>
@@ -241,6 +244,7 @@ color: rgb(0,0,0);</string>
              <font>
               <family>heebo</family>
               <pointsize>16</pointsize>
+              <weight>75</weight>
               <italic>false</italic>
               <bold>true</bold>
              </font>
@@ -278,6 +282,7 @@ color: rgb(0,0,0);</string>
                 <font>
                  <family>Heebo</family>
                  <pointsize>12</pointsize>
+                 <weight>75</weight>
                  <italic>false</italic>
                  <bold>true</bold>
                 </font>
@@ -415,6 +420,7 @@ color: rgb(0,0,0);</string>
              <font>
               <family>Heebo</family>
               <pointsize>10</pointsize>
+              <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
              </font>

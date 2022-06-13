@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.15.2, 2022-06-14T01:10:29. -->
+<!-- Written by QtCreator 4.15.2, 2022-06-14T05:15:03. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -294,8 +294,9 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/files/PLM/2nd Year, 2nd Sem/SWD LAB/finals/design update 3/SoftwareDesignCaseStudy-main/CaseStudy.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">D:/files/PLM/2nd Year, 2nd Sem/SWD LAB/finals/design update 3/SoftwareDesignCaseStudy-main/CaseStudy.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">CaseStudy2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/files/PLM/2nd Year, 2nd Sem/SWD LAB/tangina/SoftwareDesignCaseStudy-main/SoftwareDesignCaseStudy-main/CaseStudy.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">D:/files/PLM/2nd Year, 2nd Sem/SWD LAB/tangina/SoftwareDesignCaseStudy-main/SoftwareDesignCaseStudy-main/CaseStudy.pro</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>

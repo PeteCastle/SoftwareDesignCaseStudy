@@ -18,7 +18,8 @@
 
 	background-color: rgb(255, 255, 255);
 
-}</string>
+}
+</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -114,13 +115,7 @@ QToolButton::hover{
 
 	background-color: rgb(106, 177, 254);
 
-
 }
-QToolButton::pressed{
-	
-	background-color: rgb(135, 135, 135);
-}
-
 </string>
         </property>
         <property name="text">
@@ -157,17 +152,12 @@ image: url(:/richtextsicon/ProgramIcons/mrichicons/bold.png);
 background-color: rgba(255, 255, 255,0);
 
 }
+
 QToolButton::hover{
 
 	background-color: rgb(106, 177, 254);
 
-
 }
-QToolButton::pressed{
-	
-	background-color: rgb(135, 135, 135);
-}
-
 </string>
         </property>
         <property name="text">
@@ -208,13 +198,7 @@ QToolButton::hover{
 
 	background-color: rgb(106, 177, 254);
 
-
 }
-QToolButton::pressed{
-	
-	background-color: rgb(135, 135, 135);
-}
-
 </string>
         </property>
         <property name="text">
@@ -255,13 +239,7 @@ QToolButton::hover{
 
 	background-color: rgb(106, 177, 254);
 
-
 }
-QToolButton::pressed{
-	
-	background-color: rgb(135, 135, 135);
-}
-
 </string>
         </property>
         <property name="text">
@@ -296,11 +274,6 @@ QToolButton::hover{
 
 	background-color: rgb(106, 177, 254);
 
-
-}
-QToolButton::pressed{
-	
-	background-color: rgb(135, 135, 135);
 }
 
 </string>
@@ -340,13 +313,7 @@ QToolButton::hover{
 
 	background-color: rgb(106, 177, 254);
 
-
 }
-QToolButton::pressed{
-	
-	background-color: rgb(135, 135, 135);
-}
-
 </string>
         </property>
         <property name="text">
@@ -383,11 +350,6 @@ QToolButton::hover{
 
 	background-color: rgb(106, 177, 254);
 
-
-}
-QToolButton::pressed{
-	
-	background-color: rgb(135, 135, 135);
 }
 
 </string>
@@ -435,11 +397,6 @@ QToolButton::hover{
 
 
 }
-QToolButton::pressed{
-	
-	background-color: rgb(135, 135, 135);
-}
-
 </string>
         </property>
         <property name="text">
@@ -478,10 +435,6 @@ QToolButton::hover{
 	background-color: rgb(106, 177, 254);
 
 
-}
-QToolButton::pressed{
-	
-	background-color: rgb(135, 135, 135);
 }
 
 </string>
@@ -609,13 +562,6 @@ QToolButton::pressed{
        </widget>
       </item>
       <item>
-       <widget class="Line" name="line">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QComboBox" name="f_fontsize">
         <property name="focusPolicy">
          <enum>Qt::ClickFocus</enum>
@@ -629,13 +575,14 @@ QToolButton::pressed{
     border: 2px solid gray;
     border-radius: 10px;
     border-color: rgb(13, 54, 101);
-     padding:4px 20px 4px 4px;
+    padding:4px 0 4px 0 ;
     background: white;
     selection-background-color: darkgray;
 }
 QComboBox::drop-down 
 {
     border: 0px;
+padding: 0 0 0 0;
 }
 QComboBox::down-arrow{
 
@@ -661,9 +608,12 @@ QComboBox::down-arrow{
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>40</width>
+          <width>100</width>
           <height>20</height>
          </size>
         </property>
@@ -688,7 +638,6 @@ QComboBox::down-arrow{
      <zorder>line_6</zorder>
      <zorder>f_fgcolor</zorder>
      <zorder>line_3</zorder>
-     <zorder>line</zorder>
     </widget>
    </item>
    <item>

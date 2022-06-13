@@ -11,7 +11,157 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>TTU CET PORTAL</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/Icons/ProgramIcons/Logo.png</normaloff>:/Icons/ProgramIcons/Logo.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow#InquiryWindow{
+	
+	background-image: url(:/Icons/ProgramIcons/inquirywindowbg.png);
+}
+
+QDialog{
+background-image: url(:/Icons/ProgramIcons/bg.png);
+}
+
+QLineEdit {
+	font: 9pt &quot;Joan&quot;;
+    border: 2px solid gray;
+    border-radius: 10px;
+	border-color: rgb(13, 54, 101);
+     padding:4px 4px 4px 4px;
+    background: white;
+    selection-background-color: darkgray;
+}
+
+QPushButton{
+font: bold 10pt  &quot;Heebo&quot;;
+background-color: rgb(13, 54, 101);
+color: rgb(233, 236, 237);
+border-radius: 10px;
+padding: 5px;
+}
+QPushButton::hover{
+border-style: inset;
+background-color:rgb(25, 104, 195);
+color: rgb(213, 173, 18);
+
+}
+QPushButton::pressed{
+border: 2px solid rgb(0, 170, 0);
+}
+
+QComboBox{
+	font: 9pt &quot;Joan&quot;;
+    border: 2px solid gray;
+    border-radius: 10px;
+	border-color: rgb(13, 54, 101);
+     padding:4px 4px 4px 4px;
+    background: white;
+    selection-background-color: darkgray;
+}
+QComboBox::drop-down 
+{
+    border: 0px;
+}
+QComboBox::down-arrow{
+   
+	image: url(:/Icons/ProgramIcons/downarrow.png);
+    width: 10px;
+    height: 10px;
+    }
+
+QListView{
+font: 9pt &quot;Joan&quot;;
+    border: 2px solid gray;
+    border-radius: 10px;
+	border-color: rgb(13, 54, 101);
+     padding:4px 4px 4px 4px;
+    background: white;
+    selection-background-color: darkgray;
+}
+
+QRadioButton::indicator::unchecked{ 
+border: 1px solid; 
+border-color: rgb(13, 54, 101);
+border-radius: 9px;
+border-width: 2px;
+background-color: white; 
+width: 15px; 
+height: 15px; 
+}
+
+QRadioButton::indicator::checked{ 
+border-color: rgb(13, 54, 101);
+background-color:  rgb(213, 173, 18);
+border: 1px solid; 
+border-radius: 9px;
+border-width: 2px;
+width: 15px; 
+height: 15px; 
+}
+
+QScrollBar:vertical {
+border: none;
+	background-color: rgb(208, 244, 255);
+width: 14px;
+margin: 0 0 0 0;
+border-radius: 7px;
+}
+
+
+/* HANDLE BAR VERTICAL */
+QScrollBar::handle:vertical {
+	background-color: rgb(12, 12, 84);
+min-height: 30px;
+border-radius: 7px;
+}
+QScrollBar::handle:vertical:hover{
+background-color:rgb(28, 114, 206)
+}
+QScrollBar::handle:vertical:pressed {
+	background-color: rgb(8, 32, 59);
+}
+
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+border: none;
+background-color: rgb(213, 173, 18);
+height: 15px;
+border-top-left-radius: 7px;
+border-top-right-radius: 7px;
+subcontrol-position: top;
+subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical:hover {
+background-color: rgb(211, 213, 66);
+}
+QScrollBar::sub-line:vertical:pressed {
+	background-color: rgb(139, 111, 12);
+}
+
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+border: none;
+background-color: rgb(213, 173, 18);
+height: 15px;
+border-bottom-left-radius: 7px;
+border-bottom-right-radius: 7px;
+subcontrol-position: bottom;
+subcontrol-origin: margin;
+}
+QScrollBar::add-line:vertical:hover {
+background-color: rgb(211, 213, 66);
+}
+QScrollBar::add-line:vertical:pressed {
+background-color: rgb(139, 111, 12);
+}
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout" stretch="8,92">
@@ -31,23 +181,41 @@
      <number>0</number>
     </property>
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout" stretch="5,10,85">
+     <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,85">
       <property name="sizeConstraint">
        <enum>QLayout::SetDefaultConstraint</enum>
       </property>
-      <item alignment="Qt::AlignHCenter">
+      <item>
        <widget class="QLabel" name="label_2">
+        <property name="minimumSize">
+         <size>
+          <width>100</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">image: url(:/Icons/ProgramIcons/Logo.png);</string>
+        </property>
         <property name="text">
-         <string>BRAND LOGO</string>
+         <string/>
         </property>
        </widget>
       </item>
-      <item alignment="Qt::AlignHCenter">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>BRAND NAME</string>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
         </property>
-       </widget>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
       </item>
       <item>
        <widget class="QListWidget" name="MainMenu"/>
@@ -60,14 +228,17 @@
        <number>0</number>
       </property>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="60,10,20,5">
+       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="60,10,20,0,0,0">
         <item>
          <widget class="QLabel" name="WindowTitleLabel">
+          <property name="styleSheet">
+           <string notr="true">font: bold 12pt &quot;heebo&quot;;</string>
+          </property>
           <property name="text">
-           <string>Window Title</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Window Title&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -82,6 +253,9 @@
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
            <widget class="QLabel" name="FullNameLabel">
+            <property name="styleSheet">
+             <string notr="true">font:12pt &quot;heebo&quot;;</string>
+            </property>
             <property name="text">
              <string>Full Name</string>
             </property>
@@ -89,6 +263,9 @@
           </item>
           <item>
            <widget class="QLabel" name="UsernameLabel">
+            <property name="styleSheet">
+             <string notr="true">font:12pt &quot;heebo&quot;;</string>
+            </property>
             <property name="text">
              <string>Username</string>
             </property>
@@ -96,6 +273,9 @@
           </item>
           <item>
            <widget class="QLabel" name="AccountTypeLabel">
+            <property name="styleSheet">
+             <string notr="true">font:12pt &quot;heebo&quot;;</string>
+            </property>
             <property name="text">
              <string>Account Type</string>
             </property>
@@ -104,11 +284,37 @@
          </layout>
         </item>
         <item>
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
          <widget class="QPushButton" name="LogoutButton">
           <property name="text">
            <string>Switch Account</string>
           </property>
          </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
         </item>
        </layout>
       </item>
@@ -120,6 +326,8 @@
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

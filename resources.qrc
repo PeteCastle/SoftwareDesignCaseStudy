@@ -25,6 +25,7 @@
         <file>ProgramIcons/bgsapicnatin.png</file>
         <file>ProgramIcons/bg.png</file>
         <file>ProgramIcons/downarrow.png</file>
+        <file>ProgramIcons/inquirywindowbg.png</file>
     </qresource>
     <qresource prefix="/Checkbox">
         <file>ProgramIcons/Checkbox/checked.png</file>

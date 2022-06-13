@@ -385,7 +385,7 @@ background-color: solid rgb(59, 0, 0);
 </string>
         </property>
         <property name="text">
-         <string>ContactUs</string>
+         <string>Contact Us</string>
         </property>
         <property name="checkable">
          <bool>true</bool>
