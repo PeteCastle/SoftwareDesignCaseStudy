@@ -238,3 +238,7 @@ void InquiryWindow::modifyHeaderVisibility(bool isVisible){
     ui->LogoutButton->setVisible(isVisible);
     ui->UsernameLabel->setVisible(isVisible);
 }
+
+void InquiryWindow::closeEvent(QCloseEvent *close){
+    emit aboutToClose();
+}

@@ -70,7 +70,7 @@ font: 9pt &quot;Joan&quot;;
     border: 2px solid gray;
     border-radius: 10px;
 	border-color: rgb(13, 54, 101);
-     padding:4px 20px 4px 4px;
+     padding:4px 4px  4px 4px;
     background: white;
     selection-background-color: darkgray;
 }

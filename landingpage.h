@@ -23,6 +23,7 @@ private:
     Ui::LandingPage *ui;
     RegisterWindow *registerWindow;
     InquiryWindow *inquiryWindow;
+    InformationWindowHome *informationWidget = new InformationWindowHome(this);
 
 
 private slots:

@@ -24,7 +24,7 @@ LandingPage::LandingPage(QWidget *parent)
         }
     }
 
-    InformationWindowHome *informationWidget = new InformationWindowHome(this);
+
     ui->InformationWindow->layout()->addWidget(informationWidget);
 
 }
@@ -60,9 +60,15 @@ void LandingPage::on_LoginButton_clicked()
 
     if(userID!=0){
         QMessageBox::information(this,"Login success", "Navigating to the inquiry system.");
-        InquiryWindow *inquiryWindow = new InquiryWindow(this, userID, ui->InformationWindow);
+
+        InquiryWindow *inquiryWindow = new InquiryWindow(this, userID, informationWidget);
         inquiryWindow->setWindowModality(Qt::ApplicationModal);
         inquiryWindow->show();
+
+        connect(inquiryWindow,&InquiryWindow::aboutToClose,[this]{
+            ui->centralwidget->layout()->addWidget(informationWidget);
+            informationWidget->show();
+        });
     }
     else{
         QMessageBox::warning(this, "Invalid credentials", "Username and/or password is incorrect.  Please try again.");

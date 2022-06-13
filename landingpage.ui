@@ -89,6 +89,9 @@
       </item>
       <item>
        <widget class="QWidget" name="widget" native="true">
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
         <property name="styleSheet">
          <string notr="true">QWidget {
 	background-color: rgba(255, 255, 255,235);
