@@ -13,9 +13,90 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QLabel {
+
+border-top:0px solid rgba(213, 173, 18,0);
+color: rgb(255, 255, 255);
+font: bold 25px &quot;Heebo&quot;;
+
+
+}</string>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="leftMargin">
+    <number>10</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>20</number>
+   </property>
    <item>
     <widget class="QScrollArea" name="scrollArea">
+     <property name="styleSheet">
+      <string notr="true">QScrollBar:vertical {
+border: none;
+	background-color: rgb(208, 244, 255);
+width: 14px;
+margin: 15px 0 15px 0;
+border-radius: 7px;
+}
+
+
+/* HANDLE BAR VERTICAL */
+QScrollBar::handle:vertical {
+	background-color: rgb(12, 12, 84);
+min-height: 30px;
+border-radius: 7px;
+}
+QScrollBar::handle:vertical:hover{
+background-color:rgb(28, 114, 206)
+}
+QScrollBar::handle:vertical:pressed {
+	background-color: rgb(8, 32, 59);
+}
+
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+border: none;
+background-color: rgb(213, 173, 18);
+height: 15px;
+border-top-left-radius: 7px;
+border-top-right-radius: 7px;
+subcontrol-position: top;
+subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical:hover {
+background-color: rgb(211, 213, 66);
+}
+QScrollBar::sub-line:vertical:pressed {
+	background-color: rgb(139, 111, 12);
+}
+
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+border: none;
+background-color: rgb(213, 173, 18);
+height: 15px;
+border-bottom-left-radius: 7px;
+border-bottom-right-radius: 7px;
+subcontrol-position: bottom;
+subcontrol-origin: margin;
+}
+QScrollBar::add-line:vertical:hover {
+background-color: rgb(211, 213, 66);
+}
+QScrollBar::add-line:vertical:pressed {
+background-color: rgb(139, 111, 12);
+}</string>
+     </property>
      <property name="widgetResizable">
       <bool>true</bool>
      </property>
@@ -24,16 +105,43 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>650</width>
-        <height>443</height>
+        <width>658</width>
+        <height>610</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2" stretch="100,20,5,20">
+      <layout class="QVBoxLayout" name="verticalLayout_2" stretch="20,0,20">
+       <property name="spacing">
+        <number>2</number>
+       </property>
        <property name="sizeConstraint">
         <enum>QLayout::SetDefaultConstraint</enum>
        </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
        <item>
         <widget class="QGraphicsView" name="NewsThumbnail">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>280</height>
+          </size>
+         </property>
          <property name="verticalScrollBarPolicy">
           <enum>Qt::ScrollBarAlwaysOff</enum>
          </property>
@@ -43,43 +151,115 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="NewsTitle">
-         <property name="font">
-          <font>
-           <pointsize>16</pointsize>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>News Title</string>
-         </property>
-         <property name="margin">
-          <number>10</number>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="Line" name="line">
+        <spacer name="verticalSpacer">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Vertical</enum>
          </property>
-        </widget>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
        </item>
        <item>
-        <widget class="QLabel" name="NewsContents">
-         <property name="text">
-          <string>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elit massa, euismod quis mi sit amet, commodo tincidunt purus. Praesent dictum dui eu ex venenatis, a ultricies sem dignissim. Pellentesque vel pellentesque lectus, quis faucibus velit. Mauris quis mauris fermentum, hendrerit leo quis, ornare orci. Vestibulum vitae blandit sem. Donec placerat accumsan pretium. Duis tempus sodales enim non efficitur. Morbi porttitor est a justo luctus sollicitudin. Nulla finibus urna in lorem cursus iaculis. Morbi dignissim turpis bibendum sodales placerat. Ut ultricies, sapien at vestibulum ornare, urna enim porta enim, vitae tincidunt quam sem vitae felis. In auctor eu lacus vitae accumsan. Phasellus scelerisque lorem at lorem rhoncus, a finibus elit convallis. Suspendisse rhoncus lacinia nulla eu bibendum. Etiam id metus quis orci ornare congue at non nunc. Morbi pellentesque, sem in egestas venenatis, odio massa volutpat mauris, eu convallis felis magna dictum dui.</string>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <property name="leftMargin">
+          <number>9</number>
          </property>
-         <property name="alignment">
-          <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+         <property name="topMargin">
+          <number>9</number>
          </property>
-         <property name="wordWrap">
-          <bool>true</bool>
+         <property name="rightMargin">
+          <number>9</number>
          </property>
-         <property name="margin">
-          <number>10</number>
+         <property name="bottomMargin">
+          <number>9</number>
          </property>
-        </widget>
+         <item>
+          <widget class="QLabel" name="NewsTitle">
+           <property name="font">
+            <font>
+             <family>Old English Text MT</family>
+             <pointsize>16</pointsize>
+             <italic>false</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+
+
+border-top:0px solid rgba(213, 173, 18,0);
+color: rgb(0, 0, 0);
+font:bold  16pt &quot;Old English Text MT&quot;;
+
+
+}</string>
+           </property>
+           <property name="text">
+            <string>News Title</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+           <property name="margin">
+            <number>10</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="Line" name="line">
+           <property name="styleSheet">
+            <string notr="true">Line {
+
+	background-color: rgb(0, 0, 0);
+
+}</string>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="NewsContents">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+
+
+border-top:0px solid rgba(213, 173, 18,0);
+color: rgb(0,0,0);
+font:  14px &quot;Helvetica&quot;;
+
+
+}</string>
+           </property>
+           <property name="text">
+            <string>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elit massa, euismod quis mi sit amet, commodo tincidunt purus. Praesent dictum dui eu ex venenatis, a ultricies sem dignissim. Pellentesque vel pellentesque lectus, quis faucibus velit. Mauris quis mauris fermentum, hendrerit leo quis, ornare orci. Vestibulum vitae blandit sem. Donec placerat accumsan pretium. Duis tempus sodales enim non efficitur. Morbi porttitor est a justo luctus sollicitudin. Nulla finibus urna in lorem cursus iaculis. Morbi dignissim turpis bibendum sodales placerat. Ut ultricies, sapien at vestibulum ornare, urna enim porta enim, vitae tincidunt quam sem vitae felis. In auctor eu lacus vitae accumsan. Phasellus scelerisque lorem at lorem rhoncus, a finibus elit convallis. Suspendisse rhoncus lacinia nulla eu bibendum. Etiam id metus quis orci ornare congue at non nunc. Morbi pellentesque, sem in egestas venenatis, odio massa volutpat mauris, eu convallis felis magna dictum dui.</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+           <property name="margin">
+            <number>10</number>
+           </property>
+           <property name="textInteractionFlags">
+            <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>

@@ -11,6 +11,20 @@
         <file>ProgramIcons/SqlManagerIcon.png</file>
         <file>ProgramIcons/Logo.png</file>
         <file>ProgramIcons/Background.png</file>
+        <file>ProgramIcons/Banner.png</file>
+        <file>ProgramIcons/univlogo.png</file>
+        <file>ProgramIcons/next.png</file>
+        <file>ProgramIcons/previous.png</file>
+        <file>ProgramIcons/story.png</file>
+        <file>ProgramIcons/fb.png</file>
+        <file>ProgramIcons/twitter.png</file>
+        <file>ProgramIcons/youtube.png</file>
+        <file>ProgramIcons/book.png</file>
+        <file>ProgramIcons/building.png</file>
+        <file>ProgramIcons/backgroundddd.png</file>
+        <file>ProgramIcons/bgsapicnatin.png</file>
+        <file>ProgramIcons/bg.png</file>
+        <file>ProgramIcons/downarrow.png</file>
     </qresource>
     <qresource prefix="/Checkbox">
         <file>ProgramIcons/Checkbox/checked.png</file>
@@ -23,5 +37,13 @@
     </qresource>
     <qresource prefix="/fonts">
         <file>ProgramIcons/Fonts/Joan-Regular.ttf</file>
+        <file>ProgramIcons/Fonts/Heebo-Regular.ttf</file>
+        <file>ProgramIcons/Fonts/OLDENGL.ttf</file>
+    </qresource>
+    <qresource prefix="/TheChefs">
+        <file>ProgramIcons/The Chefs/Aparici.png</file>
+        <file>ProgramIcons/The Chefs/Cayco.png</file>
+        <file>ProgramIcons/The Chefs/Soliven.png</file>
+        <file>ProgramIcons/The Chefs/Paclian.png</file>
     </qresource>
 </RCC>

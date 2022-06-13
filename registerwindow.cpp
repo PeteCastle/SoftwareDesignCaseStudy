@@ -35,7 +35,7 @@ RegisterWindow::RegisterWindow(QWidget *parent) :
     ui->SignInButton->setVisible(false);
     ui->SignInLabel->setVisible(false);
     ui->CreateAccountButton->setVisible(false);
-    reshapeProfilePicture(":/Icons/ProgramIcons/DefaultProfilePicture.jpg", ui->ProfilePictureLabel,150,1);
+    reshapeProfilePicture(":/Icons/ProgramIcons/DefaultProfilePicture.jpg", ui->ProfilePictureLabel,100,1);
 
     QSqlQuery getCoursesList = getQuery("SELECT * FROM Courses");
     while(getCoursesList.next()){
@@ -396,7 +396,7 @@ void RegisterWindow::on_ProfilePictureButton_clicked()
     }
 
     if(profilePictureFilePath!=""){
-        reshapeProfilePicture(profilePictureFilePath, ui->ProfilePictureLabel,150,1);
+        reshapeProfilePicture(profilePictureFilePath, ui->ProfilePictureLabel,100,1);
     }
 }
 

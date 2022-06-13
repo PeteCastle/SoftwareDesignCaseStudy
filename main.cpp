@@ -83,6 +83,8 @@ int main(int argc, char *argv[])
 
     loading->showMessage("Installing fonts...",Qt::AlignLeft,QColor(229,175,0));
     QFontDatabase::addApplicationFont(":/fonts/ProgramIcons/Fonts/Joan-Regular.ttf");
+    QFontDatabase::addApplicationFont(":/fonts/ProgramIcons/Fonts/Heebo-Regular.ttf");
+    QFontDatabase::addApplicationFont(":/fonts/ProgramIcons/Fonts/OLDENGL.ttf");
 
 
     loading->showMessage("Creating Main Window...",Qt::AlignLeft,QColor(229,175,0));

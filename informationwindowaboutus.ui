@@ -7,11 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>775</width>
-    <height>560</height>
+    <height>607</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout" stretch="7,92">
    <property name="spacing">
@@ -32,7 +35,11 @@
    <item>
     <widget class="QWidget" name="Header" native="true">
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(29, 84, 92);</string>
+      <string notr="true">QWidget {
+	border-top:2px solid rgb(213, 173, 18);
+background-color: rgb(18, 0, 0);
+
+}</string>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <property name="spacing">
@@ -54,9 +61,19 @@
        <widget class="QLabel" name="label">
         <property name="font">
          <font>
-          <pointsize>15</pointsize>
+          <family>Heebo</family>
+          <pointsize>-1</pointsize>
+          <italic>false</italic>
           <bold>true</bold>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+
+	color: rgb(255, 255, 255);
+font: bold 25px &quot;Heebo&quot;;
+
+}</string>
         </property>
         <property name="text">
          <string>About Us</string>
@@ -83,6 +100,65 @@
       </property>
       <item>
        <widget class="QScrollArea" name="scrollArea">
+        <property name="styleSheet">
+         <string notr="true">QScrollBar:vertical {
+border: none;
+	background-color: rgb(208, 244, 255);
+width: 14px;
+margin: 15px 0 15px 0;
+border-radius: 7px;
+}
+
+
+/* HANDLE BAR VERTICAL */
+QScrollBar::handle:vertical {
+	background-color: rgb(12, 12, 84);
+min-height: 30px;
+border-radius: 7px;
+}
+QScrollBar::handle:vertical:hover{
+background-color:rgb(28, 114, 206)
+}
+QScrollBar::handle:vertical:pressed {
+	background-color: rgb(8, 32, 59);
+}
+
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+border: none;
+background-color: rgb(213, 173, 18);
+height: 15px;
+border-top-left-radius: 7px;
+border-top-right-radius: 7px;
+subcontrol-position: top;
+subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical:hover {
+background-color: rgb(211, 213, 66);
+}
+QScrollBar::sub-line:vertical:pressed {
+	background-color: rgb(139, 111, 12);
+}
+
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+border: none;
+background-color: rgb(213, 173, 18);
+height: 15px;
+border-bottom-left-radius: 7px;
+border-bottom-right-radius: 7px;
+subcontrol-position: bottom;
+subcontrol-origin: margin;
+}
+QScrollBar::add-line:vertical:hover {
+background-color: rgb(211, 213, 66);
+}
+QScrollBar::add-line:vertical:pressed {
+background-color: rgb(139, 111, 12);
+}</string>
+        </property>
         <property name="widgetResizable">
          <bool>true</bool>
         </property>
@@ -90,46 +166,44 @@
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>-735</y>
+           <y>-1849</y>
            <width>759</width>
-           <height>1253</height>
+           <height>2411</height>
           </rect>
          </property>
-         <layout class="QGridLayout" name="gridLayout" columnstretch="30,30,30">
-          <item row="2" column="0" colspan="3">
-           <widget class="QLabel" name="label_3">
+         <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" columnstretch="30,30,30">
+          <item row="13" column="0" colspan="3" alignment="Qt::AlignHCenter">
+           <widget class="QLabel" name="label_23">
             <property name="font">
              <font>
-              <family>Verdana</family>
+              <family>Heebo</family>
+              <pointsize>12</pointsize>
+              <italic>false</italic>
+              <bold>true</bold>
              </font>
             </property>
+            <property name="styleSheet">
+             <string notr="true">font: bold 12pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
+            </property>
             <property name="text">
-             <string>With the conviction of providing quality education and offering technical manual skills in the field of technology, the College of Engineering and Technology (CET) of the Tom’s Technological University was established on July 1, 1969 - six years after the late Mayor Antonio F. Villegas founded the university.
-Originally under the College of Arts and Letters, the main trust of the college was to provide technical, industrial, vocational education to TTU students alongside the humanistic courses to prepare them for promoting out technology under two divisions, namely - the Division of Engineering and Technology which covered the Department of Civil, Mechanical, Electrical, Sanitary, Chemical, Naval and Industrial Engineering and the Division of Technical and Vocational Education which covered the Department of Electronics, Wood Working, Metal Works, Automotive Works, Ceramics, Graphics Arts and Teacher Education in Arts and Trades. Obtaining a degree in this college then, required the student to finish a six-year ladderized program which was later reduced to a five-year scheme during the term of former TTU President Consuelo Blanco who felt the imperative need of the engineering graduates to constitute the country's labor pool.
-Today, the College of Engineering and Technology stands committed to upholding the legacy conceived by Mayor Villegas and the late Mayor Arsenio H. Lacson by providing its present batch of Engineering students with quality education which is responsive to the needs of the time.
-</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignJustify|Qt::AlignVCenter</set>
-            </property>
-            <property name="wordWrap">
-             <bool>true</bool>
-            </property>
-            <property name="margin">
-             <number>50</number>
-            </property>
-            <property name="textInteractionFlags">
-             <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+             <string>Source Code</string>
             </property>
            </widget>
           </item>
-          <item row="5" column="0" colspan="3">
+          <item row="10" column="0" colspan="3">
            <widget class="QLabel" name="label_10">
             <property name="font">
              <font>
-              <pointsize>12</pointsize>
+              <family>Heebo</family>
+              <pointsize>18</pointsize>
+              <italic>false</italic>
               <bold>true</bold>
              </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: bold 18pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
             </property>
             <property name="text">
              <string>MEET THE TEAM</string>
@@ -139,38 +213,103 @@ Today, the College of Engineering and Technology stands committed to upholding t
             </property>
            </widget>
           </item>
-          <item row="3" column="0">
-           <widget class="QWidget" name="widget" native="true">
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(114, 114, 86);</string>
+          <item row="2" column="0" colspan="3">
+           <widget class="QLabel" name="label_26">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
             </property>
-            <layout class="QVBoxLayout" name="verticalLayout_3">
+            <property name="minimumSize">
+             <size>
+              <width>500</width>
+              <height>400</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/Icons/ProgramIcons/building.png);</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0" colspan="3">
+           <widget class="QLabel" name="label_2">
+            <property name="font">
+             <font>
+              <family>heebo</family>
+              <pointsize>16</pointsize>
+              <italic>false</italic>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">Font: bold 16pt &quot;heebo&quot;;
+color: rgb(0,0,0);</string>
+            </property>
+            <property name="text">
+             <string>OUR STORY</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="textInteractionFlags">
+             <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="1">
+           <widget class="QWidget" name="widget_2" native="true">
+            <property name="styleSheet">
+             <string notr="true">	background-color: rgb(208, 244, 255);</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_4">
              <property name="leftMargin">
               <number>20</number>
              </property>
              <property name="rightMargin">
               <number>20</number>
              </property>
-             <item alignment="Qt::AlignHCenter">
-              <widget class="QLabel" name="label_4">
+             <item alignment="Qt::AlignTop">
+              <widget class="QLabel" name="label_5">
                <property name="font">
                 <font>
+                 <family>Heebo</family>
                  <pointsize>12</pointsize>
+                 <italic>false</italic>
                  <bold>true</bold>
                 </font>
                </property>
+               <property name="styleSheet">
+                <string notr="true">font: bold 12pt &quot;Heebo&quot;;
+color: rgb(0, 0, 0);</string>
+               </property>
                <property name="text">
-                <string>Our Vision</string>
+                <string>Core Values</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
                </property>
+               <property name="textInteractionFlags">
+                <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+               </property>
               </widget>
              </item>
              <item>
-              <widget class="QLabel" name="label_7">
+              <widget class="QLabel" name="label_8">
+               <property name="styleSheet">
+                <string notr="true">font: 9pt &quot;Heebo&quot;;
+color: rgb(0, 0, 0);</string>
+               </property>
                <property name="text">
-                <string>The College of Engineering and Technology will be the premier college in technological education, research, and extension services.</string>
+                <string>Believing in our mission, we earnestly seek to:
+1. Facilitate the achievement of academic goals by regularly reviewing curricular programs, ensuring that they surpass the standards set by governing bodies.
+2. Provide a productive environment to facilitate quality research and socially responsive extension service.
+3. Develop dynamism among administrators, faculty, student, and services personnel, embracing diversities that contribute to the growth of the college.
+4. Strengthen our ties with our alumni and industry partners, helping us establish a distinct place in the industry.
+</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignJustify|Qt::AlignVCenter</set>
@@ -178,12 +317,161 @@ Today, the College of Engineering and Technology stands committed to upholding t
                <property name="wordWrap">
                 <bool>true</bool>
                </property>
+               <property name="textInteractionFlags">
+                <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+               </property>
               </widget>
              </item>
             </layout>
            </widget>
           </item>
-          <item row="7" column="0" colspan="3">
+          <item row="8" column="0">
+           <widget class="QWidget" name="widget" native="true">
+            <property name="styleSheet">
+             <string notr="true">	background-color: rgb(208, 244, 255);</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_3" stretch="5,90">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>20</number>
+             </property>
+             <property name="topMargin">
+              <number>9</number>
+             </property>
+             <property name="rightMargin">
+              <number>20</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
+              <widget class="QLabel" name="label_7">
+               <property name="styleSheet">
+                <string notr="true">font: bold 12pt &quot;Heebo&quot;;
+color: rgb(0, 0, 0);</string>
+               </property>
+               <property name="text">
+                <string>Our Vision</string>
+               </property>
+               <property name="textInteractionFlags">
+                <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+               </property>
+              </widget>
+             </item>
+             <item alignment="Qt::AlignTop">
+              <widget class="QLabel" name="label_4">
+               <property name="styleSheet">
+                <string notr="true">font: 9pt &quot;Heebo&quot;;
+color: rgb(0, 0, 0);</string>
+               </property>
+               <property name="text">
+                <string>The College of Engineering and Technology will be the premier college in technological education, research, and extension services. Technology-driven education, creative research, and sustainable extension activities that will improve the lives of people in the communities will be used to build internationally competitive and socially responsible professionals.</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+               <property name="textInteractionFlags">
+                <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="14" column="0" colspan="3" alignment="Qt::AlignHCenter">
+           <widget class="QLabel" name="label_24">
+            <property name="styleSheet">
+             <string notr="true">font: 9pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
+            </property>
+            <property name="text">
+             <string>https://github.com/PeteCastle/SoftwareDesignCaseStudy</string>
+            </property>
+            <property name="textInteractionFlags">
+             <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0" colspan="3">
+           <widget class="QLabel" name="label_3">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Heebo</family>
+              <pointsize>10</pointsize>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+	color: rgb(0,0,0);
+	font: 10pt &quot;Heebo&quot;;
+
+}
+</string>
+            </property>
+            <property name="text">
+             <string>With the conviction of providing quality education and offering technical manual skills in the field of technology, the College of Engineering and Technology (CET) of the Tom’s Technological University was established on July 1, 1969 - six years after the late Mayor Antonio F. Villegas founded the university.
+
+Originally under the College of Arts and Letters, the main trust of the college was to provide technical, industrial, vocational education to TTU students alongside the humanistic courses to prepare them for promoting out technology under two divisions, namely - the Division of Engineering and Technology which covered the Department of Civil, Mechanical, Electrical, Sanitary, Chemical, Naval and Industrial Engineering and the Division of Technical and Vocational Education which covered the Department of Electronics, Wood Working, Metal Works, Automotive Works, Ceramics, Graphics Arts and Teacher Education in Arts and Trades. Obtaining a degree in this college then, required the student to finish a six-year ladderized program which was later reduced to a five-year scheme during the term of former TTU President Consuelo Blanco who felt the imperative need of the engineering graduates to constitute the country's labor pool.
+
+Today, the College of Engineering and Technology stands committed to upholding the legacy conceived by Mayor Villegas and the late Mayor Arsenio H. Lacson by providing its present batch of Engineering students with quality education which is responsive to the needs of the time.</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+            <property name="margin">
+             <number>20</number>
+            </property>
+            <property name="textInteractionFlags">
+             <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+            </property>
+           </widget>
+          </item>
+          <item row="15" column="0" colspan="3">
+           <widget class="Line" name="line">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" colspan="3">
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="12" column="0" colspan="3">
            <spacer name="verticalSpacer_3">
             <property name="orientation">
              <enum>Qt::Vertical</enum>
@@ -199,7 +487,7 @@ Today, the College of Engineering and Technology stands committed to upholding t
             </property>
            </spacer>
           </item>
-          <item row="6" column="0" colspan="3">
+          <item row="11" column="0" colspan="3">
            <layout class="QGridLayout" name="gridLayout_2">
             <property name="leftMargin">
              <number>30</number>
@@ -219,18 +507,36 @@ Today, the College of Engineering and Technology stands committed to upholding t
             <item row="0" column="1">
              <widget class="QWidget" name="widget_5" native="true">
               <property name="styleSheet">
-               <string notr="true">background-color: rgb(146, 189, 108);</string>
+               <string notr="true">QWidget#widget_5{
+
+background-color: rgb(146, 189, 108);
+background-image: url(:/Icons/ProgramIcons/bgsapicnatin.png);
+
+}</string>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_7">
                <item alignment="Qt::AlignHCenter">
                 <widget class="QLabel" name="label_17">
+                 <property name="minimumSize">
+                  <size>
+                   <width>100</width>
+                   <height>100</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">image: url(:/TheChefs/ProgramIcons/The Chefs/Cayco.png);</string>
+                 </property>
                  <property name="text">
-                  <string>PICTURE NI KIKO</string>
+                  <string/>
                  </property>
                 </widget>
                </item>
                <item alignment="Qt::AlignHCenter">
                 <widget class="QLabel" name="label_12">
+                 <property name="styleSheet">
+                  <string notr="true">font: bold 12pt &quot;Heebo&quot;;
+color: rgb(56, 13, 13);</string>
+                 </property>
                  <property name="text">
                   <string>Francis Mark Cayco</string>
                  </property>
@@ -238,8 +544,13 @@ Today, the College of Engineering and Technology stands committed to upholding t
                </item>
                <item alignment="Qt::AlignHCenter">
                 <widget class="QLabel" name="label_18">
+                 <property name="styleSheet">
+                  <string notr="true">font: 12pt &quot;Heebo&quot;;
+color: rgb(102, 24, 24);
+color: rgb(56, 13, 13);</string>
+                 </property>
                  <property name="text">
-                  <string>Description</string>
+                  <string>&quot;Programming is my passion.&quot;</string>
                  </property>
                 </widget>
                </item>
@@ -248,19 +559,43 @@ Today, the College of Engineering and Technology stands committed to upholding t
             </item>
             <item row="0" column="0">
              <widget class="QWidget" name="widget_4" native="true">
-              <property name="styleSheet">
-               <string notr="true">background-color: rgb(146, 189, 108);</string>
+              <property name="minimumSize">
+               <size>
+                <width>250</width>
+                <height>0</height>
+               </size>
               </property>
-              <layout class="QVBoxLayout" name="verticalLayout_6">
+              <property name="styleSheet">
+               <string notr="true">QWidget#widget_4 {
+
+background-color: rgb(146, 189, 108);
+background-image: url(:/Icons/ProgramIcons/bgsapicnatin.png);
+
+}</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_6" stretch="0,0,0">
                <item alignment="Qt::AlignHCenter">
                 <widget class="QLabel" name="label_15">
+                 <property name="minimumSize">
+                  <size>
+                   <width>100</width>
+                   <height>100</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">image: url(:/TheChefs/ProgramIcons/The Chefs/Aparici.png);</string>
+                 </property>
                  <property name="text">
-                  <string>PICTURE NI KIT</string>
+                  <string/>
                  </property>
                 </widget>
                </item>
                <item alignment="Qt::AlignHCenter">
                 <widget class="QLabel" name="label_11">
+                 <property name="styleSheet">
+                  <string notr="true">font: bold 12pt &quot;Heebo&quot;;
+color: rgb(56, 13, 13);</string>
+                 </property>
                  <property name="text">
                   <string>Christian Lordenz Aparici</string>
                  </property>
@@ -268,8 +603,13 @@ Today, the College of Engineering and Technology stands committed to upholding t
                </item>
                <item alignment="Qt::AlignHCenter">
                 <widget class="QLabel" name="label_16">
+                 <property name="styleSheet">
+                  <string notr="true">font: 12pt &quot;Heebo&quot;;
+color: rgb(102, 24, 24);
+color: rgb(56, 13, 13);</string>
+                 </property>
                  <property name="text">
-                  <string>Description</string>
+                  <string>&quot;Don't trust Solivens&quot;</string>
                  </property>
                 </widget>
                </item>
@@ -279,27 +619,56 @@ Today, the College of Engineering and Technology stands committed to upholding t
             <item row="1" column="0">
              <widget class="QWidget" name="widget_6" native="true">
               <property name="styleSheet">
-               <string notr="true">background-color: rgb(146, 189, 108);</string>
+               <string notr="true">QWidget#widget_6 {
+
+background-color: rgb(146, 189, 108);
+background-image: url(:/Icons/ProgramIcons/bgsapicnatin.png);
+
+}</string>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_8">
                <item alignment="Qt::AlignHCenter">
                 <widget class="QLabel" name="label_13">
+                 <property name="minimumSize">
+                  <size>
+                   <width>100</width>
+                   <height>100</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">image: url(:/TheChefs/ProgramIcons/The Chefs/Paclian.png);</string>
+                 </property>
                  <property name="text">
-                  <string>PICTURE NI MAYKS</string>
+                  <string/>
                  </property>
                 </widget>
                </item>
                <item alignment="Qt::AlignHCenter">
                 <widget class="QLabel" name="label_19">
+                 <property name="styleSheet">
+                  <string notr="true">font: bold 12pt &quot;Heebo&quot;;
+color: rgb(56, 13, 13);</string>
+                 </property>
                  <property name="text">
                   <string>Micha Lene Paclian</string>
                  </property>
                 </widget>
                </item>
-               <item alignment="Qt::AlignHCenter">
+               <item>
                 <widget class="QLabel" name="label_20">
+                 <property name="styleSheet">
+                  <string notr="true">font: 12pt &quot;Heebo&quot;;
+color: rgb(102, 24, 24);
+color: rgb(56, 13, 13);</string>
+                 </property>
                  <property name="text">
-                  <string>Description</string>
+                  <string>“Don’t give up on your dreams, just keep sleeping.” </string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
@@ -309,18 +678,36 @@ Today, the College of Engineering and Technology stands committed to upholding t
             <item row="1" column="1">
              <widget class="QWidget" name="widget_7" native="true">
               <property name="styleSheet">
-               <string notr="true">background-color: rgb(146, 189, 108);</string>
+               <string notr="true">QWidget#widget_7 {
+
+background-color: rgb(146, 189, 108);
+background-image: url(:/Icons/ProgramIcons/bgsapicnatin.png);
+
+}</string>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_9">
                <item alignment="Qt::AlignHCenter">
                 <widget class="QLabel" name="label_14">
+                 <property name="minimumSize">
+                  <size>
+                   <width>100</width>
+                   <height>100</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">image: url(:/TheChefs/ProgramIcons/The Chefs/Soliven.png);</string>
+                 </property>
                  <property name="text">
-                  <string>PICTURE NI REYNEL</string>
+                  <string/>
                  </property>
                 </widget>
                </item>
                <item alignment="Qt::AlignHCenter">
                 <widget class="QLabel" name="label_22">
+                 <property name="styleSheet">
+                  <string notr="true">font: bold 12pt &quot;Heebo&quot;;
+color: rgb(56, 13, 13);</string>
+                 </property>
                  <property name="text">
                   <string>Reynel Soliven</string>
                  </property>
@@ -328,8 +715,13 @@ Today, the College of Engineering and Technology stands committed to upholding t
                </item>
                <item alignment="Qt::AlignHCenter">
                 <widget class="QLabel" name="label_21">
+                 <property name="styleSheet">
+                  <string notr="true">font: 12pt &quot;Heebo&quot;;
+color: rgb(102, 24, 24);
+color: rgb(56, 13, 13);</string>
+                 </property>
                  <property name="text">
-                  <string>Description</string>
+                  <string>“Life is like a tasty burger, give it your best bite”</string>
                  </property>
                 </widget>
                </item>
@@ -338,39 +730,66 @@ Today, the College of Engineering and Technology stands committed to upholding t
             </item>
            </layout>
           </item>
-          <item row="3" column="2">
+          <item row="7" column="0" colspan="3">
+           <widget class="QLabel" name="label_25">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>500</width>
+              <height>500</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/Icons/ProgramIcons/story.png);</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="2">
            <widget class="QWidget" name="widget_3" native="true">
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(102, 102, 76);</string>
+             <string notr="true">	background-color: rgb(208, 244, 255);</string>
             </property>
-            <layout class="QVBoxLayout" name="verticalLayout_5">
+            <layout class="QVBoxLayout" name="verticalLayout_5" stretch="5,90">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="sizeConstraint">
+              <enum>QLayout::SetDefaultConstraint</enum>
+             </property>
              <property name="leftMargin">
               <number>20</number>
              </property>
              <property name="rightMargin">
               <number>20</number>
              </property>
-             <item>
-              <widget class="QLabel" name="label_6">
-               <property name="font">
-                <font>
-                 <pointsize>12</pointsize>
-                 <bold>true</bold>
-                </font>
-               </property>
+             <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
+              <widget class="QLabel" name="label_9">
                <property name="styleSheet">
-                <string notr="true">background-color: rgb(102, 102, 76);</string>
+                <string notr="true">font: bold 12pt &quot;Heebo&quot;;
+color: rgb(0, 0, 0);</string>
                </property>
                <property name="text">
                 <string>Our Mission</string>
                </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
+               <property name="textInteractionFlags">
+                <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
                </property>
               </widget>
              </item>
-             <item>
-              <widget class="QLabel" name="label_9">
+             <item alignment="Qt::AlignTop">
+              <widget class="QLabel" name="label_6">
+               <property name="styleSheet">
+                <string notr="true">font: 9pt &quot;Heebo&quot;;
+color: rgb(0, 0, 0);</string>
+               </property>
                <property name="text">
                 <string>Guided by this vision, we commit ourselves:
 1. To uphold excellence through curriculum development and teaching, significant advances in knowledge, and services to the community of which we are a part.
@@ -384,112 +803,15 @@ Today, the College of Engineering and Technology stands committed to upholding t
                <property name="wordWrap">
                 <bool>true</bool>
                </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item row="0" column="0" colspan="3">
-           <spacer name="verticalSpacer">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Fixed</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="1" column="0" colspan="3">
-           <widget class="QLabel" name="label_2">
-            <property name="font">
-             <font>
-              <pointsize>15</pointsize>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>OUR STORY</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1">
-           <widget class="QWidget" name="widget_2" native="true">
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(114, 114, 86);</string>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_4">
-             <property name="leftMargin">
-              <number>20</number>
-             </property>
-             <property name="rightMargin">
-              <number>20</number>
-             </property>
-             <item>
-              <widget class="QLabel" name="label_5">
-               <property name="font">
-                <font>
-                 <pointsize>12</pointsize>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string>Core Values</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_8">
-               <property name="text">
-                <string>Believing in our mission, we earnestly seek to:
-1. Facilitate the achievement of academic goals by regularly reviewing curricular programs, ensuring that they surpass the standards set by governing bodies.
-2. Provide a productive environment to facilitate quality research and socially responsive extension service.
-3. Develop dynamism among administrators, faculty, student, and services personnel, embracing diversities that contribute to the growth of the college.
-4. Strengthen our ties with our alumni and industry partners, helping us establish a distinct place in the industry.
-</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignJustify|Qt::AlignVCenter</set>
-               </property>
-               <property name="wordWrap">
-                <bool>true</bool>
+               <property name="textInteractionFlags">
+                <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
                </property>
               </widget>
              </item>
             </layout>
            </widget>
           </item>
-          <item row="10" column="0" colspan="3">
-           <widget class="Line" name="line">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-          <item row="8" column="0" colspan="3" alignment="Qt::AlignHCenter">
-           <widget class="QLabel" name="label_23">
-            <property name="font">
-             <font>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>Source Code</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="1">
+          <item row="9" column="1">
            <spacer name="verticalSpacer_2">
             <property name="orientation">
              <enum>Qt::Vertical</enum>
@@ -505,12 +827,21 @@ Today, the College of Engineering and Technology stands committed to upholding t
             </property>
            </spacer>
           </item>
-          <item row="9" column="0" colspan="3" alignment="Qt::AlignHCenter">
-           <widget class="QLabel" name="label_24">
-            <property name="text">
-             <string>https://github.com/PeteCastle/SoftwareDesignCaseStudy</string>
+          <item row="3" column="1">
+           <spacer name="verticalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
             </property>
-           </widget>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>5</height>
+             </size>
+            </property>
+           </spacer>
           </item>
          </layout>
         </widget>

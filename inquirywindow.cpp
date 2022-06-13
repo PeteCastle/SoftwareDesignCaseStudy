@@ -194,7 +194,8 @@ InquiryWindow::InquiryWindow(QWidget *parent, int userID, QWidget *informationWi
 
    //Set default menu
    menuList["Home"].second();
-   modifyHeaderVisibility(1);
+   //modifyHeaderVisibility(1);
+   modifyHeaderVisibility(0);
    ui->MainStackedWidget->setCurrentWidget(activeMenuList["Home"]);
    ui->MainMenu->setCurrentRow(0);
 }

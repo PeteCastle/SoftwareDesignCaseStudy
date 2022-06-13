@@ -32,14 +32,18 @@
    <item>
     <widget class="QWidget" name="widget" native="true">
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(253, 190, 219);</string>
+      <string notr="true">QWidget {
+	border-top:2px solid rgb(213, 173, 18);
+	background-color: rgb(18, 0, 0);
+
+}</string>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <property name="spacing">
        <number>0</number>
       </property>
       <property name="leftMargin">
-       <number>0</number>
+       <number>50</number>
       </property>
       <property name="topMargin">
        <number>0</number>
@@ -50,29 +54,23 @@
       <property name="bottomMargin">
        <number>0</number>
       </property>
-      <item>
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Fixed</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
+      <item alignment="Qt::AlignVCenter">
        <widget class="QLabel" name="label">
         <property name="font">
          <font>
-          <pointsize>16</pointsize>
+          <family>Heebo</family>
+          <pointsize>-1</pointsize>
+          <italic>false</italic>
           <bold>true</bold>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+
+	color: rgb(255, 255, 255);
+font: bold 25px &quot;Heebo&quot;;
+
+}</string>
         </property>
         <property name="text">
          <string>Frequently Asked Questions</string>
@@ -84,41 +82,122 @@
    </item>
    <item>
     <widget class="QScrollArea" name="scrollArea">
+     <property name="styleSheet">
+      <string notr="true">QScrollBar:vertical {
+border: none;
+	background-color: rgb(208, 244, 255);
+width: 14px;
+margin: 15px 0 15px 0;
+border-radius: 7px;
+}
+
+
+/* HANDLE BAR VERTICAL */
+QScrollBar::handle:vertical {
+	background-color: rgb(12, 12, 84);
+min-height: 30px;
+border-radius: 7px;
+}
+QScrollBar::handle:vertical:hover{
+background-color:rgb(28, 114, 206)
+}
+QScrollBar::handle:vertical:pressed {
+	background-color: rgb(8, 32, 59);
+}
+
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+border: none;
+background-color: rgb(213, 173, 18);
+height: 15px;
+border-top-left-radius: 7px;
+border-top-right-radius: 7px;
+subcontrol-position: top;
+subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical:hover {
+background-color: rgb(211, 213, 66);
+}
+QScrollBar::sub-line:vertical:pressed {
+	background-color: rgb(139, 111, 12);
+}
+
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+border: none;
+background-color: rgb(213, 173, 18);
+height: 15px;
+border-bottom-left-radius: 7px;
+border-bottom-right-radius: 7px;
+subcontrol-position: bottom;
+subcontrol-origin: margin;
+}
+QScrollBar::add-line:vertical:hover {
+background-color: rgb(211, 213, 66);
+}
+QScrollBar::add-line:vertical:pressed {
+background-color: rgb(139, 111, 12);
+}</string>
+     </property>
      <property name="widgetResizable">
       <bool>true</bool>
      </property>
      <widget class="QWidget" name="scrollAreaWidgetContents">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>666</width>
-        <height>2844</height>
+        <x>-16</x>
+        <y>-499</y>
+        <width>684</width>
+        <height>3503</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
        <property name="leftMargin">
         <number>50</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
        </property>
        <property name="rightMargin">
         <number>50</number>
        </property>
        <item>
-        <widget class="QLabel" name="label_2">
-         <property name="maximumSize">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
           <size>
-           <width>100</width>
-           <height>100</height>
+           <width>20</width>
+           <height>10</height>
           </size>
+         </property>
+        </spacer>
+       </item>
+       <item alignment="Qt::AlignTop">
+        <widget class="QLabel" name="label_2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>500</width>
+           <height>300</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">image: url(:/Icons/ProgramIcons/book.png);</string>
          </property>
          <property name="text">
           <string/>
-         </property>
-         <property name="pixmap">
-          <pixmap resource="resources.qrc">:/Icons/ProgramIcons/LoadingScreen.png</pixmap>
-         </property>
-         <property name="scaledContents">
-          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -126,9 +205,15 @@
         <widget class="QLabel" name="label_10">
          <property name="font">
           <font>
-           <pointsize>14</pointsize>
+           <family>Heebo</family>
+           <pointsize>15</pointsize>
+           <italic>false</italic>
            <bold>true</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">Font: bold 15pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
          </property>
          <property name="text">
           <string>General Inquiries</string>
@@ -139,9 +224,15 @@
         <widget class="QLabel" name="label_3">
          <property name="font">
           <font>
-           <pointsize>11</pointsize>
+           <family>Heebo</family>
+           <pointsize>12</pointsize>
+           <italic>false</italic>
            <bold>true</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">Font: bold 12pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
          </property>
          <property name="text">
           <string>Does TTU operate autonomously from the Commission on Higher Education (CHEd)?</string>
@@ -156,6 +247,10 @@
        </item>
        <item>
         <widget class="QLabel" name="label_4">
+         <property name="styleSheet">
+          <string notr="true">Font: 10pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
+         </property>
          <property name="text">
           <string>Yes. As a national legislative creation, TTU is a chartered institution with an autonomous status, and operates under the authority of its own Charter, Republic Act No. 4196, which conferred upon the Board of Regents exclusive powers of governance over the University, in addition to its general powers of administration and the exercise of its corporate powers under the Corporation Code of the Philippines as explicitly authorized by the Philippine Congress. Specifically, TTU is empowered &quot;to prescribe rules for its own government, and to enact for the government of the University such general ordinances and regulations as are consistent with the purposes of the university.&quot;
 Authority to fix the curriculum is exclusively conferred by R.A. 4196 upon the University Council. TTU, however, follows the minimum curricular requirements prescribed by CHEd for its program offerings as a means of the State to maintain academic excellence across the nation. TTU, however, through its University Council, is not proscribed from infusing program enhancements to maintain the primacy of its excellence as among the most respected universities in the country.
@@ -173,15 +268,27 @@ Authority to fix the curriculum is exclusively conferred by R.A. 4196 upon the U
          <property name="indent">
           <number>0</number>
          </property>
+         <property name="openExternalLinks">
+          <bool>true</bool>
+         </property>
+         <property name="textInteractionFlags">
+          <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+         </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="label_5">
          <property name="font">
           <font>
-           <pointsize>11</pointsize>
+           <family>Heebo</family>
+           <pointsize>12</pointsize>
+           <italic>false</italic>
            <bold>true</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">Font: bold 12pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
          </property>
          <property name="text">
           <string>Is TTU required to secure a Special Order from CHEd for the conferment of degrees upon its graduates like other universities in the Philippines?</string>
@@ -196,6 +303,10 @@ Authority to fix the curriculum is exclusively conferred by R.A. 4196 upon the U
        </item>
        <item>
         <widget class="QLabel" name="label_6">
+         <property name="styleSheet">
+          <string notr="true">Font: 10pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
+         </property>
          <property name="text">
           <string>TTU is exempted. As a chartered higher education institution created by the Philippine Congress, TTU has its own Charter. Republic Act No. 4196 prescribed the creation of a Board of Regents which has specific powers other than the exercise of corporate authority, including the exclusive authority to confer degrees, by virtue of a Board resolution, upon the recommendation of the University Council. Under the University Charter, the University Council exclusively exercises the specific authority to recommend candidates for graduation.</string>
          </property>
@@ -208,15 +319,27 @@ Authority to fix the curriculum is exclusively conferred by R.A. 4196 upon the U
          <property name="margin">
           <number>20</number>
          </property>
+         <property name="openExternalLinks">
+          <bool>true</bool>
+         </property>
+         <property name="textInteractionFlags">
+          <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+         </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="label_7">
          <property name="font">
           <font>
-           <pointsize>11</pointsize>
+           <family>Heebo</family>
+           <pointsize>12</pointsize>
+           <italic>false</italic>
            <bold>true</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">Font: bold 12pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
          </property>
          <property name="text">
           <string>The CHEd has publicly commended TTU as a model university in the Philippines, while the Professional Regulation Commission (PRC) conscientiously cites TTU as among the best performing schools in producing top professionals through state board exams where TTU normally garners top slots. Does TTU directly undertake accreditation by CHEd?</string>
@@ -231,6 +354,10 @@ Authority to fix the curriculum is exclusively conferred by R.A. 4196 upon the U
        </item>
        <item>
         <widget class="QLabel" name="label_8">
+         <property name="styleSheet">
+          <string notr="true">Font: 10pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
+         </property>
          <property name="text">
           <string>Given its chartered nature and autonomous status, TTU, as a leading institution of higher learning in the Philippines, does not directly undertake accreditation by, through or under the influence of the CHEd. Moreover, TTU believes in bolder moves of accrediting other institutions given its ascribed and earned status (and its foundational birthright) as a model university in the Philippines. As an offshoot of such a philosophy, TTU served as the national headquarters of the ALCU-Commission on Accreditation (ALCU-CoA).
 Together with the Accrediting Agency for Chartered Colleges and Universities in the Philippines (AACCUP), ALCU-CoA is a leading charter incorporator of the National Network of Quality Assurance Agencies in the Philippines (NNQAA). The CHEd was the convenor of the said fusion into the NNQAA of the ALCU-CoA (representing local colleges and universities or LCUs) and the AACCUP (representing state colleges and universities or SCUs), through then CHEd Chairman Bro. Rolando R. Dizon's efforts. The PRC, CHEd, the Commission on Civil Service, and the Commission on Audit (either Constitutionial commissions or commissions under the Office of the President of the Philippines with cabinet status) were leading witnesses during the formal ceremonies of this milestone event held in Olongapo City on November 2003. As it is, the NNQAA and ALCU-CoA, advocates of voluntary accreditation, operate independently from, yet recognized by, the CHEd.
@@ -245,15 +372,24 @@ Together with the Accrediting Agency for Chartered Colleges and Universities in 
          <property name="margin">
           <number>20</number>
          </property>
+         <property name="textInteractionFlags">
+          <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+         </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="label_11">
          <property name="font">
           <font>
-           <pointsize>11</pointsize>
+           <family>Heebo</family>
+           <pointsize>12</pointsize>
+           <italic>false</italic>
            <bold>true</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">Font: bold 12pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
          </property>
          <property name="text">
           <string>Given TTU's full independence from CHEd, does that mean that TTU's name does not regularly appear in CHEd's fact sheets of top performing schools available to the public?</string>
@@ -265,6 +401,10 @@ Together with the Accrediting Agency for Chartered Colleges and Universities in 
        </item>
        <item>
         <widget class="QLabel" name="label_12">
+         <property name="styleSheet">
+          <string notr="true">Font: 10pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
+         </property>
          <property name="text">
           <string>Yes. It is normal that TTU does not appear in CHEd's myriad of lists, including lists of centers of excellence and accreditation, as TTU is out of the scope of such published items since TTU is independent from the CHEd, and the CHEd does not exercise authority over TTU. Hence, this does not at all denigrate TTU's high-ranked status as among the top and most respected universities in the Philippines. To compensate for this, the CHEd has publicly commended TTU as a model university in the Philippines, citing further that &quot;TTU's excellence is beyond reproach and a class by itself.&quot; This enviable recognition is echoed in innumerable times by other well-meaning institutions, including the Philippine Congress and the Presidential Palace (Malacañan), whenever TTU's name is mentioned in institutional discussions.
 Despite not being part of the CHEd's lists, TTU figures out prominently as among the top schools in the country when joint cumulative data are presented by the CHEd and the PRC. In this ranking study, TTU comes as an underdog since only a portion of the criteria can TTU be given points considering that only the PRC's records are taken into consideration for TTU's part. Despite this, TTU emerged 6th in 1994-1998 set of data. For the 10-year period (1992-2001), TTU placed 9th. In the study covering 1999-2003, TTU placed 5th, making it one of only two public universities in the top 5 list. For 2009 alone, TTU is at the 9th notch nationwide, with 6 other public universities and 3 private institutions in the list. It is pertinent to note that TTU consistently ranks among the top universities in state board examinations by the PRC.
@@ -279,15 +419,24 @@ Despite not being part of the CHEd's lists, TTU figures out prominently as among
          <property name="margin">
           <number>20</number>
          </property>
+         <property name="textInteractionFlags">
+          <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+         </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="label_13">
          <property name="font">
           <font>
-           <pointsize>11</pointsize>
+           <family>Heebo</family>
+           <pointsize>12</pointsize>
+           <italic>false</italic>
            <bold>true</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">Font: bold 12pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
          </property>
          <property name="text">
           <string>Why is TTU's name acknowledged as a trusted and preferred university alongside UP, Ateneo de Manila &amp; La Salle?</string>
@@ -299,6 +448,10 @@ Despite not being part of the CHEd's lists, TTU figures out prominently as among
        </item>
        <item>
         <widget class="QLabel" name="label_14">
+         <property name="styleSheet">
+          <string notr="true">Font: 10pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
+         </property>
          <property name="text">
           <string>TTU's powerful name and brand equity as a leading scholars' university, whose excellence the CHED has acknowledged as &quot;beyond reproach and a class by itself,&quot; has regularly been a specific top preference since the last decade in the personnel hiring of cutting-edge companies. Aside from having excellence as its birthright, TTU has consistently demonstrated its rightful claim to its unbridled academic reputation as a crucial interplay among important factors, including, among others, its selective admissions for top secondary graduates, top-caliber professoriate and competent administrative staff, relevant curricula, student support services and fine ethical bearing.</string>
          </property>
@@ -311,15 +464,24 @@ Despite not being part of the CHEd's lists, TTU figures out prominently as among
          <property name="margin">
           <number>20</number>
          </property>
+         <property name="textInteractionFlags">
+          <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+         </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="label_15">
          <property name="font">
           <font>
-           <pointsize>11</pointsize>
+           <family>Heebo</family>
+           <pointsize>12</pointsize>
+           <italic>false</italic>
            <bold>true</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">Font: bold 12pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
          </property>
          <property name="text">
           <string>What is the official medium of instruction in TTU?</string>
@@ -331,6 +493,10 @@ Despite not being part of the CHEd's lists, TTU figures out prominently as among
        </item>
        <item>
         <widget class="QLabel" name="label_16">
+         <property name="styleSheet">
+          <string notr="true">Font: 10pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
+         </property>
          <property name="text">
           <string>TTU uses English as the official medium of instruction for all subjects, including core subjects like Mathematics, Science, Ethics and Social Studies, except for Communication Arts in Filipino. Art. XIV of the 1987 Philippine Constitution provided for English as the official language of the Philippines for communication and instruction, in addition to Filipino as the national language.</string>
          </property>
@@ -340,15 +506,24 @@ Despite not being part of the CHEd's lists, TTU figures out prominently as among
          <property name="margin">
           <number>20</number>
          </property>
+         <property name="textInteractionFlags">
+          <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+         </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="label_17">
          <property name="font">
           <font>
-           <pointsize>11</pointsize>
+           <family>Heebo</family>
+           <pointsize>12</pointsize>
+           <italic>false</italic>
            <bold>true</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">Font: bold 12pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
          </property>
          <property name="text">
           <string>Does TTU accept foreign and international exchange students?</string>
@@ -360,6 +535,10 @@ Despite not being part of the CHEd's lists, TTU figures out prominently as among
        </item>
        <item>
         <widget class="QLabel" name="label_18">
+         <property name="styleSheet">
+          <string notr="true">Font: 10pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
+         </property>
          <property name="text">
           <string>TTU used to have strong programs designed for foreign and international exchange students in the 1990s in line with TTU's internationalization thrust as a leading university in the Philippines. However, in the new millennium, TTU re-focused its efforts to strengthen its domestic roots -- the various programs for city scholars and domestic off-campus programs. To date, no program is on sight to cater to foreign students.</string>
          </property>
@@ -372,15 +551,24 @@ Despite not being part of the CHEd's lists, TTU figures out prominently as among
          <property name="margin">
           <number>20</number>
          </property>
+         <property name="textInteractionFlags">
+          <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+         </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="label_19">
          <property name="font">
           <font>
-           <pointsize>11</pointsize>
+           <family>Heebo</family>
+           <pointsize>12</pointsize>
+           <italic>false</italic>
            <bold>true</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">Font: bold 12pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
          </property>
          <property name="text">
           <string>Are there boarding/accommodation services in TTU?</string>
@@ -389,6 +577,10 @@ Despite not being part of the CHEd's lists, TTU figures out prominently as among
        </item>
        <item>
         <widget class="QLabel" name="label_20">
+         <property name="styleSheet">
+          <string notr="true">Font: 10pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
+         </property>
          <property name="text">
           <string>Since TTU caters to the youth residing in the city proper of Manila, there is no need to offer boarding services as TTU is located right at the very core, or at the heart and at the doorsteps, of the city's community.</string>
          </property>
@@ -401,15 +593,24 @@ Despite not being part of the CHEd's lists, TTU figures out prominently as among
          <property name="margin">
           <number>20</number>
          </property>
+         <property name="textInteractionFlags">
+          <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+         </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="label_21">
          <property name="font">
           <font>
-           <pointsize>14</pointsize>
+           <family>Heebo</family>
+           <pointsize>15</pointsize>
+           <italic>false</italic>
            <bold>true</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">Font: bold 15pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
          </property>
          <property name="text">
           <string>Verification of and Request for Credentials</string>
@@ -420,9 +621,15 @@ Despite not being part of the CHEd's lists, TTU figures out prominently as among
         <widget class="QLabel" name="label_22">
          <property name="font">
           <font>
-           <pointsize>11</pointsize>
+           <family>Heebo</family>
+           <pointsize>12</pointsize>
+           <italic>false</italic>
            <bold>true</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">Font: bold 12pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
          </property>
          <property name="text">
           <string>How does TTU validate the authenticity of the credentials of its alumni?</string>
@@ -431,6 +638,10 @@ Despite not being part of the CHEd's lists, TTU figures out prominently as among
        </item>
        <item>
         <widget class="QLabel" name="label_23">
+         <property name="styleSheet">
+          <string notr="true">Font: 10pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
+         </property>
          <property name="text">
           <string>The Office of the University Registrar (OUR) is the exclusive unit that performs validation of student records submitted by alumni to prospective employers locally and abroad. Regular items requested for verification include Name of the conferee, conferred degree, date of conferment, authenticity of diploma and signatures, grades and other contents of the Transcript of Record, entry requirement for the program, standard duration for the program, and the official medium of instruction.
 Entities requesting for verification may direct their inquiries to:
@@ -451,15 +662,24 @@ Note: Please click on this email only if you are representing a company that is 
          <property name="margin">
           <number>20</number>
          </property>
+         <property name="textInteractionFlags">
+          <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+         </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="label_24">
          <property name="font">
           <font>
-           <pointsize>11</pointsize>
+           <family>Heebo</family>
+           <pointsize>12</pointsize>
+           <italic>false</italic>
            <bold>true</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">Font: bold 12pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
          </property>
          <property name="text">
           <string>TTU-issued diplomae are in Filipino (Philippine national language). Is there an equivalent English translation?</string>
@@ -473,8 +693,15 @@ Note: Please click on this email only if you are representing a company that is 
         <widget class="QLabel" name="label_25">
          <property name="font">
           <font>
+           <family>Heebo</family>
+           <pointsize>10</pointsize>
+           <italic>false</italic>
            <bold>false</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">Font: 10pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
          </property>
          <property name="text">
           <string>TTU, as a matter of policy, issues its official diploma in the national language to preserve the national heritage and in keeping with its pioneering tradition of using the national language for its name. This diploma in Filipino has an adjunct copy of its English translation, certified by the University Registrar, to facilitate the understanding of foreign nationals and entities.</string>
@@ -488,15 +715,24 @@ Note: Please click on this email only if you are representing a company that is 
          <property name="margin">
           <number>20</number>
          </property>
+         <property name="textInteractionFlags">
+          <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+         </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="label_26">
          <property name="font">
           <font>
-           <pointsize>11</pointsize>
+           <family>Heebo</family>
+           <pointsize>12</pointsize>
+           <italic>false</italic>
            <bold>true</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">Font: bold 12pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
          </property>
          <property name="text">
           <string>How does an alumnus living in a foreign land apply for processing of credentials?</string>
@@ -505,6 +741,10 @@ Note: Please click on this email only if you are representing a company that is 
        </item>
        <item>
         <widget class="QLabel" name="label_27">
+         <property name="styleSheet">
+          <string notr="true">Font: 10pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
+         </property>
          <property name="text">
           <string>As a matter of policy involving the security and confidentiality of student records, documents must be secured by the applicant/alumnus himself. Applicants who live in geographically distant places, whether local or foreign, may download and fill-up the OUR Request Form and send it thru a duly authorized representative who will file the request, pay the fee through the Cashier's Office, and claim the requested credential on behalf of the applicant. An affidavit of loss may be required in some cases. For guidance, pls. refer to the OUR Checklist of Requirements. N.B.: The fees are subject to increases as the need arises. Pls. check the updated fees here.
 For inquiry, you may contact registrar@ttu.edu.ph
@@ -520,17 +760,30 @@ Note: Please click on this email only if you are a former TTU scholar (i.e., alu
          <property name="margin">
           <number>20</number>
          </property>
+         <property name="textInteractionFlags">
+          <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+         </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="label_9">
          <property name="font">
           <font>
-           <italic>true</italic>
+           <family>Heebo</family>
+           <pointsize>10</pointsize>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">Font: 10pt &quot;Heebo&quot;;
+color: rgb(0,0,0);</string>
          </property>
          <property name="text">
           <string>If you have any question, please contact our official hotlines or create a query stating your problem.</string>
+         </property>
+         <property name="textInteractionFlags">
+          <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
          </property>
         </widget>
        </item>
@@ -540,8 +793,6 @@ Note: Please click on this email only if you are a former TTU scholar (i.e., alu
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

@@ -109,7 +109,7 @@
           <number>0</number>
          </property>
          <item>
-          <layout class="QVBoxLayout" name="verticalLayout_4" stretch="50,10">
+          <layout class="QVBoxLayout" name="verticalLayout_4" stretch="35,10">
            <property name="spacing">
             <number>0</number>
            </property>
@@ -137,7 +137,7 @@
             <widget class="QLabel" name="label">
              <property name="font">
               <font>
-               <family>Joan</family>
+               <family>Heebo</family>
                <pointsize>16</pointsize>
                <italic>false</italic>
                <bold>true</bold>
@@ -146,7 +146,7 @@
              <property name="styleSheet">
               <string notr="true">QLabel {
 
-font: bold 16pt &quot;Joan&quot;;
+font: bold 16pt &quot;Heebo&quot;;
 
 background-color: rgba(255, 255, 255,0);
 
@@ -160,27 +160,40 @@ background-color: rgba(255, 255, 255,0);
           </layout>
          </item>
          <item>
-          <widget class="QLabel" name="SignInLabel">
-           <property name="font">
-            <font>
-             <family>Joan</family>
-             <pointsize>9</pointsize>
-             <italic>false</italic>
-             <bold>true</bold>
-            </font>
+          <layout class="QHBoxLayout" name="horizontalLayout_8" stretch="0">
+           <property name="spacing">
+            <number>0</number>
            </property>
-           <property name="styleSheet">
-            <string notr="true">QLabel {
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="SignInLabel">
+             <property name="font">
+              <font>
+               <family>Heebo</family>
+               <pointsize>9</pointsize>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
 
-font: bold 9pt  &quot;Joan&quot;;
+font: bold 9pt  &quot;Heebo&quot;;
 background-color: rgba(255, 255, 255,0);
 
 }</string>
-           </property>
-           <property name="text">
-            <string>Sign In</string>
-           </property>
-          </widget>
+             </property>
+             <property name="text">
+              <string>Sign In</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="10,90">
@@ -205,6 +218,7 @@ background-color: rgba(255, 255, 255,0);
 	font: 9pt &quot;Joan&quot;;
     border: 2px solid gray;
     border-radius: 10px;
+	border-color: rgb(13, 54, 101);
     padding:4px 20px 4px 4px;
     background: white;
     selection-background-color: darkgray;
@@ -247,6 +261,7 @@ background-color: rgba(255, 255, 255,0);
 	font: 9pt &quot;Joan&quot;;
     border: 2px solid gray;
     border-radius: 10px;
+border-color: rgb(13, 54, 101);
      padding:4px 20px 4px 4px;
     background: white;
     selection-background-color: darkgray;
@@ -277,7 +292,7 @@ background-color: rgba(255, 255, 255,0);
              </property>
              <property name="sizeHint" stdset="0">
               <size>
-               <width>35</width>
+               <width>30</width>
                <height>20</height>
               </size>
              </property>
@@ -288,7 +303,7 @@ background-color: rgba(255, 255, 255,0);
              <property name="styleSheet">
               <string notr="true">QCheckBox {
 
-font: 9pt &quot;Joan&quot;;
+font: 9pt &quot;Heebo&quot;;
 background-color: rgba(255, 255, 255,0);
  spacing: 5px;
 }
@@ -335,7 +350,7 @@ QCheckBox::indicator:checked:hover {
             <widget class="QPushButton" name="ForgotPasswordButton">
              <property name="font">
               <font>
-               <family>Joan</family>
+               <family>Heebo</family>
                <pointsize>9</pointsize>
                <italic>false</italic>
                <bold>false</bold>
@@ -343,7 +358,7 @@ QCheckBox::indicator:checked:hover {
              </property>
              <property name="styleSheet">
               <string notr="true">QPushButton{
-font: 9pt &quot;Joan&quot;;
+font: 9pt &quot;Heebo&quot;;
 background-color: rgba(255, 255, 255,0);
 color: rgb(0, 0, 0);
 border-radius: 10px;
@@ -372,8 +387,8 @@ border: 5px solid rgb(0, 170, 0);
              </property>
              <property name="sizeHint" stdset="0">
               <size>
-               <width>35</width>
-               <height>20</height>
+               <width>30</width>
+               <height>15</height>
               </size>
              </property>
             </spacer>
@@ -392,7 +407,7 @@ border: 5px solid rgb(0, 170, 0);
             <widget class="QPushButton" name="LoginButton">
              <property name="font">
               <font>
-               <family>Joan</family>
+               <family>Heebo</family>
                <pointsize>12</pointsize>
                <italic>false</italic>
                <bold>true</bold>
@@ -400,7 +415,7 @@ border: 5px solid rgb(0, 170, 0);
              </property>
              <property name="styleSheet">
               <string notr="true">QPushButton{
-font: bold 12pt  &quot;Joan&quot;;
+font: bold 12pt  &quot;Heebo&quot;;
 background-color: rgb(13, 54, 101);
 color: rgb(233, 236, 237);
 border-radius: 10px;
@@ -450,7 +465,7 @@ border: 2px solid rgb(0, 170, 0);
              <property name="styleSheet">
               <string notr="true">QLabel {
 
-font: 9pt &quot;Joan&quot;;
+font: 9pt &quot;Heebo&quot;;
 background-color: rgba(255, 255, 255,0);
 
 }</string>
@@ -464,7 +479,7 @@ background-color: rgba(255, 255, 255,0);
             <widget class="QPushButton" name="SignUpButton">
              <property name="font">
               <font>
-               <family>Joan</family>
+               <family>Heebo</family>
                <pointsize>12</pointsize>
                <italic>false</italic>
                <bold>true</bold>
@@ -472,7 +487,7 @@ background-color: rgba(255, 255, 255,0);
              </property>
              <property name="styleSheet">
               <string notr="true">QPushButton{
-font: bold 12pt &quot;Joan&quot;;
+font: bold 12pt &quot;Heebo&quot;;
 background-color: rgb(13, 54, 101);
 color: rgb(233, 236, 237);
 border-radius: 10px;
@@ -516,7 +531,7 @@ border: 2px solid rgb(0, 170, 0);
           <widget class="QLabel" name="label_4">
            <property name="styleSheet">
             <string notr="true">QLabel {
-font: 9pt &quot;Joan&quot;;
+font: 9pt &quot;Heebo&quot;;
 background-color: rgba(255, 255, 255,0);
 
 }</string>
@@ -554,7 +569,7 @@ background-color: rgba(255, 255, 255,0);
             <widget class="QPushButton" name="GuestButton">
              <property name="font">
               <font>
-               <family>Joan</family>
+               <family>Heebo</family>
                <pointsize>12</pointsize>
                <italic>false</italic>
                <bold>true</bold>
@@ -563,7 +578,7 @@ background-color: rgba(255, 255, 255,0);
              <property name="styleSheet">
               <string notr="true">QPushButton{
 
-font: bold 12pt &quot;Joan&quot;;
+font: bold 12pt &quot;Heebo&quot;;
 	background-color: rgb(13, 54, 101);
 color: rgb(233, 236, 237);
 border-radius: 10px;
@@ -609,7 +624,7 @@ border: 2px solid rgb(0, 170, 0);
            <property name="styleSheet">
             <string notr="true">QLabel {
 
-font: 9pt &quot;Joan&quot;;
+font: 9pt &quot;Heebo&quot;;
 background-color: rgba(255, 255, 255,0);
 
 }</string>
