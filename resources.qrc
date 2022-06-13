@@ -46,4 +46,21 @@
         <file>ProgramIcons/The Chefs/Soliven.png</file>
         <file>ProgramIcons/The Chefs/Paclian.png</file>
     </qresource>
+    <qresource prefix="/richtextsicon">
+        <file>ProgramIcons/mrichicons/attach.png</file>
+        <file>ProgramIcons/mrichicons/bold.png</file>
+        <file>ProgramIcons/mrichicons/bulletlist.png</file>
+        <file>ProgramIcons/mrichicons/copy.png</file>
+        <file>ProgramIcons/mrichicons/cut.png</file>
+        <file>ProgramIcons/mrichicons/decrease indent.png</file>
+        <file>ProgramIcons/mrichicons/increase indent.png</file>
+        <file>ProgramIcons/mrichicons/italic.png</file>
+        <file>ProgramIcons/mrichicons/link.png</file>
+        <file>ProgramIcons/mrichicons/order list.png</file>
+        <file>ProgramIcons/mrichicons/paste.png</file>
+        <file>ProgramIcons/mrichicons/redo.png</file>
+        <file>ProgramIcons/mrichicons/strikeout.png</file>
+        <file>ProgramIcons/mrichicons/underline.png</file>
+        <file>ProgramIcons/mrichicons/undo.png</file>
+    </qresource>
 </RCC>
