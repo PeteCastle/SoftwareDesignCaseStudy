@@ -7,13 +7,14 @@ InformationWindowNewsDetailed::InformationWindowNewsDetailed(QWidget *parent, Ne
 {
     ui->setupUi(this);
     this->news=news;
-    ui->NewsContents->setText(news.Contents);
-    ui->NewsTitle->setText(news.Headline);
+
 
 }
 
 void InformationWindowNewsDetailed::showEvent(QShowEvent*){
     displayNewsThumbnail();
+    ui->NewsContents->setText(news.Contents);
+    ui->NewsTitle->setText(news.Headline);
 
 }
 
