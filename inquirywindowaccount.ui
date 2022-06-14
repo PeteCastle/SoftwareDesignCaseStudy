@@ -86,7 +86,7 @@ font: 9pt &quot;Joan&quot;;
     border: 2px solid gray;
     border-radius: 10px;
 	border-color: rgb(13, 54, 101);
-     padding:4px 20px 4px 4px;
+     padding:4px 4px 4px 4px;
     background: white;
     selection-background-color: darkgray;
 }
@@ -169,6 +169,9 @@ QScrollBar::add-line:vertical:pressed {
 background-color: rgb(139, 111, 12);
 }
 
+QLabel{
+font: bold 10pt &quot;heebo&quot;;
+}
 </string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -206,8 +209,9 @@ background-color: rgb(139, 111, 12);
         <widget class="QLabel" name="HeaderFullName">
          <property name="font">
           <font>
-           <pointsize>11</pointsize>
-           <weight>75</weight>
+           <family>heebo</family>
+           <pointsize>10</pointsize>
+           <italic>false</italic>
            <bold>true</bold>
           </font>
          </property>
@@ -272,8 +276,9 @@ background-color: rgb(139, 111, 12);
       <widget class="QLabel" name="AccountDetails">
        <property name="font">
         <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
+         <family>heebo</family>
+         <pointsize>10</pointsize>
+         <italic>false</italic>
          <bold>true</bold>
         </font>
        </property>

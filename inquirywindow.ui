@@ -74,15 +74,6 @@ QComboBox::down-arrow{
     height: 10px;
     }
 
-QListView{
-font: 9pt &quot;Joan&quot;;
-    border: 2px solid gray;
-    border-radius: 10px;
-	border-color: rgb(13, 54, 101);
-     padding:4px 4px 4px 4px;
-    background: white;
-    selection-background-color: darkgray;
-}
 
 QRadioButton::indicator::unchecked{ 
 border: 1px solid; 
@@ -181,7 +172,7 @@ background-color: rgb(139, 111, 12);
      <number>0</number>
     </property>
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,85">
+     <layout class="QVBoxLayout" name="verticalLayout" stretch="0,85">
       <property name="sizeConstraint">
        <enum>QLayout::SetDefaultConstraint</enum>
       </property>
@@ -202,40 +193,54 @@ background-color: rgb(139, 111, 12);
        </widget>
       </item>
       <item>
-       <spacer name="verticalSpacer">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
+       <widget class="QListWidget" name="MainMenu">
+        <property name="styleSheet">
+         <string notr="true">QListView{
+font: 9pt &quot;Joan&quot;;
+    border: 2px solid gray;
+    border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	border-color: rgb(13, 54, 101);
+     padding:4px 4px 4px 4px;
+    background: white;
+    selection-background-color: darkgray;
+}
+
+QListView::item:selected {
+	background-color: rgb(206, 44, 44);
+	color: rgb(255, 255, 255);
+}
+
+QListView::item:hover {
+    background-color: rgb(255, 192, 192);
+	color:rgb(0, 0, 0);
+	
+}</string>
         </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Fixed</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QListWidget" name="MainMenu"/>
+       </widget>
       </item>
      </layout>
     </item>
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="10,90">
+     <layout class="QVBoxLayout" name="RightLayout" stretch="10,90">
       <property name="leftMargin">
        <number>0</number>
       </property>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="60,10,20,0,0,0">
-        <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="60,10,20,5,0,0">
+        <property name="topMargin">
+         <number>10</number>
+        </property>
+        <property name="rightMargin">
+         <number>20</number>
+        </property>
+        <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
          <widget class="QLabel" name="WindowTitleLabel">
           <property name="styleSheet">
            <string notr="true">font: bold 12pt &quot;heebo&quot;;</string>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Window Title&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>Window Title</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -251,10 +256,34 @@ background-color: rgb(139, 111, 12);
         </item>
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_3">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <item>
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
           <item>
            <widget class="QLabel" name="FullNameLabel">
+            <property name="font">
+             <font>
+              <family>13 heebo</family>
+              <pointsize>14</pointsize>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
             <property name="styleSheet">
-             <string notr="true">font:12pt &quot;heebo&quot;;</string>
+             <string notr="true">font:14pt bold &quot;heebo&quot;;</string>
             </property>
             <property name="text">
              <string>Full Name</string>
@@ -281,6 +310,19 @@ background-color: rgb(139, 111, 12);
             </property>
            </widget>
           </item>
+          <item>
+           <spacer name="verticalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
          </layout>
         </item>
         <item>
@@ -290,14 +332,20 @@ background-color: rgb(139, 111, 12);
           </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>40</width>
+            <width>10</width>
             <height>20</height>
            </size>
           </property>
          </spacer>
         </item>
-        <item>
+        <item alignment="Qt::AlignHCenter">
          <widget class="QPushButton" name="LogoutButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="text">
            <string>Switch Account</string>
           </property>
@@ -308,10 +356,13 @@ background-color: rgb(139, 111, 12);
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
+          </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>40</width>
-            <height>20</height>
+            <width>10</width>
+            <height>5</height>
            </size>
           </property>
          </spacer>

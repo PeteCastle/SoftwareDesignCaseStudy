@@ -25,7 +25,7 @@ InquiryWindow::InquiryWindow(QWidget *parent, int userID, QWidget *informationWi
             QString menuIconFile = ":/Icons/ProgramIcons/CreateThreadIcon.png";
             InquiryWindowMenu *newMenu = new InquiryWindowMenu(nullptr,menuName,menuIconFile);
             QListWidgetItem *item = new QListWidgetItem();
-            item->setSizeHint(QSize(100,100));
+            item->setSizeHint(QSize(80,80));
             item->setData(Qt::UserRole,QString("CreateThread"));
             ui->MainMenu->addItem(item);
             ui->MainMenu->setItemWidget(item, newMenu);
@@ -40,11 +40,11 @@ InquiryWindow::InquiryWindow(QWidget *parent, int userID, QWidget *informationWi
         });
    menuList["ViewThreadsNonGuest"] = qMakePair(
        [this]{
-           QString menuName = "View My Threads";
+           QString menuName = "My Threads";
            QString menuIconFile = ":/Icons/ProgramIcons/MyThreadIcon.png";
            InquiryWindowMenu *newMenu = new InquiryWindowMenu(nullptr,menuName,menuIconFile);
            QListWidgetItem *item = new QListWidgetItem();
-           item->setSizeHint(QSize(100,100));
+           item->setSizeHint(QSize(80,80));
            item->setData(Qt::UserRole,QString("ViewThreadsNonGuest"));
            ui->MainMenu->addItem(item);
            ui->MainMenu->setItemWidget(item, newMenu);
@@ -63,7 +63,7 @@ InquiryWindow::InquiryWindow(QWidget *parent, int userID, QWidget *informationWi
            QString menuIconFile = ":/Icons/ProgramIcons/HomeIcon.png";
            InquiryWindowMenu *newMenu = new InquiryWindowMenu(nullptr,menuName,menuIconFile);
            QListWidgetItem *item = new QListWidgetItem();
-           item->setSizeHint(QSize(100,100));
+           item->setSizeHint(QSize(80,80));
            item->setData(Qt::UserRole,QString("Home"));
            ui->MainMenu->addItem(item);
            ui->MainMenu->setItemWidget(item, newMenu);
@@ -78,11 +78,11 @@ InquiryWindow::InquiryWindow(QWidget *parent, int userID, QWidget *informationWi
        });
    menuList["ViewAccount"] = qMakePair(
        [this]{
-           QString menuName = "My Acccount";
+           QString menuName = "My Account";
            QString menuIconFile = ":/Icons/ProgramIcons/MyAccountIcon.png";
            InquiryWindowMenu *newMenu = new InquiryWindowMenu(nullptr,menuName,menuIconFile);
            QListWidgetItem *item = new QListWidgetItem();
-           item->setSizeHint(QSize(100,100));
+           item->setSizeHint(QSize(80,80));
            item->setData(Qt::UserRole,QString("ViewAccount"));
            ui->MainMenu->addItem(item);
            ui->MainMenu->setItemWidget(item, newMenu);
@@ -102,7 +102,7 @@ InquiryWindow::InquiryWindow(QWidget *parent, int userID, QWidget *informationWi
             QString menuIconFile = ":/Icons/ProgramIcons/MyThreadIcon.png";
             InquiryWindowMenu *newMenu = new InquiryWindowMenu(nullptr,menuName,menuIconFile);
             QListWidgetItem *item = new QListWidgetItem();
-            item->setSizeHint(QSize(100,100));
+            item->setSizeHint(QSize(80,80));
             item->setData(Qt::UserRole,QString("ViewThreadsGuest"));
             ui->MainMenu->addItem(item);
             ui->MainMenu->setItemWidget(item, newMenu);
@@ -117,11 +117,11 @@ InquiryWindow::InquiryWindow(QWidget *parent, int userID, QWidget *informationWi
         });
     menuList["ViewThreadsPublic"] = qMakePair(
         [this]{
-            QString menuName = "View Public Threads";
+            QString menuName = "Public Threads";
             QString menuIconFile = ":/Icons/ProgramIcons/PublicThreadIcon.png";
             InquiryWindowMenu *newMenu = new InquiryWindowMenu(nullptr,menuName,menuIconFile);
             QListWidgetItem *item = new QListWidgetItem();
-            item->setSizeHint(QSize(100,100));
+            item->setSizeHint(QSize(80,80));
             item->setData(Qt::UserRole,QString("ViewThreadsPublic"));
             ui->MainMenu->addItem(item);
             ui->MainMenu->setItemWidget(item, newMenu);
@@ -140,7 +140,7 @@ InquiryWindow::InquiryWindow(QWidget *parent, int userID, QWidget *informationWi
             QString menuIconFile = ":/Icons/ProgramIcons/SqlManagerIcon.png";
             InquiryWindowMenu *newMenu = new InquiryWindowMenu(nullptr,menuName,menuIconFile);
             QListWidgetItem *item = new QListWidgetItem();
-            item->setSizeHint(QSize(100,100));
+            item->setSizeHint(QSize(80,80));
             item->setData(Qt::UserRole,QString("AdminSQLManager"));
             ui->MainMenu->addItem(item);
             ui->MainMenu->setItemWidget(item, newMenu);
@@ -237,6 +237,7 @@ void InquiryWindow::modifyHeaderVisibility(bool isVisible){
     ui->ProfilePictureLabel->setVisible(isVisible);
     ui->LogoutButton->setVisible(isVisible);
     ui->UsernameLabel->setVisible(isVisible);
+
 }
 
 void InquiryWindow::closeEvent(QCloseEvent *close){

@@ -163,12 +163,14 @@ background-color: rgb(139, 111, 12);
    </item>
    <item>
     <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="spacing">
+      <number>0</number>
+     </property>
      <item alignment="Qt::AlignBottom">
       <widget class="QLabel" name="ThreadSubjectLabel">
        <property name="font">
         <font>
          <pointsize>10</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>

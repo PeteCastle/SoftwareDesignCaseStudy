@@ -166,6 +166,11 @@ background-color: rgb(139, 111, 12);
     <layout class="QHBoxLayout" name="horizontalLayout" stretch="65,35">
      <item>
       <widget class="QScrollArea" name="Messages">
+       <property name="styleSheet">
+        <string notr="true">QWidget#Messages{
+font: bold 12pt &quot;heebo&quot;;
+};</string>
+       </property>
        <property name="widgetResizable">
         <bool>true</bool>
        </property>
@@ -175,7 +180,7 @@ background-color: rgb(139, 111, 12);
           <x>0</x>
           <y>0</y>
           <width>638</width>
-          <height>340</height>
+          <height>335</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_4"/>
@@ -184,6 +189,9 @@ background-color: rgb(139, 111, 12);
      </item>
      <item>
       <widget class="QScrollArea" name="ThreadDetails">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
        <property name="widgetResizable">
         <bool>true</bool>
        </property>
@@ -193,7 +201,7 @@ background-color: rgb(139, 111, 12);
           <x>0</x>
           <y>0</y>
           <width>338</width>
-          <height>340</height>
+          <height>335</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_5"/>
@@ -220,9 +228,25 @@ background-color: rgb(139, 111, 12);
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
           <widget class="QLabel" name="FileAttachmentsLabel">
+           <property name="styleSheet">
+            <string notr="true">font: 9pt &quot;heebo&quot;;</string>
+           </property>
            <property name="text">
             <string>File Attachments (Optional)</string>
            </property>
@@ -271,6 +295,19 @@ background-color: rgb(139, 111, 12);
           <string>Close Thread</string>
          </property>
         </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
      </item>

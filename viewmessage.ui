@@ -22,6 +22,7 @@ padding:4px 4px 4px 4px;
 
 QLabel{
 border: none;
+font: bold 9pt &quot;heebo&quot;;
 }
 </string>
   </property>
@@ -43,12 +44,16 @@ border: none;
      </item>
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
        <item alignment="Qt::AlignBottom">
         <widget class="QLabel" name="FullName">
          <property name="font">
           <font>
-           <pointsize>10</pointsize>
-           <weight>75</weight>
+           <family>heebo</family>
+           <pointsize>9</pointsize>
+           <italic>false</italic>
            <bold>true</bold>
           </font>
          </property>
@@ -128,8 +133,9 @@ border: none;
         </property>
         <property name="font">
          <font>
-          <pointsize>10</pointsize>
-          <weight>75</weight>
+          <family>heebo</family>
+          <pointsize>9</pointsize>
+          <italic>false</italic>
           <bold>true</bold>
          </font>
         </property>

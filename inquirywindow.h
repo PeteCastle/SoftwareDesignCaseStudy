@@ -6,7 +6,6 @@
 #include "global.h"
 #include "inquirywindowmenu.h"
 #include "threadswindow.h"
-#include "inquirywindowhome.h"
 #include "inquirywindowaccount.h"
 #include "viewthreadguest.h"
 #include "adminsqlmanager.h"

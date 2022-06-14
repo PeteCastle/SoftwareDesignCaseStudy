@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">font: bold 9pt &quot;heebo&quot;;</string>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout" stretch="30,70">
@@ -29,7 +32,9 @@
         <widget class="QLabel" name="AccountName">
          <property name="font">
           <font>
-           <pointsize>10</pointsize>
+           <family>heebo</family>
+           <pointsize>9</pointsize>
+           <italic>false</italic>
            <bold>true</bold>
           </font>
          </property>

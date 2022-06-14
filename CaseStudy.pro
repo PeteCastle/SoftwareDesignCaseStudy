@@ -24,7 +24,6 @@ SOURCES += \
     informationwindownewslist.cpp \
     inquirywindow.cpp \
     inquirywindowaccount.cpp \
-    inquirywindowhome.cpp \
     inquirywindowmenu.cpp \
     main.cpp \
     landingpage.cpp \
@@ -56,7 +55,6 @@ HEADERS += \
     informationwindownewslist.h \
     inquirywindow.h \
     inquirywindowaccount.h \
-    inquirywindowhome.h \
     inquirywindowmenu.h \
     landingpage.h \
     mrichtextedit.h \
@@ -84,7 +82,6 @@ FORMS += \
     informationwindownewslist.ui \
     inquirywindow.ui \
     inquirywindowaccount.ui \
-    inquirywindowhome.ui \
     inquirywindowmenu.ui \
     landingpage.ui \
     mrichtextedit.ui \

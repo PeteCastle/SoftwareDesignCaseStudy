@@ -173,6 +173,9 @@ background-color: rgb(139, 111, 12);
      </property>
      <item alignment="Qt::AlignHCenter">
       <widget class="QLabel" name="YourThreadsLabel">
+       <property name="styleSheet">
+        <string notr="true">font: bold 12pt &quot;heebo&quot;;</string>
+       </property>
        <property name="text">
         <string>Your Threads</string>
        </property>
@@ -217,6 +220,37 @@ background-color: rgb(139, 111, 12);
    </item>
    <item>
     <widget class="QTabWidget" name="ThreadTab">
+     <property name="styleSheet">
+      <string notr="true">QTabWidget::pane { 
+ 	 font: 9pt &quot;Joan&quot;;
+    border: 2px solid gray;
+    border-bottom-left-radius: 10px;
+ border-bottom-right-radius: 10px;
+	border-color: rgb(13, 54, 101);
+    padding:4px 4px 4px 4px;
+}
+
+QTabBar::tab{ 
+ 	 font: 11pt &quot;Joan&quot;;
+    border: 2px solid gray;
+    border-top-left-radius: 10px;
+ border-top-right-radius: 10px;
+	border-color: rgb(13, 54, 101);
+    padding:4px 4px 4px 4px;
+}
+
+QTabBar::tab::selected{ 
+ 	 font: 11pt &quot;Joan&quot;;
+
+    border-top-left-radius: 10px;
+ border-top-right-radius: 10px;
+	background-color: rgb(13, 54, 101);
+color: white;
+    padding:4px 4px 4px 4px;
+}
+
+</string>
+     </property>
      <property name="currentIndex">
       <number>0</number>
      </property>
@@ -230,6 +264,9 @@ background-color: rgb(139, 111, 12);
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
         <widget class="QLabel" name="label">
+         <property name="styleSheet">
+          <string notr="true">font: bold 11pt &quot;heebo&quot;;</string>
+         </property>
          <property name="text">
           <string>Your messages will appear here</string>
          </property>
@@ -237,6 +274,9 @@ background-color: rgb(139, 111, 12);
        </item>
        <item alignment="Qt::AlignHCenter|Qt::AlignTop">
         <widget class="QLabel" name="label_2">
+         <property name="styleSheet">
+          <string notr="true">font: bold 11pt &quot;heebo&quot;;</string>
+         </property>
          <property name="text">
           <string>Clicking a message listed on the left will create a new tab</string>
          </property>

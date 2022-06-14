@@ -13,6 +13,26 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QTableView{
+	border: 5px solid rgb(13, 54, 101);
+	border-radius: 10px;
+	padding: 4px 4px 4px 4px;
+	gridline-color:  rgb(13, 54, 101);
+}
+
+QTableView::item{
+	font:  12pt  &quot;Heebo&quot;;
+}
+QHeaderView{
+	border: 1px solid rgb(13, 54, 101);
+	gridline-color:  rgb(13, 54, 101);
+}
+QHeaderView::section{
+	border: 1px solid rgb(13, 54, 101);
+	font:  12pt bold  &quot;Heebo&quot;;
+}</string>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout" stretch="7,92">
    <property name="spacing">
     <number>0</number>
@@ -151,9 +171,9 @@ background-color: rgb(139, 111, 12);
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>-573</y>
+        <y>-18</y>
         <width>741</width>
-        <height>1143</height>
+        <height>1066</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -557,6 +577,9 @@ QTableView::item
          <attribute name="horizontalHeaderStretchLastSection">
           <bool>true</bool>
          </attribute>
+         <attribute name="verticalHeaderVisible">
+          <bool>false</bool>
+         </attribute>
          <attribute name="verticalHeaderCascadingSectionResizes">
           <bool>true</bool>
          </attribute>
@@ -700,6 +723,9 @@ QTableView::item
 
 </string>
          </property>
+         <attribute name="verticalHeaderVisible">
+          <bool>false</bool>
+         </attribute>
         </widget>
        </item>
        <item>
@@ -840,6 +866,9 @@ QTableView::item
 
 </string>
          </property>
+         <attribute name="verticalHeaderVisible">
+          <bool>false</bool>
+         </attribute>
         </widget>
        </item>
       </layout>

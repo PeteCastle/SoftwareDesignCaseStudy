@@ -13,14 +13,22 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">font: bold 9pt &quot;heebo&quot;;</string>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item alignment="Qt::AlignHCenter">
     <widget class="QLabel" name="ThreadSubject">
      <property name="font">
       <font>
+       <family>heebo</family>
        <pointsize>12</pointsize>
+       <italic>false</italic>
        <bold>true</bold>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: bold 12pt &quot;heebo&quot;;</string>
      </property>
      <property name="text">
       <string>Thread Subject</string>
@@ -42,6 +50,9 @@
       <widget class="QLabel" name="PlaceholderText3">
        <property name="font">
         <font>
+         <family>heebo</family>
+         <pointsize>9</pointsize>
+         <italic>false</italic>
          <bold>true</bold>
         </font>
        </property>
@@ -61,7 +72,10 @@
       <widget class="QLabel" name="ThreadID">
        <property name="font">
         <font>
-         <italic>true</italic>
+         <family>heebo</family>
+         <pointsize>9</pointsize>
+         <italic>false</italic>
+         <bold>true</bold>
         </font>
        </property>
        <property name="text">

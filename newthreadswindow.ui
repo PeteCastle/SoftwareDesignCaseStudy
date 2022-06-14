@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1074</width>
+    <width>1108</width>
     <height>762</height>
    </rect>
   </property>
@@ -50,7 +50,7 @@ QComboBox{
     border: 2px solid gray;
     border-radius: 10px;
 	border-color: rgb(13, 54, 101);
-     padding:4px 20px 4px 4px;
+     padding:4px 4px 4px 4px;
     background: white;
     selection-background-color: darkgray;
 }
@@ -70,7 +70,7 @@ font: 9pt &quot;Joan&quot;;
     border: 2px solid gray;
     border-radius: 10px;
 	border-color: rgb(13, 54, 101);
-     padding:4px 20px 4px 4px;
+     padding:4px 4px 4px 4px;
     background: white;
     selection-background-color: darkgray;
 }
@@ -155,7 +155,7 @@ background-color: rgb(139, 111, 12);
 
 </string>
   </property>
-  <layout class="QGridLayout" name="gridLayout" columnstretch="70,5,25">
+  <layout class="QGridLayout" name="gridLayout" columnstretch="70,0,0">
    <property name="leftMargin">
     <number>20</number>
    </property>
@@ -168,16 +168,145 @@ background-color: rgb(139, 111, 12);
    <property name="bottomMargin">
     <number>20</number>
    </property>
-   <item row="12" column="0">
-    <widget class="QPushButton" name="CreateButton">
-     <property name="text">
-      <string>Create Thread</string>
+   <item row="0" column="1" rowspan="2">
+    <widget class="Line" name="line_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
      </property>
     </widget>
+   </item>
+   <item row="0" column="2">
+    <layout class="QGridLayout" name="gridLayout_3" columnstretch="50,50">
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="verticalSpacing">
+      <number>0</number>
+     </property>
+     <item row="4" column="1">
+      <widget class="QPushButton" name="TagsRemoveButton">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>Remove Tag</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0" colspan="2">
+      <widget class="QLineEdit" name="TagsSearch">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+font: 9pt &quot;Joan&quot;;
+    border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-color: rgb(13, 54, 101);
+     padding:4px 4px 4px 4px;
+    background: white;
+    selection-background-color: darkgray;
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string>Search for tags here</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0" colspan="2">
+      <widget class="QListView" name="TagsList">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>100</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QListView{
+font: 9pt &quot;Joan&quot;;
+    border: 2px solid gray;
+    border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-color: rgb(13, 54, 101);
+     padding:4px 4px 4px 4px;
+    background: white;
+    selection-background-color: darkgray;
+}</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0" colspan="2">
+      <widget class="QListView" name="TagsYourList">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>100</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="TagsYourLabel">
+       <property name="styleSheet">
+        <string notr="true">font: bold 10pt &quot;heebo&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Your Tags</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0" colspan="2">
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>5</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="0" column="0" colspan="2">
+      <widget class="QLabel" name="TagsSelectLabel">
+       <property name="styleSheet">
+        <string notr="true">font: bold 10pt &quot;heebo&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Select Tags (Required)</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
    <item row="1" column="2">
     <layout class="QGridLayout" name="gridLayout_4">
      <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="spacing">
       <number>0</number>
      </property>
      <item row="0" column="1">
@@ -187,20 +316,80 @@ background-color: rgb(139, 111, 12);
        </property>
       </widget>
      </item>
+     <item row="4" column="1">
+      <widget class="QPushButton" name="RecipientsRemoveButton">
+       <property name="text">
+        <string>Remove </string>
+       </property>
+      </widget>
+     </item>
      <item row="1" column="0" colspan="2">
       <widget class="QLineEdit" name="RecipientsSearchLineEdit">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+font: 9pt &quot;Joan&quot;;
+    border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-color: rgb(13, 54, 101);
+     padding:4px 4px 4px 4px;
+    background: white;
+    selection-background-color: darkgray;
+}</string>
+       </property>
        <property name="placeholderText">
         <string>Search for available recipients here</string>
        </property>
       </widget>
      </item>
-     <item row="3" column="0" alignment="Qt::AlignLeft">
-      <widget class="QLabel" name="RecipientsSelectedLabel">
-       <property name="styleSheet">
-        <string notr="true">font: bold 10pt &quot;heebo&quot;;</string>
+     <item row="2" column="0" colspan="2">
+      <widget class="QListView" name="RecipientsSearchList">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
-       <property name="text">
-        <string>Selected Recipients</string>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>100</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QListView{
+font: 9pt &quot;Joan&quot;;
+    border: 2px solid gray;
+    border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-color: rgb(13, 54, 101);
+     padding:4px 4px 4px 4px;
+    background: white;
+    selection-background-color: darkgray;
+}</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0" colspan="2">
+      <widget class="QListView" name="RecipientsSelectedList">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>100</height>
+        </size>
        </property>
       </widget>
      </item>
@@ -214,79 +403,31 @@ background-color: rgb(139, 111, 12);
        </property>
       </widget>
      </item>
-     <item row="3" column="1">
-      <widget class="QPushButton" name="RecipientsRemoveButton">
-       <property name="text">
-        <string>Remove </string>
+     <item row="4" column="0" alignment="Qt::AlignLeft">
+      <widget class="QLabel" name="RecipientsSelectedLabel">
+       <property name="styleSheet">
+        <string notr="true">font: bold 10pt &quot;heebo&quot;;</string>
        </property>
-      </widget>
-     </item>
-     <item row="2" column="0" colspan="2">
-      <widget class="QListView" name="RecipientsSearchList"/>
-     </item>
-     <item row="4" column="0" colspan="2">
-      <widget class="QListView" name="RecipientsSelectedList"/>
-     </item>
-    </layout>
-   </item>
-   <item row="11" column="0" colspan="3">
-    <widget class="Line" name="line">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="1" rowspan="2">
-    <widget class="Line" name="line_2">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="2">
-    <layout class="QGridLayout" name="gridLayout_3">
-     <property name="leftMargin">
-      <number>0</number>
-     </property>
-     <item row="2" column="0" colspan="2">
-      <widget class="QListView" name="TagsList"/>
-     </item>
-     <item row="1" column="0" colspan="2">
-      <widget class="QLineEdit" name="TagsSearch">
-       <property name="placeholderText">
-        <string>Search for tags here</string>
+       <property name="text">
+        <string>Selected Recipients</string>
        </property>
       </widget>
      </item>
      <item row="3" column="0">
-      <widget class="QLabel" name="TagsYourLabel">
-       <property name="styleSheet">
-        <string notr="true">font: bold 10pt &quot;heebo&quot;;</string>
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
        </property>
-       <property name="text">
-        <string>Your Tags</string>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
        </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="TagsSelectLabel">
-       <property name="styleSheet">
-        <string notr="true">font: bold 10pt &quot;heebo&quot;;</string>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>5</height>
+        </size>
        </property>
-       <property name="text">
-        <string>Select Tags (Required)</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QPushButton" name="TagsRemoveButton">
-       <property name="text">
-        <string>Remove Tag</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0" colspan="2">
-      <widget class="QListView" name="TagsYourList"/>
+      </spacer>
      </item>
     </layout>
    </item>
@@ -295,6 +436,44 @@ background-color: rgb(139, 111, 12);
      <property name="leftMargin">
       <number>0</number>
      </property>
+     <item row="4" column="4">
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>100</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="1" column="0" colspan="8">
+      <widget class="QLineEdit" name="TitleLineEdit">
+       <property name="styleSheet">
+        <string notr="true">QLineEdit {
+	font: 12pt &quot;Joan&quot;;
+    border: 2px solid gray;
+    border-radius: 10px;
+	border-color: rgb(13, 54, 101);
+     padding:4px 20px 4px 4px;
+    background: white;
+    selection-background-color: darkgray;
+}</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="3">
+      <widget class="QPushButton" name="RemoveFileButton">
+       <property name="text">
+        <string>Remove Selected File</string>
+       </property>
+      </widget>
+     </item>
      <item row="4" column="2">
       <widget class="QPushButton" name="AddFileButton">
        <property name="styleSheet">
@@ -305,6 +484,16 @@ background-color: rgb(139, 111, 12);
        </property>
       </widget>
      </item>
+     <item row="4" column="1">
+      <widget class="QLabel" name="FileAttachmentsLabel">
+       <property name="styleSheet">
+        <string notr="true">font: bold 10pt &quot;heebo&quot;;</string>
+       </property>
+       <property name="text">
+        <string>File Attachments (Optional)</string>
+       </property>
+      </widget>
+     </item>
      <item row="0" column="0" colspan="7">
       <widget class="QLabel" name="TitleLabel">
        <property name="styleSheet">
@@ -312,55 +501,6 @@ background-color: rgb(139, 111, 12);
        </property>
        <property name="text">
         <string>Title</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <spacer name="horizontalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>50</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="1" column="0" colspan="8">
-      <widget class="QLineEdit" name="TitleLineEdit"/>
-     </item>
-     <item row="4" column="5">
-      <widget class="QLabel" name="VisibilityLabel">
-       <property name="text">
-        <string>Thread Visibility:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="2">
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Maximum</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="4" column="1">
-      <widget class="QLabel" name="FileAttachmentsLabel">
-       <property name="text">
-        <string>File Attachments (Optional)</string>
        </property>
       </widget>
      </item>
@@ -381,29 +521,13 @@ background-color: rgb(139, 111, 12);
        </property>
       </widget>
      </item>
-     <item row="4" column="3">
-      <widget class="QPushButton" name="RemoveFileButton">
+     <item row="4" column="5">
+      <widget class="QLabel" name="VisibilityLabel">
+       <property name="styleSheet">
+        <string notr="true">font: bold 10pt &quot;heebo&quot;;</string>
+       </property>
        <property name="text">
-        <string>Remove Selected File</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="0" colspan="8">
-      <widget class="QListView" name="FileAttachmentsList">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>999999</width>
-         <height>100</height>
-        </size>
-       </property>
-       <property name="flow">
-        <enum>QListView::LeftToRight</enum>
+        <string>Thread Visibility:</string>
        </property>
       </widget>
      </item>
@@ -412,6 +536,9 @@ background-color: rgb(139, 111, 12);
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
          <widget class="QRadioButton" name="VisibilityPrivateButton">
+          <property name="styleSheet">
+           <string notr="true">font: bold 10pt &quot;heebo&quot;;</string>
+          </property>
           <property name="text">
            <string>Private</string>
           </property>
@@ -422,6 +549,9 @@ background-color: rgb(139, 111, 12);
         </item>
         <item>
          <widget class="QRadioButton" name="VisibilityPublicButton">
+          <property name="styleSheet">
+           <string notr="true">font: bold 10pt &quot;heebo&quot;;</string>
+          </property>
           <property name="text">
            <string>Public</string>
           </property>
@@ -430,8 +560,8 @@ background-color: rgb(139, 111, 12);
        </layout>
       </widget>
      </item>
-     <item row="4" column="4">
-      <spacer name="horizontalSpacer_3">
+     <item row="4" column="0">
+      <spacer name="horizontalSpacer_2">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -440,11 +570,44 @@ background-color: rgb(139, 111, 12);
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>100</width>
+         <width>50</width>
          <height>20</height>
         </size>
        </property>
       </spacer>
+     </item>
+     <item row="5" column="0" colspan="8">
+      <widget class="QListView" name="FileAttachmentsList">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>999999</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="flow">
+        <enum>QListView::LeftToRight</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0" colspan="8">
+      <widget class="Line" name="line">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0" colspan="8">
+      <widget class="QPushButton" name="CreateButton">
+       <property name="text">
+        <string>Create Thread</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>

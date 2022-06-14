@@ -38,6 +38,7 @@ ViewThread::ViewThread(QWidget *parent, QString ThreadID,ThreadDetails thread, i
     ui->ThreadDetails->widget()->layout()->addWidget(basicInfo);
 
     QLabel *accountsLabel = new QLabel("Participants in this thread:");
+
     accountsLabel->setAlignment(Qt::AlignCenter);
 
     ui->ThreadDetails->widget()->layout()->addWidget(accountsLabel);

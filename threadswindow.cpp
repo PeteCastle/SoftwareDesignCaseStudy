@@ -41,11 +41,10 @@ ThreadsWindow::ThreadsWindow(QWidget *parent, AccountCredentials userCredentials
         ui->YourThreadsLabel->setText("Public Threads");
     }
 
+    refreshButton->setStyleSheet("    border-bottom-left-radius: 0px;"
+                                 "border-bottom-right-radius: 0px;");
     ui->ThreadTab->setCornerWidget(refreshButton);
     updateThreadsList();
-    //updateThreadsList();
-    //updateThreadsList();
-
     connect(ui->RefreshThreadsButton,&QPushButton::clicked,[this]{updateThreadsList();});
 }
 
