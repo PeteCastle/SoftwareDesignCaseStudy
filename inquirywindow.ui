@@ -222,19 +222,22 @@ QListView::item:hover {
      </layout>
     </item>
     <item>
-     <layout class="QVBoxLayout" name="RightLayout" stretch="10,90">
-      <property name="leftMargin">
+     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="10,90">
+      <property name="spacing">
        <number>0</number>
       </property>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="60,10,20,5,0,0">
+       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="60,10,0,0">
+        <property name="spacing">
+         <number>0</number>
+        </property>
         <property name="topMargin">
-         <number>10</number>
+         <number>0</number>
         </property>
         <property name="rightMargin">
-         <number>20</number>
+         <number>30</number>
         </property>
-        <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+        <item>
          <widget class="QLabel" name="WindowTitleLabel">
           <property name="styleSheet">
            <string notr="true">font: bold 12pt &quot;heebo&quot;;</string>
@@ -249,6 +252,9 @@ QListView::item:hover {
         </item>
         <item>
          <widget class="QLabel" name="ProfilePictureLabel">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -259,19 +265,12 @@ QListView::item:hover {
           <property name="spacing">
            <number>0</number>
           </property>
-          <item>
-           <spacer name="verticalSpacer">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>20</number>
+          </property>
           <item>
            <widget class="QLabel" name="FullNameLabel">
             <property name="font">
@@ -310,35 +309,9 @@ QListView::item:hover {
             </property>
            </widget>
           </item>
-          <item>
-           <spacer name="verticalSpacer_2">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
          </layout>
         </item>
         <item>
-         <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>10</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item alignment="Qt::AlignHCenter">
          <widget class="QPushButton" name="LogoutButton">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
@@ -350,22 +323,6 @@ QListView::item:hover {
            <string>Switch Account</string>
           </property>
          </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Expanding</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>10</width>
-            <height>5</height>
-           </size>
-          </property>
-         </spacer>
         </item>
        </layout>
       </item>

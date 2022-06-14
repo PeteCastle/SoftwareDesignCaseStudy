@@ -210,10 +210,16 @@ font: bold 10pt &quot;heebo&quot;;
          <property name="font">
           <font>
            <family>heebo</family>
-           <pointsize>10</pointsize>
+           <pointsize>12</pointsize>
            <italic>false</italic>
            <bold>true</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+font: bold 12pt &quot;heebo&quot;;
+}
+</string>
          </property>
          <property name="text">
           <string>Full Name</string>

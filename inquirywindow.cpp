@@ -237,7 +237,8 @@ void InquiryWindow::modifyHeaderVisibility(bool isVisible){
     ui->ProfilePictureLabel->setVisible(isVisible);
     ui->LogoutButton->setVisible(isVisible);
     ui->UsernameLabel->setVisible(isVisible);
-
+    if(isVisible) ui->horizontalLayout_2->setContentsMargins(0,10,20,0);
+    else ui->horizontalLayout_2->setContentsMargins(0,0,20,0);
 }
 
 void InquiryWindow::closeEvent(QCloseEvent *close){
